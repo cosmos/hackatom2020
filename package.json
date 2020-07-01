@@ -1,0 +1,27 @@
+{
+  "name": "hackatom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vuepress dev src -- --host 0.0.0.0",
+    "build": "vuepress build src"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
+    "markdown-it": "^9.1.0",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "vuepress": "^1.0.3"
+  },
+  "dependencies": {
+    "@cosmos-ui/vue": "^0.5.8",
+    "intersection-observer": "^0.7.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "tm-modal": "0.0.4",
+    "v-runtime-template": "^1.10.0"
+  }
+}

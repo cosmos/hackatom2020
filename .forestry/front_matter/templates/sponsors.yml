@@ -1,0 +1,23 @@
+---
+label: Sponsors
+hide_body: false
+fields:
+- type: text
+  name: layout
+  label: layout
+  hidden: true
+- type: text
+  name: modal
+  label: modal
+  hidden: true
+- name: box
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Box
+pages:
+- src/sponsors/index.md
