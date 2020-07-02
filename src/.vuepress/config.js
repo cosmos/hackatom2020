@@ -1,5 +1,5 @@
 module.exports = {
-  title: "DeFi Hackathon | Nov 1-3, 2019",
+  title: "HackAtom V 2020",
   description: "Join us in building the future of finance at a three-day event in San Francisco.",
   dest: "dist",
   markdown: {
@@ -57,13 +57,13 @@ module.exports = {
     ],
     [
       "meta",
-      { property: "og:url", content: "https://hackathon.sfblockchainweek.io" }
+      { property: "og:url", content: "https://0202motakcah.netlify.app" }
     ],
     [
       "meta",
       {
         property: "og:image",
-        content: "https://hackathon.sfblockchainweek.io/og-image.png"
+        content: "https://0202motakcah.netlify.app/og-image.png"
       }
     ],
     ["meta", { property: "twitter:title", content: "DeFi Hackathon" }],
@@ -79,14 +79,14 @@ module.exports = {
       "meta",
       {
         property: "twitter:url",
-        content: "https://hackathon.sfblockchainweek.io"
+        content: "https://0202motakcah.netlify.app"
       }
     ],
     [
       "meta",
       {
         property: "twitter:image",
-        content: "https://hackathon.sfblockchainweek.io/og-image.png"
+        content: "https://0202motakcah.netlify.app/og-image.png"
       }
     ],
     [
