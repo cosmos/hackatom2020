@@ -5,6 +5,6 @@
 
 # https://community.netlify.com/t/headers-issue-with-cloud-typography-causing-403-error/642
 [[redirects]]
-  from = "https://hackathon.sfblockchainweek.io/fonts/744216/EDBD10E669E064985.css"
+  from = "cloud-typography/fonts.css"
   to = "https://cloud.typography.com/6138116/6541612/css/fonts.css"
   status = 200
