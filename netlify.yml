@@ -2,3 +2,8 @@
   for = "/*"
   [headers.values]
     Cache-Control = "public, max-age=360000" 
+
+[[redirects]]
+  from = "cloud-typography/fonts.css"
+  to = "https://cloud.typography.com/6138116/6541612/css/fonts.css"
+  status = 200
