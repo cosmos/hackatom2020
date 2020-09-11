@@ -11,11 +11,11 @@
           :key="item.title"
           class="section-list__item"
         >
-          <div class="section-list__item__date tm-rf0 tm-lh-copy">
-            {{ item.date }}
-          </div>
+          <code class="section-list__item__date tm-rf0 tm-lh-copy">
+            {{ moment(item.date).format('ddd, MMM D') }}
+          </code>
           <div class="section-list__item__time">
-            {{ item.time }}
+            {{ toTimezone(item.date, item.time) }}
           </div>
           <div class="section-list__item__title">
             {{ item.title }}
@@ -30,27 +30,44 @@
 </template>
 
 <script>
+import moment from 'moment-timezone'
+
 export default {
   data() {
     return {
+      moment,
       updates: [
         {
-          date: 'Fri, Oct 16',
-          time: '7pm',
+          date: '2020-10-16',
+          time: '19:00',
           title: 'HackAtom V begins',
         },
         {
-          date: 'Fri, Oct 16',
-          time: '7pm',
+          date: '2020-10-30',
+          time: '19:00',
           title: 'Deadline for submission',
         },
         {
-          date: 'Fri, Oct 16',
-          time: '7pm',
+          date: '2020-11-09',
+          time: '19:00',
           title: 'Winners announced',
         },
       ],
     }
+  },
+  methods: {
+    toTimezone(date, time) {
+      return (
+        moment
+          // set base time with UTC
+          // get timezone with i18n API - Intl.DateTimeFormat().resolvedOptions().timeZone
+          // usage: 2020-08-04 08:00
+          .tz(`${date} ${time}`, 'UTC')
+          // use client's locale time zone
+          .tz(moment.tz.guess())
+          .format('h:mma z')
+      )
+    },
   },
 }
 </script>
@@ -74,13 +91,11 @@ export default {
     padding-bottom 1.875rem
     display grid
     grid-auto-flow column
-    grid-template-columns 10% 5% auto
+    grid-template-columns 20% 15% auto
     gap 2rem
     border-bottom 2px solid rgba(255, 255, 255, 0.1)
-    // &__date
-    //   color rgba(255, 255, 255, 0.5)
-    // &__time
-    //   color red
+    &__date
+      color #E96C58
     &__title
       font-weight bold
       font-size 1.4375rem
