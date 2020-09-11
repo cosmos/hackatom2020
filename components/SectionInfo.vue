@@ -1,0 +1,61 @@
+<template>
+  <div>
+    <div class="grid-container">
+      <div class="time">
+        <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+          Launch time (UTC)
+        </div>
+        <code class="content tm-rf1 tm-bold tm-lh-copy"
+          >7 PM Oct 16 – 7 PM Oct 30</code
+        >
+      </div>
+      <div class="countdown">
+        <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+          T-MINUS
+        </div>
+        <code class="content tm-rf1 tm-bold tm-lh-copy"
+          ><tm-countdown :now="countdown.now" :end="countdown.end"
+        /></code>
+      </div>
+      <div class="site">
+        <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+          Launch site
+        </div>
+        <code class="content tm-rf1 tm-bold tm-lh-copy">Virtual</code>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TmCountdown from './TmCountdown'
+
+export default {
+  components: {
+    TmCountdown,
+  },
+  data() {
+    return {
+      countdown: {
+        now: Math.trunc(new Date().getTime() / 1000),
+        end: '2020-10-16',
+      },
+    }
+  },
+  mounted() {
+    window.setInterval(() => {
+      this.countdown.now = Math.trunc(new Date().getTime() / 1000)
+    }, 1000)
+  },
+}
+</script>
+
+<style lang="stylus" scoped>
+.grid-container
+  display grid
+  grid-template-columns repeat(auto-fit, minmax(0, 1fr))
+  gap 2rem
+
+.overline
+  color rgba(255, 255, 255, 0.75)
+</style>

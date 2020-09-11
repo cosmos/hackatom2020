@@ -37,6 +37,7 @@
       </div>
     </div>
 
+    <section-info class="center" />
     <section-intro class="center" />
     <section-challenges class="center" />
     <section-criteria class="center" />
@@ -254,27 +255,6 @@ export default {}
     .hero-graphics
       font-size 0.36rem
 
-  .section-features
-    .data-container
-      margin-top 3rem
-      .data-item
-        &__overline
-          font-size 0.8125rem
-          line-height 1.384
-        &__heading
-          font-size 2.5rem
-          line-height 1.2
-    .features-graphics
-      font-size 0.5rem
-    .grid-container
-      margin-top 3rem
-      gap 3rem 2rem
-      .grid-item
-        &:nth-child(even),
-        &:nth-child(odd)
-          grid-column 1/span 12
-          grid-template-columns repeat(1, 1fr)
-
     .ibc-item__title,
     .grid-container .grid-item__title
       font-size 1.4375rem
@@ -296,24 +276,13 @@ export default {}
         &__icon
           height 1.5rem
 
-@media screen and (max-width: 414px)
-  main
-    overflow-x hidden
+// @media screen and (max-width: 414px)
+//   main
+//     overflow-x hidden
 
 @media screen and (max-width: 375px)
   .section-container .container
     gap unset
-
-  .section-features .grid-container .grid-item
-    max-width 20em
-
-@media screen and (max-width: 320px)
-  .section-features
-    .grid-container
-      .grid-item
-        &:nth-child(even),
-        &:nth-child(odd)
-          grid-column 1/span 9
 
 @media screen and (min-width: 1920px)
   .section
