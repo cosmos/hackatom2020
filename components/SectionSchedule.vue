@@ -17,9 +17,7 @@
           <div class="section-list__item__time">
             {{ toTimezone(item.date, item.time) }}
           </div>
-          <div class="section-list__item__title">
-            {{ item.title }}
-          </div>
+          <div class="section-list__item__title" v-html="item.title"></div>
         </div>
       </div>
       <div class="section-list__bottom__note">
@@ -40,7 +38,7 @@ export default {
         {
           date: '2020-10-16',
           time: '19:00',
-          title: 'HackAtom V begins',
+          title: 'HackAtom <span class="V">V</span> begins',
         },
         {
           date: '2020-10-30',

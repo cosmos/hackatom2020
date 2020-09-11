@@ -1,16 +1,16 @@
 <template>
   <div>
     <nuxt />
-    <tm-footer />
+    <section-footer />
   </div>
 </template>
 
 <script>
-import TmFooter from '~/components/TmFooter.vue'
+import SectionFooter from '~/components/SectionFooter.vue'
 
 export default {
   components: {
-    TmFooter,
+    SectionFooter,
   },
 }
 </script>
@@ -19,4 +19,7 @@ export default {
 a[href]
   color inherit
   text-decoration initial
+
+.V
+  color #E96C58
 </style>

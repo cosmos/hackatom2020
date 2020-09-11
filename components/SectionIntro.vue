@@ -7,13 +7,13 @@
         </div>
         <div class="section-statement tm-rf1 tm-lh-copy tm-measure-wide">
           <p>
-            Cryptocurrency is a wild wild west – it’s time to interoperate,
-            c’mon! Cosmos HackAtom V is coming and IBC (Inter-Blockchain
-            Communication) is just over the horizon. Come and hack blockchains
-            together and launch them into the stars.
+            HackAtom <span class="V">V</span> is the fifth online Cosmos
+            hackathon to have been launched. With Inter-Blockchain Communication
+            (IBC) just over the horizon, come and build your
+            Interchain-composable concept right before IBC goes into production.
           </p>
           <p>
-            Get your spacesuits ready for liftoff!
+            Ready? Set! Liftoff!
           </p>
         </div>
       </div>

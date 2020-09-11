@@ -10,15 +10,14 @@
           <div class="left__title tm-rf2 tm-bold tm-lh-title">
             Join the conversation
           </div>
-          <div class="left__desc">
+          <div class="left__desc tm-rf0 tm-lh-copy">
             Chat with mentors and other Cosmosnauts in the
-            <code>#hackatom-v</code> channel of the Cosmos Community Discord.
+            <code class="tm-rf0 tm-lh-copy">#hackatom-v</code> channel of the
+            Cosmos Community Discord.
           </div>
         </div>
         <div class="right">
-          <div class="right__icon">
-            <icon-arrow-right />
-          </div>
+          <icon-arrow-right class="right__icon" />
         </div>
       </div>
     </a>
@@ -30,6 +29,10 @@
   code
     color #E96C58
 
+a
+  &:hover .right__icon
+    transform translateX(3px)
+
 .container
   min-height 16.875rem
   position relative
@@ -40,7 +43,7 @@
   border 2px solid #2E2D2D
   box-shadow 0px 0px 1px rgba(0, 0, 0, 0.07), 0px 8px 16px rgba(0, 0, 0, 0.05), 0px 20px 44px rgba(0, 3, 66, 0.12)
   border-radius 0.75rem
-  background-image url('/poker-table.jpg')
+  background-image url('/bg/poker-tables.jpg')
   // background-position right center
   background-position 180px 45%
   background-repeat no-repeat
@@ -66,4 +69,5 @@
 
   &__icon
     padding 2rem
+    transition transform 0.15s ease-out
 </style>

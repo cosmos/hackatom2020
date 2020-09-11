@@ -1,27 +1,28 @@
 <template>
-  <div class="section section-roadmap">
+  <div class="section section-tutorials">
     <div class="tm-section-container">
-      <div class="container">
-        <div class="section-title">More Tutorials</div>
-        <div class="section-list">
-          <a
-            v-for="item in updates"
-            :key="item.title"
-            :href="item.url"
-            target="_blank"
-            rel="noreferrer noopener"
-            class="section-list__item"
-          >
-            <div class="section-list__item__type">
-              {{ item.type }}
-            </div>
-            <div class="section-list__item__title tm-measure-wide">
-              {{ item.title }}
-            </div>
-            <div class="section-list__item__date">&#8594;</div>
-          </a>
-        </div>
+      <div class="section-title tm-rf2 tm-bold tm-lh-title">More Tutorials</div>
+      <div class="section-list">
+        <a
+          v-for="item in updates"
+          :key="item.title"
+          :href="item.url"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="section-list__item"
+        >
+          <div class="section-list__item__type">
+            {{ item.type }}
+          </div>
+          <div class="section-list__item__title tm-measure-wide">
+            {{ item.title }}
+          </div>
+          <div class="section-list__item__date">&#8594;</div>
+        </a>
       </div>
+      <!-- <div class="section-graphics">
+        <img src="/bg/vitalik-tron.jpg" />
+      </div> -->
     </div>
   </div>
 </template>
@@ -54,14 +55,12 @@ export default {
 
 <style lang="stylus" scoped>
 .section-title
-  font-size 1.75rem
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
-  font-weight bold
-  color #E96C58
   max-width 47.375rem
   letter-spacing -0.016em
   padding-bottom 3rem
   text-align start
+  color #E96C58
 
 .section-list
   grid-column 6 / span 7
@@ -94,4 +93,12 @@ export default {
       color #FFFFFF
     &:hover .section-list__item__date
       transform translateX(3px)
+
+.section-graphics
+  position: absolute;
+  z-index: -1;
+  right: -28%;
+  bottom: -50%;
+  width: 976px;
+  height: 540px;
 </style>

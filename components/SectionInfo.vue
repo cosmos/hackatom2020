@@ -21,7 +21,9 @@
         <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
           Launch site
         </div>
-        <code class="content tm-rf1 tm-bold tm-lh-copy">Virtual</code>
+        <code class="content tm-rf1 tm-bold tm-lh-copy"
+          ><span class="V">V</span>irtual</code
+        >
       </div>
     </div>
   </div>
@@ -55,7 +57,13 @@ export default {
   display grid
   grid-template-columns repeat(auto-fit, minmax(0, 1fr))
   gap 2rem
+  margin 2rem 0
 
 .overline
   color rgba(255, 255, 255, 0.75)
+
+@media screen and (max-width: 968px)
+  .grid-container
+    place-content center
+    grid-template-columns auto
 </style>

@@ -1,10 +1,9 @@
 :root
-  --container-mw-lg 74rem
+  --container-mw 64rem
 
 html
   font 400 100%/1.5 $font-family-sans-serif
   font-feature-settings 'kern' on, 'liga' on, 'calt' on, 'zero' on
-  // TODO: figure out why nuxt isn't using postcss-font-variant to generate these vendor prefixes
   -webkit-font-feature-settings 'kern' on, 'liga' on, 'calt' on, 'zero' on
   text-size-adjust 100%
   -moz-osx-font-smoothing grayscale
@@ -15,9 +14,6 @@ html
   background-color #0d0d0d
   color #CFD1E7
   scroll-behavior smooth
-
-  // @media ($breakpoint-xl)
-  //   font-size 112.5%
 
 @supports (font-variation-settings: normal)
   html
