@@ -46,6 +46,7 @@
     <section-resources class="center" />
     <section-videos class="center" />
     <section-tutorials class="center" />
+    <section-banner class="center" />
   </main>
 </template>
 
@@ -137,7 +138,10 @@ export default {}
   justify-content stretch
   align-items stretch
   text-align center
-  // background radial-gradient(60.92% 51.1% at 50% 57.31%, #21255F 26.56%, #030419 80.73%, #000000 100%)
+  background-image url('/hero-bg.jpg')
+  background-position center center
+  background-repeat no-repeat
+  background-size cover
   .section-container
     display flex
     align-items stretch
