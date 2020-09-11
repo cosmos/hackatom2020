@@ -1,6 +1,6 @@
 <template lang="pug">
   .section
-    .section-title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges
+    //- .section-title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges
     .container
       .item(v-for="item in this.criterias")
         .item__name.tm-rf2.tm-bold.tm-lh-copy {{ item.name }}

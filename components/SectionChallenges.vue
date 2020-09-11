@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    .section-title.tm-rf1.tm-medium.tm-lh-title.tm-overline Prizes
+    //- .section-title.tm-rf1.tm-medium.tm-lh-title.tm-overline Prizes
     .container
       .prize-pool
         .top
@@ -125,6 +125,7 @@
   gap 2rem
   padding 0 3rem
   margin-top 4rem
+  position relative
 
   .item
     background: linear-gradient(180deg, #1D1D1D 0%, #2E2D2D 100%);

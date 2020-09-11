@@ -39,10 +39,31 @@
 
     <section-info class="center" />
     <section-intro class="center" />
+
+    <div id="intro" class="intro">
+      <div class="section-heading tm-rf1 tm-medium tm-lh-title tm-overline">
+        prizes
+      </div>
+    </div>
+
     <section-challenges class="center" />
     <section-criteria class="center" />
+
+    <div id="judges" class="judges">
+      <div class="section-heading tm-rf1 tm-medium tm-lh-title tm-overline">
+        judges
+      </div>
+    </div>
+
     <section-judges class="center" />
     <section-schedule class="center" />
+
+    <div id="hacker-resources" class="hacker-resources">
+      <div class="section-heading tm-rf1 tm-medium tm-lh-title tm-overline">
+        hacker resources
+      </div>
+    </div>
+
     <section-resources class="center" />
     <section-videos class="center" />
     <section-tutorials class="center" />
@@ -51,9 +72,6 @@
 </template>
 
 <script>
-// import { orderBy } from 'lodash'
-// import axios from 'axios'
-
 export default {}
 </script>
 
@@ -62,6 +80,42 @@ export default {}
   max-width 64rem
   margin 0 auto
   // padding 8rem 0
+
+.intro
+  background-image url('/faketoshi.jpg')
+  background-position center center
+  background-repeat no-repeat
+  background-size cover
+  min-height 33.75rem
+  position relative
+  margin-bottom -10rem
+
+.judges
+  background-image url('/faketoshi-ripple.jpg')
+  background-position center center
+  background-repeat no-repeat
+  background-size cover
+  min-height 33.75rem
+  position relative
+  margin-bottom -4rem
+
+.hacker-resources
+  background-image url('/bitcoin-fork.jpg')
+  background-position center center
+  background-repeat no-repeat
+  background-size cover
+  min-height 33.75rem
+  position relative
+
+.section-heading
+  position absolute
+  bottom 10%
+  left 10%
+  padding 9px 16px
+  background-color #0D0D0D
+  width fit-content
+  height 45px
+  transform skew(-20deg)
 
 // Accessible/SEO friendly CSS hiding
 .sr-only

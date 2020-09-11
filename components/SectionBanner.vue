@@ -31,7 +31,7 @@
     color #E96C58
 
 .container
-  min-height 270px
+  min-height 16.875rem
   position relative
   display: flex;
   flex-direction: row;
