@@ -1,8 +1,14 @@
 <template>
   <div class="section">
+    <div class="section-heading">
+      <span
+        class="section-heading__title tm-rf1 tm-medium tm-lh-title tm-overline"
+        >hacker resources</span
+      >
+    </div>
     <div class="tm-section-container">
       <div class="container">
-        <div class="section-title">Docs & Tools</div>
+        <div class="section-title tm-rf2 tm-bold tm-lh-title">Docs & Tools</div>
         <div class="section-list">
           <a
             v-for="item in updates"
@@ -12,10 +18,12 @@
             rel="noreferrer noopener"
             class="section-list__item"
           >
-            <div class="section-list__item__type">
+            <div class="section-list__item__type tm-rf1 tm-lh-copy">
               {{ item.type }}
             </div>
-            <div class="section-list__item__title tm-measure-wide">
+            <div
+              class="section-list__item__title tm-measure-wide tm-rf1 tm-bold tm-lh-copy"
+            >
               {{ item.title }}
             </div>
             <div class="section-list__item__date">&#8594;</div>
@@ -63,15 +71,27 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.tm-section-container
+  padding-top 6rem
+
 .section-title
-  font-size 1.75rem
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
-  font-weight bold
   color #E96C58
-  max-width 47.375rem
-  letter-spacing -0.016em
   padding-bottom 3rem
   text-align start
+  margin-top 3rem
+
+.section-heading
+  padding 0.5625rem 1rem
+  background-color #0D0D0D
+  width fit-content
+  height 2.8125rem
+  transform skew(-20deg)
+  box-shadow -10px 6px 0px #2E2D2D
+  color var(--white)
+  &__title
+    display block
+    transform skew(20deg)
 
 .section-list
   grid-column 6 / span 7
@@ -86,22 +106,21 @@ export default {
     &__type
       color rgba(255, 255, 255, 0.5)
     &__title
-      font-weight bold
-      font-size 1.4375rem
-      line-height 121.7%
-      letter-spacing -0.01em
       color white
       transition color 0.1s ease-out
     &__date
-      font-size 1.1875rem
-      line-height 126.3%
       text-align right
-      letter-spacing -0.005em
       color #989BB9
-      transition color 0.1s ease-out, transform 0.15s ease-out
+      align-items center
+      display flex
+      justify-content flex-end
     &:hover .section-list__item__title,
     &:hover .section-list__item__date
-      color #FFFFFF
+      color var(--white)
     &:hover .section-list__item__date
       transform translateX(3px)
+
+@media screen and (max-width: 1024px)
+  .section-heading
+    margin-left 2rem
 </style>

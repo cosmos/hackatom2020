@@ -1,7 +1,12 @@
 <template>
   <div class="section">
+    <div class="section-heading">
+      <span
+        class="section-heading__title tm-rf1 tm-medium tm-lh-title tm-overline"
+        >schedule</span
+      >
+    </div>
     <div class="tm-section-container">
-      <div class="section-title">Schedule</div>
       <div class="section-list__top__note">
         All event times are listed in Coordinated Universal Time (UTC).
       </div>
@@ -17,7 +22,10 @@
           <div class="section-list__item__time">
             {{ toTimezone(item.date, item.time) }}
           </div>
-          <div class="section-list__item__title" v-html="item.title"></div>
+          <div
+            class="section-list__item__title tm-rf1 tm-bold tm-lh-title"
+            v-html="item.title"
+          ></div>
         </div>
       </div>
       <div class="section-list__bottom__note">
@@ -71,15 +79,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.section-title
-  font-size 1.75rem
-  text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
-  font-weight bold
-  color #E96C58
-  max-width 47.375rem
-  letter-spacing -0.016em
-  padding-bottom 3rem
-  text-align start
+.section-heading
+  padding 0.5625rem 1rem
+  background-color #2E2D2D
+  box-shadow -10px 6px 0px #4D4D4D
+  width fit-content
+  height 2.8125rem
+  transform skew(-20deg)
+  margin-bottom 3rem
+  color var(--white)
+  &__title
+    display block
+    transform skew(20deg)
 
 .section-list
   grid-column 6 / span 7
@@ -95,14 +106,17 @@ export default {
     &__date
       color #E96C58
     &__title
-      font-weight bold
-      font-size 1.4375rem
-      line-height 121.7%
-      letter-spacing -0.01em
-      color white
+      color var(--white)
       transition color 0.1s ease-out
+
+@media screen and (max-width: 1024px)
+  .section-heading
+    margin-left 2rem
 
 @media screen and (max-width: 600px)
   .section-list__item
     display block
+
+  .section-list__item__time
+    margin 0.5rem 0
 </style>

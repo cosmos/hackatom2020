@@ -55,12 +55,15 @@ export default {
 <style lang="stylus" scoped>
 .grid-container
   display grid
-  grid-template-columns repeat(auto-fit, minmax(0, 1fr))
+  grid-template-columns repeat(3, 1fr)
   gap 2rem
-  margin 2rem 0
+  // margin 2rem 0
+  padding 0 1rem
+  max-width var(--container-mw)
+  margin 0 auto
 
 .overline
-  color rgba(255, 255, 255, 0.75)
+  color var(--alt-white)
 
 @media screen and (max-width: 968px)
   .grid-container

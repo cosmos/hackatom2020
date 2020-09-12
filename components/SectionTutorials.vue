@@ -11,18 +11,20 @@
           rel="noreferrer noopener"
           class="section-list__item"
         >
-          <div class="section-list__item__type">
+          <div class="section-list__item__type tm-rf1 tm-lh-copy">
             {{ item.type }}
           </div>
-          <div class="section-list__item__title tm-measure-wide">
+          <div
+            class="section-list__item__title tm-measure-wide tm-rf1 tm-bold tm-lh-copy"
+          >
             {{ item.title }}
           </div>
           <div class="section-list__item__date">&#8594;</div>
         </a>
       </div>
-      <!-- <div class="section-graphics">
+      <div class="section-graphics">
         <img src="/bg/vitalik-tron.jpg" />
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -56,14 +58,11 @@ export default {
 <style lang="stylus" scoped>
 .section-title
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
-  max-width 47.375rem
-  letter-spacing -0.016em
   padding-bottom 3rem
   text-align start
   color #E96C58
 
 .section-list
-  grid-column 6 / span 7
   &__item
     padding-top 1.875rem
     padding-bottom 1.875rem
@@ -75,30 +74,29 @@ export default {
     &__type
       color rgba(255, 255, 255, 0.5)
     &__title
-      font-weight bold
-      font-size 1.4375rem
-      line-height 121.7%
-      letter-spacing -0.01em
       color white
       transition color 0.1s ease-out
     &__date
-      font-size 1.1875rem
-      line-height 126.3%
       text-align right
-      letter-spacing -0.005em
-      color #989BB9
-      transition color 0.1s ease-out, transform 0.15s ease-out
+      align-items center
+      display flex
+      justify-content flex-end
     &:hover .section-list__item__title,
     &:hover .section-list__item__date
-      color #FFFFFF
+      color var(--white)
     &:hover .section-list__item__date
       transform translateX(3px)
 
 .section-graphics
-  position: absolute;
-  z-index: -1;
-  right: -28%;
-  bottom: -50%;
-  width: 976px;
-  height: 540px;
+  position absolute
+  z-index -1
+  right -27%
+  bottom -20%
+  width 80%
+
+@media screen and (max-width: 600px)
+  .section-graphics
+    right -17%
+    bottom -20%
+    width auto
 </style>

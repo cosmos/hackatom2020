@@ -14,6 +14,8 @@
             <span class="sr-only">HackAtom</span>
           </div>
         </nav>
+        <!-- TODO: svg is broken -->
+        <!-- <big-v class="letter" /> -->
         <div class="hero-bottom">
           <div class="hero-bottom__subtitle tm-rf2 tm-lh-title">
             Strap on your spacepants and get ready to hack, Cosmonaut.
@@ -73,6 +75,7 @@ export default {}
   background-position center center
   background-repeat no-repeat
   background-size cover
+  max-width 92.5rem
   .section-container
     display flex
     align-items stretch
@@ -98,6 +101,7 @@ export default {}
       .brandmark
         position absolute
         top -0.5rem
+        height 90%
       .wordmark
         position relative
 
@@ -114,21 +118,6 @@ export default {}
   .logo
     display block
     margin 0 auto
-  a
-    display inline-block
-    font-size 1rem
-    line-height 1.375
-    padding 0.8125rem 0
-    color #989BB9
-    border-radius 0.375rem
-    &:hover,
-    &:focus
-      color #CFD1E7
-    .icon
-      display none
-      fill #CFD1E7
-      transform rotate(180deg)
-      width 1.5rem
 
 .hero-bottom
   max-width 30.375rem
@@ -136,4 +125,20 @@ export default {}
   &__subtitle
     margin-bottom 3rem
     color var(--white)
+
+@media screen and (max-width: 576px)
+  .section-hero
+    min-height 32rem
+    max-height 42rem
+    margin-bottom 3rem
+    .section-container
+      padding-top 0.75rem
+      padding-bottom 2rem
+    .container
+      .nav-primary
+        margin-bottom 3rem
+      .headings
+        .title
+          padding-left 1rem
+          padding-right 1rem
 </style>

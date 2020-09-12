@@ -1,12 +1,12 @@
 <template lang="pug">
-  div
-    .section-title.tm-rf2.tm-bold.tm-lh-title Tutorial & Workshop Videos
-    .stack.tm-section-container
+  div.section
+    .section-title.tm-rf2.tm-bold.tm-lh-title.tm-section-container Tutorial & Workshop Videos
+    .stack
       a.stack__item(:href="item.url" target="_blank" rel="noreferrer noopener" v-for="item in this.videos")
         img(:src="item.imgSrc" alt="Image").stack__item__image
         .stack__item__text
-          .stack__item__h1 {{item.title}}
-          .stack__item__p {{item.duration}}
+          .stack__item__h1.tm-rf-2.tm-bold.tm-lh-copy {{item.title}}
+          .stack__item__p.tm-rf-2.tm-lh-copy {{item.duration}}
 </template>
 
 <script>
@@ -61,9 +61,6 @@ export default {
 .section-title
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
   color #E96C58
-  max-width 47.375rem
-  padding-left 8rem
-  padding-right 8rem
   padding-bottom 3rem
   text-align start
 
@@ -85,18 +82,26 @@ export default {
       object-fit cover
 
     &__h1
-      font-size 1rem
-      line-height 1.5rem
-      font-weight 600
       margin-top 0.5rem
       margin-bottom 0.25rem
-      color white
+      color var(--white)
 
     &__p
-      font-size 0.875rem
-      line-height 1.25rem
-      color rgba(255, 255, 255, 0.75)
+      color var(--alt-white)
 
     &__text
       text-align left
+
+@media screen and (max-width: 1240px)
+  .stack
+    padding-left var(--spacing-7)
+    padding-right var(--spacing-7)
+
+@media screen and (max-width: 900px)
+  .stack
+    grid-template-columns repeat(2, 1fr)
+
+@media screen and (max-width: 600px)
+  .stack
+    grid-template-columns repeat(1, 1fr)
 </style>

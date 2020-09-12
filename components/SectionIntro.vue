@@ -1,11 +1,11 @@
 <template>
-  <div id="intro" class="section section-intro">
-    <div class="tm-section-container section-container">
-      <div class="container">
-        <div class="section-title tm-rf4 tm-bold tm-lh-title">
+  <div class="section section-intro">
+    <div class="tm-section-container grid-container">
+      <div class="text">
+        <div class="title tm-rf4 tm-bold tm-lh-title">
           Attention all Cosmonauts
         </div>
-        <div class="section-statement tm-rf1 tm-lh-copy tm-measure-wide">
+        <div class="statement tm-rf1 tm-lh-copy tm-measure-wide">
           <p>
             HackAtom <span class="V">V</span> is the fifth online Cosmos
             hackathon to have been launched. With Inter-Blockchain Communication
@@ -17,6 +17,9 @@
           </p>
         </div>
       </div>
+      <div class="graphics">
+        <img src="/bg/wild-west.jpg" />
+      </div>
     </div>
   </div>
 </template>
@@ -26,17 +29,34 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
-.section-intro
+.title
+  color #E96C58
+  text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
   position relative
-  .section-title
-    grid-column 1 / span 12
-    grid-row 1 / 2
-    max-width 50rem
-    color #E96C58
-    text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
-  .section-statement
-    margin-top 2rem
-    // grid-column 1 / span 6
-    // grid-row 3
-    color rgba(255, 255, 255, 0.75)
+  z-index 1
+
+.statement
+  margin-top 2rem
+  color var(--alt-white)
+  position relative
+  z-index 1
+
+.graphics
+  position absolute
+  z-index 0
+  right -21.5%
+  top 10%
+  width 80%
+
+.text
+  max-width 39.375rem
+  margin-top 18rem
+
+@media screen and (max-width: 600px)
+  .section-intro
+    overflow-x hidden
+
+  .graphics
+    top 0%
+    width auto
 </style>

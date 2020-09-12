@@ -1,6 +1,7 @@
 <template lang="pug">
   .section
-    .section-title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judging Criteria
+    .section-heading
+      span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judging criteria
     .container
       .item(v-for="item in this.criterias")
         component(:is="`icon-${item.icon}`").item__icon
@@ -47,10 +48,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.section-title
-  color #FFFFFF
-  padding-left 3rem
-  padding-right 3rem
+.section-heading
+  padding 0.5625rem 1rem
+  background-color #2E2D2D
+  box-shadow -10px 6px 0px #4D4D4D
+  width fit-content
+  height 2.8125rem
+  transform skew(-20deg)
+  margin-bottom 3rem
+  color var(--white)
+  &__title
+    display block
+    transform skew(20deg)
 
 .container
   margin-top 6rem
@@ -72,17 +81,17 @@ export default {
 
   &__title
     margin-top 1.5rem
-    color #FFFFFF
+    color var(--white)
 
   &__text
     margin-top 1rem
-    color rgba(255, 255, 255, 0.75)
+    color var(--alt-white)
+
+@media screen and (max-width: 1024px)
+  .section-heading
+    margin-left 2rem
 
 @media screen and (max-width: 800px)
-  .section-title
-    padding-left 1rem
-    padding-right 1rem
-
   .container
     display block
 

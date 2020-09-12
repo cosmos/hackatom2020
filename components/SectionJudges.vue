@@ -1,6 +1,7 @@
 <template lang="pug">
   .section
-    //- .section-title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges
+    .section-heading
+      span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judges
     .container
       .item(v-for="item in this.criterias")
         .item__name.tm-rf2.tm-bold.tm-lh-copy {{ item.name }}
@@ -40,18 +41,25 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.section-title
-  color #FFFFFF
-  padding-left 3rem
-  padding-right 3rem
+.section-heading
+  padding 0.5625rem 1rem
+  background-color #0D0D0D
+  width fit-content
+  height 2.8125rem
+  transform skew(-20deg)
+  box-shadow -10px 6px 0px #2E2D2D
+  margin-bottom 3rem
+  // margin-left 2rem
+  color var(--white)
+  &__title
+    display block
+    transform skew(20deg)
 
 .container
   margin-top 6rem
   display grid
   grid-template-columns repeat(3, 1fr)
   gap 2rem
-  margin-left 3rem
-  margin-right 3rem
 
 .title
   margin-top 1.875rem
@@ -66,16 +74,20 @@ export default {
     border-radius 50%
 
   &__name
-    color #FFFFFF
+    color var(--white)
 
   &__company
-    color rgba(255, 255, 255, 0.75)
+    color var(--alt-white)
+
+@media screen and (max-width: 1024px)
+  .container
+    padding-left var(--spacing-7)
+    padding-right var(--spacing-7)
+
+  .section-heading
+    margin-left 2rem
 
 @media screen and (max-width: 800px)
-  .section-title
-    padding-left 1rem
-    padding-right 1rem
-
   .container
     display block
 

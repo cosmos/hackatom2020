@@ -25,6 +25,7 @@
         last day of the hackathon, on Oct 30th, where the day’s ‘High’ value
         will be used.
       </div>
+      <div class="divider"></div>
       <div class="smallprint tm-rf0 tm-lh-copy">
         This website is maintained by Tendermint Inc. The contents and opinions
         of this website are those of Tendermint Inc.
@@ -73,11 +74,24 @@ footer
 .blockquote, .smallprint
   max-width 34rem
   margin auto
-  color rgba(255, 255, 255, 0.75)
-  margin-bottom 1.5rem
+  color var(--alt-white)
+
+.divider
+  border 1px solid rgba(255, 255, 255, 0.333)
+  width 2.5rem
+  display inline-block
+  margin 1.5rem 0
 
 .bot-logo
   position absolute
   right 8.6875rem
   bottom 2rem
+
+@media screen and (max-width: 600px)
+  .bot-logo
+    position absolute
+    right unset
+    bottom 2rem
+    display grid
+    place-items center
 </style>
