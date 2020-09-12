@@ -81,6 +81,7 @@ export default {
       align-items center
       display flex
       justify-content flex-end
+      transition transform 0.15s ease-out
     &:hover .section-list__item__title,
     &:hover .section-list__item__date
       color var(--white)
