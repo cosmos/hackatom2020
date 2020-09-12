@@ -90,6 +90,10 @@ main
   .intro-bg, .judges-bg
     min-height 12.75rem
 
+  .judges-bg
+    margin-bottom -9rem
+
   .hacker-resources-bg
     min-height 20.75rem
+    margin-bottom -14rem
 </style>

@@ -16,6 +16,7 @@
         </nav>
         <!-- TODO: svg is broken -->
         <!-- <big-v class="letter" /> -->
+        <!-- <img src="/V.svg" /> -->
         <div class="hero-bottom">
           <div class="hero-bottom__subtitle tm-rf2 tm-lh-title">
             Strap on your spacepants and get ready to hack, Cosmonaut.

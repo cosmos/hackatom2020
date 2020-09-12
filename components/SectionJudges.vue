@@ -3,7 +3,7 @@
     .section-heading
       span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judges
     .container
-      .item(v-for="item in this.criterias")
+      .item(v-for="item in this.judgesList")
         .item__name.tm-rf2.tm-bold.tm-lh-copy {{ item.name }}
         .item__company.tm-rf0.tm-lh-copy {{ item.company }}
         img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`").item__icon
@@ -13,26 +13,34 @@
 export default {
   data() {
     return {
-      criterias: [
+      judgesList: [
         {
-          icon: 'console',
           name: 'Billy Rennekamp',
           company: 'Interchain Foundation',
         },
         {
-          icon: 'console',
-          name: 'Billy Rennekamp',
-          company: 'Interchain Foundation',
+          name: 'Aurel Lancu',
+          company: 'Dokia Capital',
         },
         {
-          icon: 'console',
-          name: 'Billy Rennekamp',
-          company: 'Interchain Foundation',
+          name: 'Charlie Noyes',
+          company: 'Paradigm',
         },
         {
-          icon: 'console',
-          name: 'Billy Rennekamp',
-          company: 'Interchain Foundation',
+          name: 'Erik Vorhees',
+          company: 'Shapeshift',
+        },
+        {
+          name: 'Nick Tomaino',
+          company: '1confirmation',
+        },
+        {
+          name: 'Ethan Buchman',
+          company: 'Informal Systems / co-founder of Cosmos',
+        },
+        {
+          name: 'Brent Xu',
+          company: 'Tendermint',
         },
       ],
     }

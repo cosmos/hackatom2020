@@ -190,8 +190,6 @@
 
 @media screen and (max-width: 600px)
   .container
-    margin-top 12rem
-    // margin-bottom 4rem
     padding 0 1rem
     grid-template-columns repeat(1, 1fr)
     gap 1rem
