@@ -76,7 +76,7 @@ export default {}
   background-position center center
   background-repeat no-repeat
   background-size cover
-  max-width 92.5rem
+  // max-width 92.5rem
   .section-container
     display flex
     align-items stretch
