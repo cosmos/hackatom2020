@@ -85,7 +85,7 @@ export default {
     color var(--white)
 
   &__company
-    color var(--alt-white)
+    color var(--white-700)
 
 @media screen and (max-width: 1024px)
   .container

@@ -85,7 +85,7 @@ export default {
 
   &__text
     margin-top 1rem
-    color var(--alt-white)
+    color var(--white-700)
 
 @media screen and (max-width: 1024px)
   .section-heading

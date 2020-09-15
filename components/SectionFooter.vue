@@ -74,7 +74,7 @@ footer
 .blockquote, .smallprint
   max-width 34rem
   margin auto
-  color var(--alt-white)
+  color var(--white-700)
 
 .divider
   border 1px solid rgba(255, 255, 255, 0.333)

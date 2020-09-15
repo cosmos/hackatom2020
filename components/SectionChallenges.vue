@@ -102,7 +102,7 @@
     height 4rem
 
   &__heading
-    color var(--alt-white)
+    color var(--white-700)
 
   &__title
     color #E96C58
@@ -151,7 +151,7 @@
   .prize__item
 
     &__heading
-      color var(--alt-white)
+      color var(--white-700)
 
     &__title
       color #E96C58

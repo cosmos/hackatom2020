@@ -87,7 +87,7 @@ export default {
       color var(--white)
 
     &__p
-      color var(--alt-white)
+      color var(--white-700)
 
     &__text
       text-align left

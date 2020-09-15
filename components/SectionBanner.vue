@@ -66,7 +66,7 @@ a
     color var(--white)
 
   &__desc
-    color var(--alt-white)
+    color var(--white-700)
 
 .right
   align-items center

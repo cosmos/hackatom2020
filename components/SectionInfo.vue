@@ -57,13 +57,12 @@ export default {
   display grid
   grid-template-columns repeat(3, 1fr)
   gap 2rem
-  // margin 2rem 0
   padding 0 1rem
   max-width var(--container-mw)
   margin 0 auto
 
 .overline
-  color var(--alt-white)
+  color var(--white-700)
 
 @media screen and (max-width: 968px)
   .grid-container

@@ -37,7 +37,7 @@ export default {}
 
 .statement
   margin-top 2rem
-  color var(--alt-white)
+  color var(--white-700)
   position relative
   z-index 1
 
