@@ -73,11 +73,9 @@ export default {
   display grid
   place-content center
   grid-template-columns 1
-  gap var(--spacing-7)
+  gap var(--spacing-10)
 
 .item
-  margin-bottom var(--spacing-9)
-
   &__icon
     width 2rem
     height 2rem
@@ -96,7 +94,5 @@ export default {
 
   .grid
     grid-template-columns repeat(3, 1fr)
-
-  .item
-    margin-bottom 0
+    gap var(--spacing-7)
 </style>

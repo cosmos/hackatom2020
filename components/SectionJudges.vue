@@ -1,12 +1,15 @@
 <template lang="pug">
   .section
-    .section-heading
-      span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judges
-    .container
-      .item(v-for="item in this.judgesList")
-        .item__name.tm-rf2.tm-bold.tm-lh-copy {{ item.name }}
-        .item__company.tm-rf0.tm-lh-copy {{ item.company }}
-        img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`").item__icon
+    .tm-section-container
+      .container
+        .section-heading
+          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judges
+        .grid
+          .item(v-for="item in this.judgesList")
+            img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`").item__avatar
+            .item__name.tm-rf1.tm-bold.tm-lh-title {{ item.name }}
+            .item__company.tm-rf-1.tm-lh-title {{ item.company }}
+          .item.item__placeholder.tm-rf0.tm-lh-title More judges to be announced.
 </template>
 
 <script>
@@ -49,56 +52,70 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.container
+  max-width $max-width-9
+  margin 0 auto
+
 .section-heading
-  padding 0.5625rem 1rem
-  background-color #0D0D0D
+  padding var(--spacing-3) 1.5rem
+  background-color var(--near-black)
   width fit-content
-  height 2.8125rem
-  transform skew(-20deg)
-  box-shadow -10px 6px 0px #2E2D2D
-  margin-bottom 3rem
-  // margin-left 2rem
-  color var(--white)
+  transform skew(-30deg)
+  box-shadow -0.5rem 0.5rem 0 var(--dark-gray)
+  margin-bottom var(--spacing-8)
+  margin-left auto
+  margin-right auto
+
   &__title
     display block
-    transform skew(20deg)
+    transform skew(30deg)
 
-.container
-  margin-top 6rem
+.grid
+  margin-top var(--spacing-10)
   display grid
-  grid-template-columns repeat(3, 1fr)
-  gap 2rem
-
-.title
-  margin-top 1.875rem
-  color #161931
-  margin 6rem 3rem 0
+  place-content center
+  grid-template-columns 1
+  gap var(--spacing-10)
 
 .item
-  &__icon
+  text-align center
+
+  &__avatar
     width 4rem
     height 4rem
-    margin-top 2rem
+    margin 0 auto var(--spacing-5)
     border-radius 50%
 
   &__name
     color var(--white)
 
+  &__placeholder,
   &__company
     color var(--white-700)
 
-@media screen and (max-width: 1024px)
-  .container
-    padding-left var(--spacing-7)
-    padding-right var(--spacing-7)
+  &__company
+    margin-top var(--spacing-2)
 
-  .section-heading
-    margin-left 2rem
-
-@media screen and (max-width: 800px)
-  .container
-    display block
+@media $breakpoint-small
+  .grid
+    grid-template-columns repeat(2, 1fr)
+    gap var(--spacing-9) var(--spacing-7)
 
   .item
-    margin-bottom 2rem
+    text-align left
+
+    &__avatar
+      margin-left 0
+
+    &__placeholder
+      display flex
+      align-items flex-end
+
+@media $breakpoint-medium
+  .section-heading
+    margin-left -1.5rem
+
+@media $breakpoint-large
+  .grid
+    grid-template-columns repeat(3, 1fr)
 </style>
