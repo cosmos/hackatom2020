@@ -1,35 +1,43 @@
 <template>
   <div class="section">
-    <div class="section-heading">
-      <span
-        class="section-heading__title tm-rf1 tm-medium tm-lh-title tm-overline"
-        >schedule</span
-      >
-    </div>
     <div class="tm-section-container">
-      <div class="section-list__top__note">
-        All event times are listed in Coordinated Universal Time (UTC).
-      </div>
-      <div class="section-list">
-        <div
-          v-for="item in updates"
-          :key="item.title"
-          class="section-list__item"
-        >
-          <code class="section-list__item__date tm-rf0 tm-lh-copy">
-            {{ moment(item.date).format('ddd, MMM D') }}
-          </code>
-          <div class="section-list__item__time">
-            {{ toTimezone(item.date, item.time) }}
-          </div>
-          <div
-            class="section-list__item__title tm-rf1 tm-bold tm-lh-title"
-            v-html="item.title"
-          ></div>
+      <div class="container">
+        <div class="section-heading">
+          <span
+            class="section-heading__title tm-rf1 tm-medium tm-lh-title tm-overline"
+            >schedule</span
+          >
         </div>
-      </div>
-      <div class="section-list__bottom__note">
-        More schedule updates coming soon.
+        <div class="section-schedule">
+          <div class="section-list__top__note tm-rf-1 tm-rf0-l-up tm-lh-title">
+            All events are listed in your local time.
+          </div>
+          <div class="section-list">
+            <div
+              v-for="item in updates"
+              :key="item.title"
+              class="section-list__item"
+            >
+              <div
+                class="section-list__item__date tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
+              >
+                {{ moment(item.date).format('ddd, MMM D') }}
+              </div>
+              <div
+                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title"
+              >
+                {{ toTimezone(item.date, item.time) }}
+              </div>
+              <div
+                class="section-list__item__title tm-rf1 tm-bold tm-lh-title"
+                v-html="item.title"
+              ></div>
+            </div>
+          </div>
+          <div class="section-list__bottom__note tm-rf0 tm-lh-title">
+            More schedule updates coming soon.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -71,7 +79,7 @@ export default {
           .tz(`${date} ${time}`, 'UTC')
           // use client's locale time zone
           .tz(moment.tz.guess())
-          .format('h:mma z')
+          .format('hA z')
       )
     },
   },
@@ -79,44 +87,75 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.container
+  max-width $max-width-9
+  margin 0 auto
+
 .section-heading
-  padding 0.5625rem 1rem
-  background-color #2E2D2D
-  box-shadow -10px 6px 0px #4D4D4D
+  padding var(--spacing-3) 1.5rem
+  background-color var(--dark-gray)
   width fit-content
-  height 2.8125rem
-  transform skew(-20deg)
-  margin-bottom 3rem
-  color var(--white)
+  transform skew(-30deg)
+  box-shadow -0.5rem 0.5rem 0 var(--gray)
+  margin-bottom var(--spacing-8)
+  margin-left auto
+  margin-right auto
+
   &__title
     display block
-    transform skew(20deg)
+    transform skew(30deg)
+
+.section-schedule
+  margin 0 auto
+  max-width $max-width-8
 
 .section-list
-  grid-column 6 / span 7
-  padding 3rem 0
+  padding var(--spacing-8) 0
+
+  &__top__note,
+  &__bottom__note
+    color var(--white-700)
+    text-align center
+
+  &__top__note
+    margin-top var(--spacing-10)
+
   &__item
-    padding-top 1.875rem
-    padding-bottom 1.875rem
+    padding-top var(--spacing-7)
+    padding-bottom var(--spacing-7)
     display grid
     grid-auto-flow column
-    grid-template-columns 20% 15% auto
-    gap 2rem
+    grid-template-columns 25% auto
+    gap var(--spacing-3) var(--spacing-7)
     border-bottom 2px solid rgba(255, 255, 255, 0.1)
     &__date
       color var(--primary-600)
     &__title
       color var(--white)
-      transition color 0.1s ease-out
+    &:last-child
+      border-bottom none
 
-@media screen and (max-width: 1024px)
+@media $breakpoint-xsmall-only
+  .section-list
+    &__item
+      &__date
+        grid-column span 2
+      &__time,
+      &__title
+        grid-row 2
+
+@media $breakpoint-small
+  .section-list
+    &__item
+      grid-template-columns 20% 15% auto
+      gap var(--spacing-7)
+
+@media $breakpoint-medium
   .section-heading
-    margin-left 2rem
+    margin-left -1.5rem
 
-@media screen and (max-width: 600px)
-  .section-list__item
-    display block
-
-  .section-list__item__time
-    margin 0.5rem 0
+  .section-list
+    &__top__note,
+    &__bottom__note
+      text-align inherit
 </style>
