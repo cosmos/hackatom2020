@@ -30,7 +30,7 @@ export default {}
 
 <style lang="stylus" scoped>
 .title
-  color #E96C58
+  color var(--primary-600)
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
   position relative
   z-index 1

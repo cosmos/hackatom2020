@@ -60,7 +60,7 @@ export default {
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
   padding-bottom 3rem
   text-align start
-  color #E96C58
+  color var(--primary-600)
 
 .section-list
   &__item

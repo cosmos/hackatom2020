@@ -21,5 +21,5 @@ a[href]
   text-decoration initial
 
 .V
-  color #E96C58
+  color var(--primary-600)
 </style>

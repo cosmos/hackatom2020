@@ -76,7 +76,7 @@ export default {
 
 .section-title
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
-  color #E96C58
+  color var(--primary-600)
   padding-bottom 3rem
   text-align start
   margin-top 3rem

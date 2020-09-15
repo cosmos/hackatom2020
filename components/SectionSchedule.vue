@@ -104,7 +104,7 @@ export default {
     gap 2rem
     border-bottom 2px solid rgba(255, 255, 255, 0.1)
     &__date
-      color #E96C58
+      color var(--primary-600)
     &__title
       color var(--white)
       transition color 0.1s ease-out

@@ -27,7 +27,7 @@
 <style lang="stylus" scoped>
 /deep/
   code
-    color #E96C58
+    color var(--primary-600)
 
 a
   &:hover .right__icon

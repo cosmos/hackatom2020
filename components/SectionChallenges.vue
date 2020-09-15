@@ -105,11 +105,11 @@
     color var(--white-700)
 
   &__title
-    color #E96C58
+    color var(--primary-600)
     text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
 
   &__text
-    color #E96C58
+    color var(--primary-600)
     text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
 
 .container
@@ -154,7 +154,7 @@
       color var(--white-700)
 
     &__title
-      color #E96C58
+      color var(--primary-600)
 
 @media screen and (max-width: 1180px)
   .container
