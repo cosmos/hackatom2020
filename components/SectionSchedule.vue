@@ -24,6 +24,13 @@
                 {{ moment(item.date).format('ddd, MMM D') }}
               </div>
               <div
+                v-if="item.time === 'TBC'"
+                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title"
+              >
+                {{ item.time }}
+              </div>
+              <div
+                v-else
                 class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title"
               >
                 {{ toTimezone(item.date, item.time) }}
