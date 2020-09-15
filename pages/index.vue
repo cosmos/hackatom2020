@@ -40,7 +40,6 @@ main
   padding-bottom (900/1440) * 100%
   margin 0 auto -6rem
 
-
 .intro-bg
   background-image url('/bg/faketoshi.jpg')
   background-position top center
@@ -57,8 +56,8 @@ main
 
 .section
   position relative
-  padding-top var(--spacing-10)
-  padding-bottom var(--spacing-10)
+  padding-top var(--spacing-9)
+  padding-bottom var(--spacing-9)
   margin 0 auto
 
 @media $breakpoint-medium

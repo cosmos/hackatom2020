@@ -1,12 +1,14 @@
 <template lang="pug">
   .section
-    .section-heading
-      span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judging criteria
-    .container
-      .item(v-for="item in this.criterias")
-        component(:is="`icon-${item.icon}`").item__icon
-        .item__title.tm-rf2.tm-bold.tm-lh-copy {{ item.title }}
-        .item__text.tm-rf0.tm-lh-copy {{ item.text }}
+    .tm-section-container
+      .container
+        .section-heading
+          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judging criteria
+        .grid
+          .item(v-for="item in this.criterias")
+            component(:is="`icon-${item.icon}`").item__icon
+            .item__title.tm-rf1.tm-bold.tm-lh-copy {{ item.title }}
+            .item__text.tm-rf0.tm-lh-copy.tm-measure-narrow {{ item.text }}
 </template>
 
 <script>
@@ -48,53 +50,53 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.container
+  max-width $max-width-9
+  margin 0 auto
+
 .section-heading
-  padding 0.5625rem 1rem
-  background-color #2E2D2D
-  box-shadow -10px 6px 0px #4D4D4D
+  padding var(--spacing-3) 1.5rem
+  background-color var(--dark-gray)
   width fit-content
-  height 2.8125rem
-  transform skew(-20deg)
-  margin-bottom 3rem
-  color var(--white)
+  transform skew(-30deg)
+  box-shadow -0.5rem 0.5rem 0 var(--gray)
+  margin-bottom var(--spacing-8)
+  margin-left auto
+  margin-right auto
+
   &__title
     display block
-    transform skew(20deg)
+    transform skew(30deg)
 
-.container
-  margin-top 6rem
+.grid
+  margin-top var(--spacing-10)
   display grid
-  grid-template-columns repeat(3, 1fr)
-  gap 2rem
-  margin-left 3rem
-  margin-right 3rem
-
-.title
-  margin-top 1.875rem
-  color #161931
-  margin 6rem 3rem 0
+  place-content center
+  grid-template-columns 1
+  gap var(--spacing-7)
 
 .item
+  margin-bottom var(--spacing-9)
+
   &__icon
-    width 1.75rem
-    height 1.75rem
+    width 2rem
+    height 2rem
 
   &__title
-    margin-top 1.5rem
+    margin-top var(--spacing-6)
     color var(--white)
 
   &__text
-    margin-top 1rem
+    margin-top var(--spacing-5)
     color var(--white-700)
 
-@media screen and (max-width: 1024px)
+@media $breakpoint-medium
   .section-heading
-    margin-left 2rem
+    margin-left -1.5rem
 
-@media screen and (max-width: 800px)
-  .container
-    display block
+  .grid
+    grid-template-columns repeat(3, 1fr)
 
   .item
-    margin-bottom 2rem
+    margin-bottom 0
 </style>
