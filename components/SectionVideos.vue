@@ -76,6 +76,7 @@ export default {
 
   &__item
     color inherit
+    hover-raise()
 
     &:active
       opacity 0.7
