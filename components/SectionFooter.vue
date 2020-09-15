@@ -21,13 +21,13 @@
             >Chat</a
           >
         </div>
-        <div class="blockquote tm-rf-1 tm-rf0-m-up tm-lh-copy">
+        <div class="blockquote tm-rf-1 tm-rf0-xl-up tm-lh-copy">
           *$50K USD valued in ATOMs. The spot price of ATOM will be taken on the
           last day of the hackathon, on Oct 30th, where the day’s ‘High’ value
           will be used.
         </div>
         <div class="divider"></div>
-        <div class="smallprint tm-rf-1 tm-rf0-m-up tm-lh-copy">
+        <div class="smallprint tm-rf-1 tm-rf0-xl-up tm-lh-copy">
           This website is maintained by Tendermint Inc. The contents and
           opinions of this website are those of Tendermint Inc.
         </div>

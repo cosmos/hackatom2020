@@ -62,8 +62,18 @@ export default {
           title: 'Deadline for submission',
         },
         {
+          date: '2020-11-02',
+          time: 'TBC',
+          title: 'Voting begins for Community Choice Award',
+        },
+        {
+          date: '2020-11-06',
+          time: 'TBC',
+          title: 'Voting ends for Community Choice Award',
+        },
+        {
           date: '2020-11-09',
-          time: '19:00',
+          time: '20:00',
           title: 'Winners announced',
         },
       ],
