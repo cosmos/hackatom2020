@@ -49,8 +49,6 @@ export default {}
 
 .section-container
   position relative
-  max-width $max-width-11
-  margin 0 auto
   .container
     display grid
     grid-template-columns repeat(12, 1fr)

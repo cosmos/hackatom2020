@@ -1,6 +1,9 @@
 <template>
   <div class="section section-intro">
-    <div class="tm-section-container grid-container">
+    <div class="graphics">
+      <img src="/bg/wild-west.jpg" />
+    </div>
+    <div class="tm-section-container">
       <div class="text">
         <div class="title tm-rf4 tm-bold tm-lh-title">
           Attention all Cosmonauts
@@ -17,9 +20,6 @@
           </p>
         </div>
       </div>
-      <div class="graphics">
-        <img src="/bg/wild-west.jpg" />
-      </div>
     </div>
   </div>
 </template>
@@ -32,31 +32,26 @@ export default {}
 .title
   color var(--primary-600)
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
-  position relative
-  z-index 1
 
 .statement
-  margin-top 2rem
+  margin-top var(--spacing-7)
   color var(--white-700)
-  position relative
-  z-index 1
 
 .graphics
-  position absolute
-  z-index 0
-  right -21.5%
-  top 10%
-  width 80%
+  margin-bottom -3rem
+  text-align right
+  img
+    max-height 33.75rem
 
 .text
-  max-width 39.375rem
-  margin-top 18rem
+  max-width $max-width-9
+  margin 0 auto
 
-@media screen and (max-width: 600px)
-  .section-intro
-    overflow-x hidden
-
+@media $breakpoint-large
   .graphics
-    top 0%
-    width auto
+    margin-bottom -8rem
+
+@media $breakpoint-xxxl
+  .graphics
+    margin-bottom -16rem
 </style>

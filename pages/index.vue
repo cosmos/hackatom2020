@@ -29,71 +29,43 @@ export default {}
 
 <style lang="stylus" scoped>
 main
-  overflow-x hidden
+  max-width $max-width-11
+  margin 0 auto
+
+.intro-bg,
+.judges-bg,
+.hacker-resources-bg
+  background-repeat no-repeat
+  background-size cover
+  padding-bottom (900/1440) * 100%
+  margin 0 auto -6rem
+
 
 .intro-bg
   background-image url('/bg/faketoshi.jpg')
   background-position top center
-  background-repeat no-repeat
-  background-size contain
-  min-height 33.75rem
-  position relative
-  margin-bottom -12rem
-  max-width 92.5rem
+  + .section
+    padding-top 0
 
 .judges-bg
   background-image url('/bg/faketoshi-ripple.jpg')
-  background-position center bottom
-  background-repeat no-repeat
-  background-size contain
-  min-height 33.75rem
-  position relative
-  margin-bottom -13rem
-  max-width 92.5rem
+  background-position bottom center
 
 .hacker-resources-bg
-  background-image url('/bg/bitcoin-fork.jpg'), linear-gradient(180deg, #0D0D0D 10.94%, rgba(13, 13, 13, 0.39) 25.47%, rgba(13, 13, 13, 0) 42.34%), linear-gradient(90deg, #0D0D0D 0.03%, rgba(13, 13, 13, 0) 20.85%, rgba(13, 13, 13, 0) 80.19%, #0D0D0D 99.97%)
-  background-position center center
-  background-repeat no-repeat
-  background-size contain
-  min-height 33.75rem
-  position relative
-  margin-bottom -13rem
-  max-width 92.5rem
+  background-image url('/bg/bitcoin-fork.jpg')
+  background-position top center
 
 .section
   position relative
-  padding-top 6rem
-  padding-bottom 6rem
-  max-width var(--container-mw)
+  padding-top var(--spacing-10)
+  padding-bottom var(--spacing-10)
   margin 0 auto
 
-@media screen and (min-width: 1920px)
-  .section
-    padding-top 8rem
-    padding-bottom 8rem
-
-@media screen and (max-width: 1279px)
-  .section
-    padding-top 6rem
-    padding-bottom 6rem
-
-@media screen and (max-width: 1024px)
-  .section
-    padding-top 4rem
-    padding-bottom 4rem
-
-@media screen and (max-width: 767px)
-  .section-container
-    padding-top 1.5rem
-
-  .intro-bg, .judges-bg
-    min-height 12.75rem
-
-  .judges-bg
-    margin-bottom -9rem
-
+@media $breakpoint-medium
+  .intro-bg,
+  .judges-bg,
   .hacker-resources-bg
-    min-height 20.75rem
-    margin-bottom -14rem
+    padding-bottom (450/1440) * 100%
+    background-size contain
+    margin-bottom -9rem
 </style>

@@ -6,7 +6,7 @@
           <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
             Launch time (UTC)
           </div>
-          <div class="content tm-rf1 tm-bold tm-lh-copy tm-code">
+          <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
             7 PM Oct 16 – 7 PM Oct 30
           </div>
         </div>
@@ -14,7 +14,7 @@
           <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
             T-MINUS
           </div>
-          <div class="content tm-rf1 tm-bold tm-lh-copy tm-code">
+          <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
             <tm-countdown :now="countdown.now" :end="countdown.end" />
           </div>
         </div>
@@ -22,7 +22,7 @@
           <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
             Launch site
           </div>
-          <div class="content tm-rf1 tm-bold tm-lh-copy tm-code">
+          <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
             <span class="V">V</span>irtual
           </div>
         </div>
@@ -58,6 +58,7 @@ export default {
 .grid-container
   display grid
   place-content center
+  text-align center
   grid-template-columns auto
   gap var(--spacing-9) var(--spacing-7)
   max-width $max-width-9
@@ -69,8 +70,9 @@ export default {
 .tm-code
   margin-top var(--spacing-1)
 
-@media $breakpoint-large
+@media $breakpoint-medium
   .grid-container
+    text-align left
     grid-template-columns repeat(12, 1fr)
 
     .time

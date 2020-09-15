@@ -39,7 +39,8 @@ $breakpoints = {
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px
+  xxl: 1400px,
+  xxxl: 1900px
 }
 
 /* Media Queries */
@@ -53,3 +54,4 @@ $breakpoint-large-only = "screen and (min-width: %s) and (max-width: %s)" % ($br
 $breakpoint-xl = "screen and (min-width: %s)" % $breakpoints[xl]
 $breakpoint-xl-only = "screen and (min-width: %s) and (max-width: %s)" % ($breakpoints[xl] ($breakpoints[xxl] - .02))
 $breakpoint-xxl = "screen and (min-width: %s)" % $breakpoints[xxl]
+$breakpoint-xxxl = "screen and (min-width: %s)" % $breakpoints[xxxl]
