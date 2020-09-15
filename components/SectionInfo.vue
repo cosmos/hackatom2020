@@ -1,29 +1,31 @@
 <template>
   <div>
-    <div class="grid-container">
-      <div class="time">
-        <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
-          Launch time (UTC)
+    <div class="tm-section-container">
+      <div class="grid-container">
+        <div class="time">
+          <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+            Launch time (UTC)
+          </div>
+          <div class="content tm-rf1 tm-bold tm-lh-copy tm-code">
+            7 PM Oct 16 – 7 PM Oct 30
+          </div>
         </div>
-        <code class="content tm-rf1 tm-bold tm-lh-copy"
-          >7 PM Oct 16 – 7 PM Oct 30</code
-        >
-      </div>
-      <div class="countdown">
-        <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
-          T-MINUS
+        <div class="countdown">
+          <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+            T-MINUS
+          </div>
+          <div class="content tm-rf1 tm-bold tm-lh-copy tm-code">
+            <tm-countdown :now="countdown.now" :end="countdown.end" />
+          </div>
         </div>
-        <code class="content tm-rf1 tm-bold tm-lh-copy"
-          ><tm-countdown :now="countdown.now" :end="countdown.end"
-        /></code>
-      </div>
-      <div class="site">
-        <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
-          Launch site
+        <div class="site">
+          <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+            Launch site
+          </div>
+          <div class="content tm-rf1 tm-bold tm-lh-copy tm-code">
+            <span class="V">V</span>irtual
+          </div>
         </div>
-        <code class="content tm-rf1 tm-bold tm-lh-copy"
-          ><span class="V">V</span>irtual</code
-        >
       </div>
     </div>
   </div>
@@ -55,17 +57,28 @@ export default {
 <style lang="stylus" scoped>
 .grid-container
   display grid
-  grid-template-columns repeat(3, 1fr)
-  gap 2rem
-  padding 0 1rem
-  max-width var(--container-mw)
+  place-content center
+  grid-template-columns auto
+  gap var(--spacing-9) var(--spacing-7)
+  max-width $max-width-9
   margin 0 auto
 
 .overline
   color var(--white-700)
 
-@media screen and (max-width: 968px)
+.tm-code
+  margin-top var(--spacing-1)
+
+@media $breakpoint-large
   .grid-container
-    place-content center
-    grid-template-columns auto
+    grid-template-columns repeat(12, 1fr)
+
+    .time
+      grid-column 1 / span 5
+
+    .countdown
+      grid-column 6 / span 4
+
+    .site
+      grid-column 10 / span 3
 </style>
