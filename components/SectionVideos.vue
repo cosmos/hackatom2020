@@ -1,12 +1,13 @@
 <template lang="pug">
   div.section
-    .section-title.tm-rf2.tm-bold.tm-lh-title.tm-section-container Tutorial & Workshop Videos
-    .stack
-      a.stack__item(:href="item.url" target="_blank" rel="noreferrer noopener" v-for="item in this.videos")
-        img(:src="item.imgSrc" alt="Image").stack__item__image
-        .stack__item__text
-          .stack__item__h1.tm-rf-2.tm-bold.tm-lh-copy {{item.title}}
-          .stack__item__p.tm-rf-2.tm-lh-copy {{item.duration}}
+    .tm-section-container
+      .section-title.tm-rf2.tm-bold.tm-lh-title Tutorial &amp; Workshop Videos
+      .stack
+        a.stack__item(:href="item.url" target="_blank" rel="noreferrer noopener" v-for="item in this.videos")
+          img(:src="item.imgSrc" alt="Image").stack__item__image
+          .stack__item__text
+            .stack__item__h1.tm-rf0.tm-bold.tm-lh-title {{item.title}}
+            .stack__item__p.tm-rf-1.tm-lh-title {{item.duration}}
 </template>
 
 <script>
@@ -61,14 +62,17 @@ export default {
 .section-title
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
   color var(--primary-600)
-  padding-bottom 3rem
+  padding-bottom var(--spacing-8)
   text-align start
+  margin 0 auto
+  max-width $max-width-8
 
 .stack
   display grid
-  gap 1.5rem
-  grid-template-columns repeat(3, 1fr)
-  margin-bottom 4rem
+  gap var(--spacing-8) var(--spacing-7)
+  grid-template-columns 1
+  margin 0 auto
+  max-width $max-width-9
 
   &__item
     color inherit
@@ -80,28 +84,21 @@ export default {
     &__image
       width 100%
       object-fit cover
+      border-radius .375rem
 
     &__h1
-      margin-top 0.5rem
-      margin-bottom 0.25rem
+      margin-top var(--spacing-3)
+      margin-bottom var(--spacing-1)
       color var(--white)
 
     &__p
       color var(--white-700)
 
-    &__text
-      text-align left
-
-@media screen and (max-width: 1240px)
-  .stack
-    padding-left var(--spacing-7)
-    padding-right var(--spacing-7)
-
-@media screen and (max-width: 900px)
+@media $breakpoint-small
   .stack
     grid-template-columns repeat(2, 1fr)
 
-@media screen and (max-width: 600px)
+@media $breakpoint-medium
   .stack
-    grid-template-columns repeat(1, 1fr)
+    grid-template-columns repeat(3, 1fr)
 </style>

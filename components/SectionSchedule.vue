@@ -5,7 +5,7 @@
         <div class="section-heading">
           <span
             class="section-heading__title tm-rf1 tm-medium tm-lh-title tm-overline"
-            >schedule</span
+            >Schedule</span
           >
         </div>
         <div class="section-schedule">
@@ -127,7 +127,7 @@ export default {
     grid-auto-flow column
     grid-template-columns 25% auto
     gap var(--spacing-3) var(--spacing-7)
-    border-bottom 2px solid rgba(255, 255, 255, 0.1)
+    border-bottom 2px solid var(--white-100)
     &__date
       color var(--primary-600)
     &__title

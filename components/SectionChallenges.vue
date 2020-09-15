@@ -3,7 +3,7 @@
     .tm-section-container
       .container
         .section-heading
-          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline prizes
+          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Prizes
         .prizes-grid
           .prize-pool
             .top

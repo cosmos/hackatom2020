@@ -3,7 +3,7 @@
     .tm-section-container
       .container
         .section-heading
-          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judging criteria
+          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judging Criteria
         .grid
           .item(v-for="item in this.criterias")
             component(:is="`icon-${item.icon}`").item__icon

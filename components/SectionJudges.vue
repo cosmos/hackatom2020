@@ -3,7 +3,7 @@
     .tm-section-container
       .container
         .section-heading
-          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline judges
+          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges
         .grid
           .item(v-for="item in this.judgesList")
             img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`").item__avatar

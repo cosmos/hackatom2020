@@ -39,12 +39,12 @@ main
   background-size cover
   padding-bottom (900/1440) * 100%
   margin 0 auto -6rem
+  + .section
+    padding-top 0
 
 .intro-bg
   background-image url('/bg/faketoshi.jpg')
   background-position top center
-  + .section
-    padding-top 0
 
 .judges-bg
   background-image url('/bg/faketoshi-ripple.jpg')
