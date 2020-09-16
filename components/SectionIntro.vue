@@ -39,7 +39,7 @@
         buttonClose: true,
         fullscreen: true,
         width: '900px',
-        backgroundColor: 'rgba(0,0,0,.8)',
+        backgroundColor: 'rgba(13, 13, 13, 0.8)',
       }"
       @visible="video = $event"
     >
@@ -61,7 +61,7 @@
 export default {
   data() {
     return {
-      video: true,
+      video: null,
     }
   },
   methods: {
@@ -116,8 +116,4 @@ export default {
 @media $breakpoint-xxxl
   .graphics
     margin-top -18rem
-
-// @media screen and (max-width: 900px)
-//   .modal__content iframe
-//     max-height 75vh
 </style>
