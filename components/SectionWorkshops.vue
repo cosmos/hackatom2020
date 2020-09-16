@@ -106,7 +106,7 @@ export default {
   box-shadow 0px 0px 1px rgba(0, 0, 0, 0.07), 0px 8px 16px rgba(0, 0, 0, 0.05), 0px 20px 44px rgba(0, 3, 66, 0.12)
   border-radius 0.75rem
   padding 2rem
-  height 100%
+  height 15.75rem
   display flex
   flex-direction column
   justify-content space-between
@@ -117,7 +117,7 @@ export default {
 
 .section-graphics
   position relative
-  margin-top -3rem
+  margin-top -2rem
   margin-right -1.5rem
   text-align right
   z-index -1
@@ -131,12 +131,4 @@ export default {
 @media $breakpoint-medium
   .stack
     grid-template-columns repeat(3, 1fr)
-
-@media $breakpoint-large
-  .section-graphics
-    margin-top -6rem
-
-@media $breakpoint-xxxl
-  .section-graphics
-    margin-top -10rem
 </style>
