@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <kinesis-element :strength="30" minY="0" maxY="0" class="graphics">
+    <kinesis-element :strength="30" min-y="0" max-y="0" class="graphics">
       <img src="/bg/wild-west.jpg" />
     </kinesis-element>
   </div>
