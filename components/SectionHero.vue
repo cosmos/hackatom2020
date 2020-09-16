@@ -160,6 +160,7 @@ export default {}
   &__subtitle
     margin-bottom var(--spacing-8)
     color var(--white)
+    text-shadow $text-shadow
 
 @media $breakpoint-xsmall-only
   .section-hero
