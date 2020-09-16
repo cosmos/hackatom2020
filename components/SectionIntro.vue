@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <kinesis-element :strength="30" min-y="0" max-y="0" class="graphics">
+    <kinesis-element :strength="30" :min-y="0" :max-y="0" class="graphics">
       <img src="/bg/wild-west.jpg" />
     </kinesis-element>
     <tm-modal
@@ -66,6 +66,12 @@ export default {
   },
   methods: {
     videoPlay(bool) {
+      this.$gtag('event', 'conversion', {
+        send_to: 'AW-585698793/eWY2COH0-94BEOmbpJcC',
+        event: 'event',
+        label: "HackAtom V: Interoperate C'mon!",
+        value: true,
+      })
       this.video = bool
     },
   },
@@ -73,6 +79,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.icon__left
+  color var(--primary-600)
+
 .modal__content
   background rgba(13, 13, 13, 0.8)
   width 100%

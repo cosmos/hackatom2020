@@ -134,7 +134,8 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    { src: '~/plugins/ga.client.js' },
+    // ga backup: use @nuxtjs/google-gtag instead
+    // { src: '~/plugins/ga.client.js' },
     { src: '~/plugins/vue-kinesis.client.js' },
   ],
   /*
@@ -165,7 +166,29 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  // https://github.com/nuxt-community/google-gtag
+  modules: ['@nuxtjs/google-gtag'],
+  'google-gtag': {
+    id: 'UA-51029217-19',
+    config: {
+      anonymize_ip: true, // anonymize IP
+      send_page_view: false, // might be necessary to avoid duplicated page track on page reload
+      // linker: {
+      //   domains: ['five.hackatom.org'],
+      // },
+    },
+    debug: true, // enable to track in dev mode
+    disableAutoPageTrack: false, // disable if you don't want to track each page route with router.afterEach(...).
+    // https://support.google.com/google-ads/answer/6095821
+    additionalAccounts: [
+      {
+        id: 'AW-585698793', // required if you are adding additional accounts
+        config: {
+          send_page_view: false, // optional configurations
+        },
+      },
+    ],
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
