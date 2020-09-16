@@ -22,7 +22,7 @@ export default {
           company: 'Interchain Foundation',
         },
         {
-          name: 'Aurel Lancu',
+          name: 'Aurel Iancu',
           company: 'Dokia Capital',
         },
         {
@@ -30,7 +30,7 @@ export default {
           company: 'Paradigm',
         },
         {
-          name: 'Erik Vorhees',
+          name: 'Erik Voorhees',
           company: 'Shapeshift',
         },
         {
@@ -45,6 +45,10 @@ export default {
           name: 'Brent Xu',
           company: 'Tendermint',
         },
+        {
+          name: 'Aidan Hyman',
+          company: 'Chainsafe',
+        },
       ],
     }
   },
@@ -52,6 +56,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section
+  padding-top 0
+
 .container
   max-width $max-width-9
   margin 0 auto

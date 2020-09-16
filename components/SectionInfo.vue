@@ -62,7 +62,7 @@ export default {
   grid-template-columns auto
   gap var(--spacing-9) var(--spacing-7)
   max-width $max-width-9
-  margin 0 auto
+  margin 0 auto var(--spacing-9)
 
 .overline
   color var(--white-700)

@@ -1,25 +1,33 @@
 <template>
-  <main>
+  <main class="page-container">
     <section-hero />
-    <section-info />
-    <section-intro />
+    <kinesis-container class="mw11" :perspective="0">
+      <section-info />
+      <section-intro />
 
-    <div class="intro-bg" />
+      <kinesis-element :strength="20" :min-y="0" :max-y="0">
+        <div class="intro-bg bg" />
+      </kinesis-element>
 
-    <section-challenges />
-    <section-criteria />
+      <section-challenges />
+      <section-criteria />
 
-    <div class="judges-bg" />
+      <kinesis-element :strength="20" :min-y="0" :max-y="0">
+        <div class="judges-bg bg" />
+      </kinesis-element>
 
-    <section-judges />
-    <section-schedule />
+      <section-judges />
+      <section-schedule />
 
-    <div class="hacker-resources-bg" />
+      <kinesis-element :strength="20" :min-y="0" :max-y="0">
+        <div class="hacker-resources-bg bg" />
+      </kinesis-element>
 
-    <section-resources />
-    <section-videos />
-    <section-tutorials />
-    <section-banner />
+      <section-resources />
+      <section-workshops />
+      <!-- <section-tutorials /> -->
+      <section-banner />
+    </kinesis-container>
   </main>
 </template>
 
@@ -28,19 +36,24 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
-main
-  max-width $max-width-11
-  margin 0 auto
 
-.intro-bg,
-.judges-bg,
-.hacker-resources-bg
+.page-container
+  overflow hidden
+
+.mw11
+  max-width $max-width-11
+  center()
+
+.section
+  position relative
+  padding-top var(--spacing-9)
+  padding-bottom var(--spacing-9)
+
+.bg
   background-repeat no-repeat
   background-size cover
   padding-bottom (900/1440) * 100%
-  margin 0 auto -6rem
-  + .section
-    padding-top 0
+  margin-bottom -6rem
 
 .intro-bg
   background-image url('/bg/faketoshi.jpg')
@@ -54,16 +67,8 @@ main
   background-image url('/bg/bitcoin-fork.jpg')
   background-position top center
 
-.section
-  position relative
-  padding-top var(--spacing-9)
-  padding-bottom var(--spacing-9)
-  margin 0 auto
-
 @media $breakpoint-medium
-  .intro-bg,
-  .judges-bg,
-  .hacker-resources-bg
+  .bg
     padding-bottom (450/1440) * 100%
     background-size contain
     margin-bottom -9rem

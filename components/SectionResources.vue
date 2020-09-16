@@ -14,7 +14,7 @@
           </div>
           <div class="section-list">
             <a
-              v-for="item in updates"
+              v-for="item in resourcesList"
               :key="item.title"
               :href="item.url"
               target="_blank"
@@ -44,31 +44,41 @@
 export default {
   data() {
     return {
-      updates: [
+      resourcesList: [
+        {
+          url: 'https://tutorials.cosmos.network',
+          type: 'Tutorials',
+          title: 'Cosmos Tutorials',
+        },
+        {
+          url: 'https://docs.cosmos.network/master/core/',
+          type: 'Docs',
+          title: 'Cosmos SDK -> Core Concepts',
+        },
         {
           url: 'https://docs.cosmos.network',
           type: 'Docs',
-          title: 'Cosmos SDK Documentation',
+          title: 'Cosmos SDK -> Getting Started',
         },
         {
-          url: 'https://hub.cosmos.network/master/hub-overview/overview.html',
+          url: 'https://docs.cosmos.network/master/building-modules/intro.html',
           type: 'Docs',
-          title: 'Cosmos Hub Overview',
+          title: 'Cosmos SDK -> Building Modules',
+        },
+        {
+          url: 'https://docs.cosmwasm.com/getting-started/intro.html',
+          type: 'Docs',
+          title: 'Cosmwasm Docs',
         },
         {
           url: 'https://docs.ethermint.zone',
           type: 'Docs',
-          title: 'Ethermint Documentation',
-        },
-        {
-          url: 'https://github.com/cosmos/ics/tree/master/ibc',
-          type: 'Docs',
-          title: 'IBC (Inter-Blockchain Communication) Protocol',
+          title: 'Ethermint',
         },
         {
           url: 'https://cosmos.network/tools',
-          type: 'Tools',
-          title: 'Tools for Smart Contracts and more',
+          type: 'Docs',
+          title: 'More Cosmos Tools',
         },
       ],
     }
@@ -77,6 +87,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section
+  padding-top 0
+
 .container
   max-width $max-width-9
   margin 0 auto
