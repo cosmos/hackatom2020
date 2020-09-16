@@ -106,12 +106,14 @@ export default {}
       height auto
       max-height 26rem
       width 100%
+
   .section-container
     display flex
     align-items stretch
     width 100%
     padding-top var(--spacing-8)
     padding-bottom var(--spacing-8)
+
   .container
     position relative
     display flex
@@ -165,7 +167,7 @@ export default {}
 @media $breakpoint-xsmall-only
   .section-hero
     min-height 32rem
-    max-height 42rem
+    max-height 38rem
     .section-container
       background-image linear-gradient(to bottom, rgba(28, 7, 1, 0.90) 0%, rgba(80, 25, 13, 0) 30%)
       padding-top var(--spacing-4)
