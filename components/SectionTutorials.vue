@@ -31,8 +31,8 @@
     </div>
     <kinesis-element
       :strength="30"
-      min-y="0"
-      max-y="0"
+      :min-y="0"
+      :max-y="0"
       class="section-graphics"
     >
       <img src="/bg/vitalik-tron.jpg" />

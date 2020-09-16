@@ -5,27 +5,27 @@
       <section-info />
       <section-intro />
 
-      <kinesis-element :strength="20" min-y="0" max-y="0">
+      <kinesis-element :strength="20" :min-y="0" :max-y="0">
         <div class="intro-bg bg" />
       </kinesis-element>
 
       <section-challenges />
       <section-criteria />
 
-      <kinesis-element :strength="20" min-y="0" max-y="0">
+      <kinesis-element :strength="20" :min-y="0" :max-y="0">
         <div class="judges-bg bg" />
       </kinesis-element>
 
       <section-judges />
       <section-schedule />
 
-      <kinesis-element :strength="20" min-y="0" max-y="0">
+      <kinesis-element :strength="20" :min-y="0" :max-y="0">
         <div class="hacker-resources-bg bg" />
       </kinesis-element>
 
       <section-resources />
-      <section-videos />
-      <section-tutorials />
+      <section-workshops />
+      <!-- <section-tutorials /> -->
       <section-banner />
     </kinesis-container>
   </main>
