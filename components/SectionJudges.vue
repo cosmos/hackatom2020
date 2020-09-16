@@ -22,7 +22,7 @@ export default {
           company: 'Interchain Foundation',
         },
         {
-          name: 'Aurel Lancu',
+          name: 'Aurel Iancu',
           company: 'Dokia Capital',
         },
         {
