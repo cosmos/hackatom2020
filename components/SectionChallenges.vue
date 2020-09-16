@@ -67,7 +67,7 @@
                 .prize__item__title.tm-rf0.tm-lh-title $3,000
               .prize__item
                 .prize__item__heading.tm-rf-1.tm-medium.tm-lh-title.tm-overline 3rd
-                .prize__item__title.tm-rf0.tm-lh-title $2,000
+                .prize__item__title.tm-rf0.tm-lh-title $1,500
           .item
             img(:src="`/logos/trophy.svg`" alt="Trophy").item__image
             .item__title.tm-rf2.tm-bold.tm-lh-title Community Choice Award
