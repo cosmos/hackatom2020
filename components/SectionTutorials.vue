@@ -29,9 +29,9 @@
         </div>
       </div>
     </div>
-    <div class="section-graphics">
+    <kinesis-element :strength="20" class="section-graphics">
       <img src="/bg/vitalik-tron.jpg" />
-    </div>
+    </kinesis-element>
   </div>
 </template>
 

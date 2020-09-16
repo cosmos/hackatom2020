@@ -1,8 +1,8 @@
 <template>
   <div class="section section-intro">
-    <div class="graphics">
+    <kinesis-element :strength="20" class="graphics">
       <img src="/bg/wild-west.jpg" />
-    </div>
+    </kinesis-element>
     <div class="tm-section-container">
       <div class="text">
         <div class="title tm-rf4 tm-bold tm-lh-title">
@@ -29,6 +29,12 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
+.section-intro
+  overflow hidden
+
+.tm-section-container
+  position relative
+
 .title
   color var(--primary-600)
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
@@ -38,6 +44,7 @@ export default {}
   color var(--white-700)
 
 .graphics
+  margin-right -1.5rem
   margin-bottom -3rem
   text-align right
   img
