@@ -135,11 +135,8 @@ export default {
    */
   plugins: [
     { src: '~/plugins/ga.client.js' },
-    { src: '~/plugins/vue-kinesis.js', mode: 'client' },
+    { src: '~/plugins/vue-kinesis.client.js' },
   ],
-  env: {
-    GITHUB_PERSONAL_TOKEN: process.env.GITHUB_PERSONAL_TOKEN,
-  },
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
