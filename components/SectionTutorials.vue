@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <kinesis-element :strength="20" minY="0" maxY="0" class="section-graphics">
+    <kinesis-element :strength="30" minY="0" maxY="0" class="section-graphics">
       <img src="/bg/vitalik-tron.jpg" />
     </kinesis-element>
   </div>
@@ -105,6 +105,7 @@ export default {
 .section-graphics
   position relative
   margin-top -3rem
+  margin-right -1.5rem
   text-align right
   z-index -1
   img

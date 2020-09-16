@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <kinesis-element :strength="20" minY="0" maxY="0" class="graphics">
+    <kinesis-element :strength="30" minY="0" maxY="0" class="graphics">
       <img src="/bg/wild-west.jpg" />
     </kinesis-element>
   </div>
@@ -52,6 +52,7 @@ export default {}
   text-shadow $text-shadow
 
 .graphics
+  position relative
   z-index -1
   margin-right -1.5rem
   margin-top -3rem
