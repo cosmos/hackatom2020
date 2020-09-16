@@ -43,12 +43,12 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stargate.cosmos.network',
+        content: 'https://five.hackatom.org',
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stargate.cosmos.network/og-image.jpg',
+        content: 'https://five.hackatom.org/og-image.jpg',
       },
       // Twitter Card
       {
@@ -70,7 +70,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stargate.cosmos.network/og-image.jpg',
+        content: 'https://five.hackatom.org/og-image.jpg',
       },
       {
         hid: 'twitter:image:alt',
