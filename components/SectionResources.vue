@@ -46,6 +46,11 @@ export default {
     return {
       resourcesList: [
         {
+          url: 'https://tutorials.cosmos.network',
+          type: 'Tutorials',
+          title: 'Cosmos Tutorials',
+        },
+        {
           url: 'https://docs.cosmos.network/master/core/',
           type: 'Docs',
           title: 'Cosmos SDK -> Core Concepts',
@@ -68,22 +73,12 @@ export default {
         {
           url: 'https://docs.ethermint.zone',
           type: 'Docs',
-          title: 'Ethermint Documentation',
+          title: 'Ethermint',
         },
         {
           url: 'https://cosmos.network/tools',
           type: 'Docs',
           title: 'More Cosmos Tools',
-        },
-        {
-          url: 'https://tutorials.cosmos.network',
-          type: 'Tutorials',
-          title: 'Cosmos Tutorials',
-        },
-        {
-          url: 'https://docs.cosmwasm.com/getting-started/intro.html',
-          type: 'Guide',
-          title: 'Getting started with Cosmwasm',
         },
       ],
     }
