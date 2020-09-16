@@ -1,7 +1,7 @@
 <template>
   <main class="page-container">
     <section-hero />
-    <kinesis-container class="mw11">
+    <kinesis-container class="mw11" :perspective="0">
       <section-info />
       <section-intro />
 

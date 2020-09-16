@@ -16,7 +16,11 @@
             Ready? Set! Liftoff!
           </p>
           <p>
-            <tm-button href="#" size="l" color="var(--white)" variant="text"
+            <tm-button
+              size="l"
+              color="var(--white)"
+              variant="text"
+              @click.native="videoPlay(true)"
               ><span class="icon__left" aria-hidden="true">▶</span>Play
               video</tm-button
             >
@@ -27,14 +31,55 @@
     <kinesis-element :strength="30" min-y="0" max-y="0" class="graphics">
       <img src="/bg/wild-west.jpg" />
     </kinesis-element>
+    <tm-modal
+      v-if="!!video"
+      v-bind="{
+        visible: !!video,
+        side: 'center',
+        buttonClose: true,
+        fullscreen: true,
+        width: '900px',
+        backgroundColor: 'rgba(0,0,0,.8)',
+      }"
+      @visible="video = $event"
+    >
+      <div v-if="!!video" class="modal__content">
+        <iframe
+          width="100%"
+          height="510"
+          src="https://www.youtube.com/embed/OzrZwavS4_Q?autoplay=1&amp;controls=1&amp;rel=0&amp;modestbranding=1&amp;fs=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen="allowfullscreen"
+        ></iframe>
+      </div>
+    </tm-modal>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      video: true,
+    }
+  },
+  methods: {
+    videoPlay(bool) {
+      this.video = bool
+    },
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
+.modal__content
+  background rgba(13, 13, 13, 0.8)
+  width 100%
+  height 100%
+  display flex
+  align-items center
+
 .section-intro
   overflow hidden
 
@@ -71,4 +116,8 @@ export default {}
 @media $breakpoint-xxxl
   .graphics
     margin-top -18rem
+
+// @media screen and (max-width: 900px)
+//   .modal__content iframe
+//     max-height 75vh
 </style>
