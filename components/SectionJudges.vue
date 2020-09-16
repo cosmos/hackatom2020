@@ -30,7 +30,7 @@ export default {
           company: 'Paradigm',
         },
         {
-          name: 'Erik Vorhees',
+          name: 'Erik Voorhees',
           company: 'Shapeshift',
         },
         {
