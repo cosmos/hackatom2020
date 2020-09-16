@@ -6,7 +6,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g opacity="0.4">
+    <g>
       <mask
         id="mask0"
         mask-type="alpha"

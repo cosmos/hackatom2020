@@ -20,7 +20,8 @@
     "moment-timezone": "^0.5.31",
     "npm": "^6.14.7",
     "nuxt": "^2.13.0",
-    "rfs": "^9.0.3"
+    "rfs": "^9.0.3",
+    "vue-kinesis": "^1.1.5"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.0.1",

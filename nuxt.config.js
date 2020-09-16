@@ -133,7 +133,10 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/ga.client.js'],
+  plugins: [
+    { src: '~/plugins/ga.client.js' },
+    { src: '~/plugins/vue-kinesis.js', mode: 'client' },
+  ],
   env: {
     GITHUB_PERSONAL_TOKEN: process.env.GITHUB_PERSONAL_TOKEN,
   },
@@ -172,6 +175,7 @@ export default {
    */
   build: {
     // https://nuxtjs.org/faq/postcss-plugins/#recommended-method
+    transpile: ['vue-kinesis'],
     postcss: {
       plugins: {
         'postcss-font-variant': {},
