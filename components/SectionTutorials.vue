@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <kinesis-element :strength="20" class="section-graphics">
+    <kinesis-element :strength="20" minY="0" maxY="0" class="section-graphics">
       <img src="/bg/vitalik-tron.jpg" />
     </kinesis-element>
   </div>

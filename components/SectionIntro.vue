@@ -1,8 +1,5 @@
 <template>
   <div class="section section-intro">
-    <kinesis-element :strength="20" class="graphics">
-      <img src="/bg/wild-west.jpg" />
-    </kinesis-element>
     <div class="tm-section-container">
       <div class="text">
         <div class="title tm-rf4 tm-bold tm-lh-title">
@@ -18,9 +15,18 @@
           <p>
             Ready? Set! Liftoff!
           </p>
+          <p>
+            <tm-button href="#" size="l" color="var(--white)" variant="text"
+              ><span class="icon__left" aria-hidden="true">▶</span>Play
+              video</tm-button
+            >
+          </p>
         </div>
       </div>
     </div>
+    <kinesis-element :strength="20" minY="0" maxY="0" class="graphics">
+      <img src="/bg/wild-west.jpg" />
+    </kinesis-element>
   </div>
 </template>
 
@@ -34,6 +40,7 @@ export default {}
 
 .tm-section-container
   position relative
+  z-index 1
 
 .title
   color var(--primary-600)
@@ -42,10 +49,12 @@ export default {}
 .statement
   margin-top var(--spacing-7)
   color var(--white-700)
+  text-shadow $text-shadow
 
 .graphics
+  z-index -1
   margin-right -1.5rem
-  margin-bottom -3rem
+  margin-top -3rem
   text-align right
   img
     max-height 33.75rem
@@ -56,9 +65,9 @@ export default {}
 
 @media $breakpoint-large
   .graphics
-    margin-bottom -8rem
+    margin-top -10rem
 
 @media $breakpoint-xxxl
   .graphics
-    margin-bottom -16rem
+    margin-top -18rem
 </style>

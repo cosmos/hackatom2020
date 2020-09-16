@@ -5,21 +5,21 @@
       <section-info />
       <section-intro />
 
-      <kinesis-element :strength="20">
+      <kinesis-element :strength="20" minY="0" maxY="0">
         <div class="intro-bg bg" />
       </kinesis-element>
 
       <section-challenges />
       <section-criteria />
 
-      <kinesis-element :strength="20">
+      <kinesis-element :strength="20" minY="0" maxY="0">
         <div class="judges-bg bg" />
       </kinesis-element>
 
       <section-judges />
       <section-schedule />
 
-      <kinesis-element :strength="20">
+      <kinesis-element :strength="20" minY="0" maxY="0">
         <div class="hacker-resources-bg bg" />
       </kinesis-element>
 
@@ -51,8 +51,6 @@ export default {}
   background-size cover
   padding-bottom (900/1440) * 100%
   margin-bottom -6rem
-  + .section
-    padding-top 0
 
 .intro-bg
   background-image url('/bg/faketoshi.jpg')

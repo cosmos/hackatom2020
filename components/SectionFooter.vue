@@ -100,6 +100,7 @@ export default {}
 .blockquote
   margin var(--spacing-8) auto
   color var(--white-700)
+  text-shadow $text-shadow
 
 .smallprint
   color var(--dark-gray)

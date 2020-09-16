@@ -52,6 +52,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section
+  padding-top 0
+
 .container
   max-width $max-width-9
   margin 0 auto
