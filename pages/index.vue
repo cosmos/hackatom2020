@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="page-container">
     <section-hero />
     <kinesis-container class="mw11">
       <section-info />
@@ -36,6 +36,9 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
+
+.page-container
+  overflow hidden
 
 .mw11
   max-width $max-width-11
