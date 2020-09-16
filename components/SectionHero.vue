@@ -1,6 +1,6 @@
 <template>
   <div class="section-hero">
-    <big-v class="letter" />
+    <img src="/V.svg" class="letter" />
     <div class="tm-section-container section-container">
       <div class="container">
         <nav class="nav-primary">
