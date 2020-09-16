@@ -1,27 +1,24 @@
 # HackAtom 2020
 
-This is a website for HackAtom V.
+HackAtom V website
 
-## Prerequisites
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4bf14159-c6a8-406d-9833-1506eda730e4/deploy-status)](https://app.netlify.com/sites/0202motakcah/deploys)
 
-```sh
-# checkout
-git clone https://github.com/cosmos/hackatom2020.git
+## Build Setup
 
+```bash
 # install dependencies
-npm install
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
 ```
 
-## Development
-
-```sh
-npm run serve
-```
-
-## Production
-
-The following command will build the website and output it to `dist` directory.
-
-```sh
-npm run build
-```
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

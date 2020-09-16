@@ -1,0 +1,25 @@
+:root
+  --container-mw $max-width-9
+
+html
+  font 400 100%/1.5 $font-family-sans-serif
+  font-feature-settings 'kern' on, 'liga' on, 'calt' on, 'zero' on
+  -webkit-font-feature-settings 'kern' on, 'liga' on, 'calt' on, 'zero' on
+  text-size-adjust 100%
+  -moz-osx-font-smoothing grayscale
+  font-smoothing antialiased
+  font-variant-ligatures contextual common-ligatures
+  font-kerning normal
+  text-rendering optimizeLegibility
+  background-color var(--near-black)
+  color var(--white)
+  scroll-behavior smooth
+
+@supports (font-variation-settings: normal)
+  html
+    font-family $font-family-sans-serif-var
+    font-weight $font-weight-normal-base
+
+body
+  overflow-x hidden
+  margin 0

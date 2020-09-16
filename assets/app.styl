@@ -1,0 +1,38 @@
+@font-face
+  font-family 'JetBrains Mono'
+  src url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/eot/JetBrainsMono-Regular.eot') format('embedded-opentype'),
+        url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
+        url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff/JetBrainsMono-Regular.woff') format('woff'),
+        url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/ttf/JetBrainsMono-Regular.ttf') format('truetype')
+  font-weight normal
+  font-style normal
+
+@font-face
+  font-family 'Inter var'
+  font-weight 100 900
+  font-display swap
+  font-style normal
+  font-named-instance 'Regular'
+  src url("https://raw.githubusercontent.com/rsms/inter/master/docs/font-files/Inter.var.woff2") format("woff2")
+
+*,
+*::before,
+*::after
+  box-sizing border-box
+  margin 0
+
+::selection
+  background #4251FA
+  color var(--white)
+
+a
+  color var(--link)
+  text-decoration none
+  outline-color rgba(64, 179, 255, 0.92)
+  cursor pointer
+  transition all .1s ease-out
+  &:hover
+    color var(--white)
+  &:active
+    opacity 0.7
+    transition-duration 0s
