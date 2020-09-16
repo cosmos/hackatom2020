@@ -45,6 +45,10 @@ export default {
           name: 'Brent Xu',
           company: 'Tendermint',
         },
+        {
+          name: 'Aidan Hyman',
+          company: 'Chainsafe',
+        },
       ],
     }
   },
