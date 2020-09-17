@@ -135,11 +135,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-    // ga backup: use @nuxtjs/google-gtag instead
-    // { src: '~/plugins/ga.client.js' },
-    { src: '~/plugins/vue-kinesis.client.js' },
-  ],
+  plugins: [{ src: '~/plugins/vue-kinesis.client.js' }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
