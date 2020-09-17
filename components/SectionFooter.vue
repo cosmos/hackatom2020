@@ -1,42 +1,46 @@
 <template>
-  <footer>
-    <div class="tm-section-container">
-      <div class="container">
-        <div class="top-logo">
-          <logo-footer-wordmark />
+  <kinesis-container tag="footer" class="footer">
+    <div class="footer__inner">
+      <kinesis-element :strength="10" class="footer__bg"></kinesis-element>
+      <div class="tm-section-container">
+        <div class="container">
+          <div class="nav tm-rf0 tm-medium">
+            <a
+              href="https://hackatomv.devpost.com"
+              target="blank_"
+              rel="noreferrer noopener"
+              class="cta"
+              >Apply</a
+            >
+            <a
+              href="https://discord.com/channels/669268347736686612/746658605213810779"
+              target="blank_"
+              rel="noreferrer noopener"
+              class="cta"
+              >Chat</a
+            >
+          </div>
+          <div class="blockquote tm-rf-1 tm-lh-copy tm-measure-wide">
+            *$50K USD valued in ATOMs. The spot price of ATOM will be taken on
+            the last day of the hackathon, on Oct 30th, where the day’s ‘High’
+            value will be used.
+          </div>
+          <kinesis-element :strength="20">
+            <logo-footer-wordmark />
+          </kinesis-element>
         </div>
-        <div class="nav tm-rf0 tm-medium">
-          <a
-            href="https://hackatomv.devpost.com"
-            target="blank_"
-            rel="noreferrer noopener"
-            class="cta"
-            >Apply</a
-          >
-          <a
-            href="https://discord.com/channels/669268347736686612/746658605213810779"
-            target="blank_"
-            rel="noreferrer noopener"
-            class="cta"
-            >Chat</a
-          >
+        <div class="footer__bottom">
+          <a href="#" rel="noreferrer noopener" class="brandmark">
+            <logo-hackatom-brandmark />
+          </a>
+          <div class="smallprint tm-rf-1 tm-lh-copy tm-measure-wide">
+            This website is maintained by Tendermint Inc. The contents and
+            opinions of this website are those of Tendermint Inc.
+          </div>
         </div>
-        <div class="blockquote tm-rf-1 tm-rf0-xl-up tm-lh-copy">
-          *$50K USD valued in ATOMs. The spot price of ATOM will be taken on the
-          last day of the hackathon, on Oct 30th, where the day’s ‘High’ value
-          will be used.
-        </div>
-        <div class="divider"></div>
-        <div class="smallprint tm-rf-1 tm-rf0-xl-up tm-lh-copy">
-          This website is maintained by Tendermint Inc. The contents and
-          opinions of this website are those of Tendermint Inc.
-        </div>
-      </div>
-      <div class="bot-logo">
-        <logo-hackatom-brandmark />
       </div>
     </div>
-  </footer>
+  </kinesis-container>
 </template>
 
 <script>
@@ -44,27 +48,41 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
-footer
-  background-image url('/bg/rocket-launch.jpg')
-  background-position bottom center
-  background-repeat no-repeat
-  background-size cover
-  margin var(--spacing-9) auto 0
-  max-width $max-width-11
+
+.footer
+  var(--spacing-9)
+  overflow hidden
+  &__inner
+    position relative
+    width 100%
+    max-width $max-width-11
+    center()
+
+  &__bg
+    position absolute
+    trbl 1rem -1rem -1rem
+    background-image url('/bg/rocket-launch.jpg')
+    background-position bottom center
+    background-repeat no-repeat
+    background-size cover
 
 .tm-section-container
+  min-height 48rem
   display flex
   flex-direction column
   align-items center
   position relative
+  text-align center
 
 .container
-  text-align center
   max-width $max-width-9
   margin 0 auto
 
+.footer__bottom
+  margin-top auto
+  padding var(--spacing-6) 0 var(--spacing-8)
+
 .nav
-  padding var(--spacing-8) 0
   display flex
   justify-content center
   a
@@ -76,29 +94,41 @@ footer
   &:not(:last-child):after
     content '·'
     position relative
-    padding 0 0.5rem
-    color #fff
+    padding 0 var(--spacing-3)
+    color var(--white)
 
-.blockquote, .smallprint
-  max-width 34rem
-  margin auto
+.blockquote
+  margin var(--spacing-8) auto
   color var(--white-700)
+  text-shadow $text-shadow
 
-.divider
-  border 1px solid var(--white-300)
-  width var(--spacing-7)
-  display inline-block
-  margin var(--spacing-6) 0
+.smallprint
+  color var(--dark-gray)
+  center()
+  margin-top var(--spacing-4)
 
-.bot-logo
-  padding var(--spacing-13) 0 var(--spacing-9)
-  display grid
-  place-items center
+.brandmark
+  opacity .5
+  hover-grow()
+  transition all .25s $ease-out, opacity 1s $ease-out
+  &:hover,
+  &:focus
+    opacity 1
+
 
 @media $breakpoint-medium
   footer
     background-size contain
 
-  .bot-logo
-    align-self flex-end
+  .footer__bottom
+    width 100%
+    display grid
+    grid-template-columns 3rem 1fr 3rem
+    align-items center
+  .smallprint
+    margin-top 0
+    grid-row 1
+    grid-column 2 / span 1
+  .brandmark
+    grid-column 3 / span 1
 </style>

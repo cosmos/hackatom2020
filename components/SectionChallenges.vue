@@ -15,7 +15,7 @@
           .item
             img(:src="`/logos/trophy.svg`" alt="Trophy").item__image
             .item__title.tm-rf2.tm-bold.tm-lh-title Gringotts Award
-            .item__text.tm-rf0.tm-lh-title Best interchain finance using Cosmos Hub & IBC
+            .item__text.tm-rf0.tm-lh-title Best DeFi app using Cosmos SDK
             .prize__items.prize__items__threecol
               .prize__item
                 .prize__item__heading.tm-rf-1.tm-medium.tm-lh-title.tm-overline 1st
@@ -57,7 +57,7 @@
           .item
             img(:src="`/logos/trophy.svg`" alt="Trophy").item__image
             .item__title.tm-rf2.tm-bold.tm-lh-title Galileo Award
-            .item__text.tm-rf0.tm-lh-title Most creative AppChain using Cosmos SDK, Tendermint, or IBC
+            .item__text.tm-rf0.tm-lh-title Most creative dAppchain using Cosmos SDK & Tendermint (judging requirement), with option to use IBC (optional)
             .prize__items.prize__items__threecol
               .prize__item
                 .prize__item__heading.tm-rf-1.tm-medium.tm-lh-title.tm-overline 1st
@@ -81,6 +81,9 @@
 <script></script>
 
 <style lang="stylus" scoped>
+.section
+  padding-top 0
+
 .container
   max-width $max-width-9
   margin 0 auto

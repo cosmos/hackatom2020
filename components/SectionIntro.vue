@@ -1,8 +1,5 @@
 <template>
   <div class="section section-intro">
-    <div class="graphics">
-      <img src="/bg/wild-west.jpg" />
-    </div>
     <div class="tm-section-container">
       <div class="text">
         <div class="title tm-rf4 tm-bold tm-lh-title">
@@ -18,17 +15,87 @@
           <p>
             Ready? Set! Liftoff!
           </p>
+          <p>
+            <tm-button
+              size="l"
+              color="var(--white)"
+              variant="text"
+              @click.native="videoPlay(true)"
+              ><span class="icon__left" aria-hidden="true">▶</span>Play
+              video</tm-button
+            >
+          </p>
         </div>
       </div>
     </div>
+    <kinesis-element :strength="30" :min-y="0" :max-y="0" class="graphics">
+      <img src="/bg/wild-west.jpg" />
+    </kinesis-element>
+    <tm-modal
+      v-if="!!video"
+      v-bind="{
+        visible: !!video,
+        side: 'center',
+        buttonClose: true,
+        fullscreen: true,
+        width: '900px',
+        backgroundColor: 'rgba(13, 13, 13, 0.8)',
+      }"
+      @visible="video = $event"
+    >
+      <div v-if="!!video" class="modal__content">
+        <iframe
+          width="100%"
+          height="510"
+          src="https://www.youtube.com/embed/OzrZwavS4_Q?autoplay=1&amp;controls=1&amp;rel=0&amp;modestbranding=1&amp;fs=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen="allowfullscreen"
+        ></iframe>
+      </div>
+    </tm-modal>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      video: null,
+    }
+  },
+  methods: {
+    videoPlay(bool) {
+      this.$gtag('event', 'conversion', {
+        send_to: 'AW-585698793/eWY2COH0-94BEOmbpJcC',
+        event: 'event',
+        label: "HackAtom V: Interoperate C'mon!",
+        value: true,
+      })
+      this.video = bool
+    },
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
+.icon__left
+  color var(--primary-600)
+
+.modal__content
+  background rgba(13, 13, 13, 0.8)
+  width 100%
+  height 100%
+  display flex
+  align-items center
+
+.section-intro
+  overflow hidden
+
+.tm-section-container
+  position relative
+  z-index 1
+
 .title
   color var(--primary-600)
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
@@ -36,9 +103,13 @@ export default {}
 .statement
   margin-top var(--spacing-7)
   color var(--white-700)
+  text-shadow $text-shadow
 
 .graphics
-  margin-bottom -3rem
+  position relative
+  z-index -1
+  margin-right -1.5rem
+  margin-top -3rem
   text-align right
   img
     max-height 33.75rem
@@ -49,9 +120,9 @@ export default {}
 
 @media $breakpoint-large
   .graphics
-    margin-bottom -8rem
+    margin-top -10rem
 
 @media $breakpoint-xxxl
   .graphics
-    margin-bottom -16rem
+    margin-top -18rem
 </style>

@@ -25,13 +25,13 @@
               </div>
               <div
                 v-if="item.time === 'TBC'"
-                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title"
+                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
               >
                 {{ item.time }}
               </div>
               <div
                 v-else
-                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title"
+                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
               >
                 {{ toTimezone(item.date, item.time) }}
               </div>
@@ -39,6 +39,12 @@
                 class="section-list__item__title tm-rf1 tm-bold tm-lh-title"
                 v-html="item.title"
               ></div>
+              <!-- TODO -->
+              <!-- <div
+                v-else
+                class="section-list__item__title tm-rf1 tm-bold tm-lh-title"
+                v-html="md(item.title)"
+              ></div> -->
             </div>
           </div>
           <div class="section-list__bottom__note tm-rf0 tm-lh-title">
@@ -52,6 +58,7 @@
 
 <script>
 import moment from 'moment-timezone'
+import MarkdownIt from 'markdown-it'
 
 export default {
   data() {
@@ -70,12 +77,18 @@ export default {
         },
         {
           date: '2020-11-02',
-          time: 'TBC',
+          time: '20:00',
           title: 'Voting begins for Community Choice Award',
+          //           title: `
+          // **Voting begins for Community Choice Award**
+
+          // Voters must be registered participants of HackAtom V
+          //           `,
+          // note: 'Voters must be registered participants of HackAtom V',
         },
         {
           date: '2020-11-06',
-          time: 'TBC',
+          time: '20:00',
           title: 'Voting ends for Community Choice Award',
         },
         {
@@ -96,8 +109,12 @@ export default {
           .tz(`${date} ${time}`, 'UTC')
           // use client's locale time zone
           .tz(moment.tz.guess())
-          .format('hA z')
+          .format('h A')
       )
+    },
+    md(string) {
+      const md = new MarkdownIt()
+      return md.render(string)
     },
   },
 }
@@ -147,6 +164,8 @@ export default {
     border-bottom 2px solid var(--white-100)
     &__date
       color var(--primary-600)
+    &__time
+      color var(--white-700)
     &__title
       color var(--white)
     &:last-child

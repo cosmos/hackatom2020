@@ -1,13 +1,26 @@
 <template lang="pug">
   div.section
     .tm-section-container
-      .section-title.tm-rf2.tm-bold.tm-lh-title Tutorial &amp; Workshop Videos
+      .section-title.tm-rf2.tm-bold.tm-lh-title Previous Online Workshops
       .stack
         a.stack__item(:href="item.url" target="_blank" rel="noreferrer noopener" v-for="item in this.videos")
-          img(:src="item.imgSrc" alt="Image").stack__item__image
+          img(:src="item.imgSrc" alt="Image" v-if="item.imgSrc").stack__item__image
           .stack__item__text
-            .stack__item__h1.tm-rf0.tm-bold.tm-lh-title {{item.title}}
-            .stack__item__p.tm-rf-1.tm-lh-title {{item.duration}}
+            .stack__item__h1.tm-rf0.tm-bold.tm-lh-title {{ item.title }}
+            .stack__item__h1.tm-rf0.tm-bold.tm-lh-title {{ item.cta }}
+            .stack__item__p.tm-rf-1.tm-lh-title {{ item.duration }}
+        a.stack__item__cta(href="https://www.youtube.com/channel/UC8HFOUdnMnpoWmQMgeKoB3A" target="_blank" rel="noreferrer noopener")
+          .top
+            .stack__item__text__title.tm-rf0.tm-lh-title Cosmos YouTube Channel
+            icon-video-playlist.stack__item__text__icon
+          .bot
+            .stack__item__text__cta.tm-rf1.tm-bold.tm-lh-title More Cosmos videos ->
+    kinesis-element(
+      :strength="30"
+      :min-y="0"
+      :max-y="0"
+      class="section-graphics")
+      img(src="/bg/vitalik-tron.jpg")
 </template>
 
 <script>
@@ -15,13 +28,6 @@ export default {
   data() {
     return {
       videos: [
-        {
-          title:
-            'Getting started with Starport, the easiest way to build a Cosmos SDK blockchain',
-          duration: '3:31',
-          imgSrc: 'https://i.ytimg.com/vi/rmbPjCGDXek/hq720.jpg',
-          url: 'https://www.youtube.com/watch?v=rmbPjCGDXek',
-        },
         {
           title: 'Cosmos Code With Us - Building your first Cosmos app',
           duration: '1:39:07',
@@ -94,6 +100,29 @@ export default {
 
     &__p
       color var(--white-700)
+
+.stack__item__cta
+  background linear-gradient(316.23deg, #38769B 0%, #A43E28 100%)
+  box-shadow 0px 0px 1px rgba(0, 0, 0, 0.07), 0px 8px 16px rgba(0, 0, 0, 0.05), 0px 20px 44px rgba(0, 3, 66, 0.12)
+  border-radius 0.75rem
+  padding 2rem
+  height 15.75rem
+  display flex
+  flex-direction column
+  justify-content space-between
+  hover-raise()
+
+.stack__item__text__icon
+  margin-top 1rem
+
+.section-graphics
+  position relative
+  margin-top -2rem
+  margin-right -1.5rem
+  text-align right
+  z-index -1
+  img
+    max-height 33.75rem
 
 @media $breakpoint-small
   .stack
