@@ -39,7 +39,7 @@
 <style lang="stylus" scoped>
 .starport-banner
   display grid
-  grid-template-columns 30% 70%
+  grid-template-columns 40% 60%
   grid-template-rows 1fr
   align-items center
   background linear-gradient(94.07deg, #171032 34.79%, #1C1948 100%)
