@@ -35,7 +35,7 @@
       :max-y="0"
       class="section-graphics"
     >
-      <img src="/bg/vitalik-tron.jpg" />
+      <img src="/bg/vitalik-tron.jpg" alt="Vitalik tron" />
     </kinesis-element>
   </div>
 </template>

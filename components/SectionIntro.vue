@@ -29,7 +29,7 @@
       </div>
     </div>
     <kinesis-element :strength="30" :min-y="0" :max-y="0" class="graphics">
-      <img src="/bg/wild-west.jpg" />
+      <img src="/bg/wild-west.jpg" alt="Wild west" />
     </kinesis-element>
     <tm-modal
       v-if="!!video"

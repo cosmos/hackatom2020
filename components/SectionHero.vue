@@ -6,7 +6,7 @@
         class="section-hero__bg"
       ></kinesis-element>
       <kinesis-element :strength="20" class="letter">
-        <img src="/V.svg" />
+        <img src="/V.svg" alt="V letter" />
       </kinesis-element>
       <div class="tm-section-container section-container">
         <div class="container">

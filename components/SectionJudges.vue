@@ -6,7 +6,7 @@
           span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges
         .grid
           .item(v-for="item in this.judgesList")
-            img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`").item__avatar
+            img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`" alt="item.name").item__avatar
             .item__name.tm-rf1.tm-bold.tm-lh-title {{ item.name }}
             .item__company.tm-rf-1.tm-lh-title {{ item.company }}
           .item.item__placeholder.tm-rf0.tm-lh-title More judges to be announced.
