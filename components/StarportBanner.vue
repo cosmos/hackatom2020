@@ -13,7 +13,7 @@
       <div class="text__btn-container">
         <tm-button
           to-link="external"
-          href="https://tutorials.cosmos.network/starport-polling-app/"
+          href="https://github.com/tendermint/starport"
           size="m"
           background-color="var(--white)"
           color="#320B93"
