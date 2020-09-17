@@ -79,6 +79,8 @@ export default {
       },
     ],
     link: [
+      { rel: 'preload', as: 'image', href: 'hero-bg.jpg' },
+      { rel: 'preload', as: 'image', href: 'V.svg' },
       { rel: 'icon', href: '/favicon.ico' },
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon-svg.svg' },
       {
