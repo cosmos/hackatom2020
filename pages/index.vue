@@ -25,7 +25,6 @@
 
       <section-resources />
       <section-workshops />
-      <!-- <section-tutorials /> -->
       <section-banner />
     </kinesis-container>
   </main>
