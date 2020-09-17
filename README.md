@@ -1,6 +1,8 @@
-# HackAtom 2020
+# HackAtom V 2020
 
-HackAtom V website
+[HackAtom V website](https://five.hackatom.org)
+
+[![banner](static/og-image.jpg)](https://five.hackatom.org)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4bf14159-c6a8-406d-9833-1506eda730e4/deploy-status)](https://app.netlify.com/sites/0202motakcah/deploys)
 

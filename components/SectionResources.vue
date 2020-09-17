@@ -8,6 +8,7 @@
             >Hacker Resources</span
           >
         </div>
+        <starport-banner />
         <div class="section-resources">
           <div class="section-title tm-rf2 tm-bold tm-lh-title">
             Docs &amp; Tools
@@ -111,7 +112,6 @@ export default {
 .section-resources
   max-width $max-width-8
   margin var(--spacing-10) auto 0
-  padding-top var(--spacing-10)
 
 .section-title
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
