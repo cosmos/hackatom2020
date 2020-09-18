@@ -37,6 +37,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "imagemin-svgo": "^8.0.0",
     "normalize.css": "^8.0.1",
+    "nuxt-purgecss": "^1.0.0",
     "prettier": "^2.0.5",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
