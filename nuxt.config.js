@@ -151,8 +151,6 @@ export default {
     '@aceforth/nuxt-optimized-images',
     // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
-    // https://github.com/Developmint/nuxt-purgecss
-    'nuxt-purgecss',
   ],
   optimizedImages: {
     optimizeImages: true,
