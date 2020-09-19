@@ -41,8 +41,11 @@ export default {
   data() {
     return {
       countdown: {
-        now: Math.trunc(new Date().getTime() / 1000),
-        end: '2020-10-16',
+        now: Math.trunc(new Date(new Date().toUTCString()).getTime() / 1000),
+        // end date: 2020-10-16
+        // end time: 19:00
+        // usage: moment.tz("2020-10-16 19:00", "UTC").format()
+        end: '2020-10-16T19:00:00Z',
       },
     }
   },
