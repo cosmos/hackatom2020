@@ -1,6 +1,6 @@
 <template>
   <!-- INTERNAL -->
-  <nuxt-link v-if="toLink === 'internal'" :to="to" class="tm-button">
+  <nuxt-link v-if="toLink === 'internal'" :to="to">
     <component
       :is="tag"
       v-bind="{ type, disabled }"
@@ -30,7 +30,6 @@
     :href="href"
     target="_blank"
     rel="noreferrer noopener"
-    class="tm-button"
   >
     <component
       :is="tag"
@@ -374,4 +373,11 @@ export default {
       transform translateX(0.25rem)
     >>> .icon__left
       transform rotate(5deg) scale(1.05)
+
+@media screen and (max-width: 375px)
+  .tm-button
+    min-width -webkit-fill-available
+
+  .tm-button + .tm-button
+    margin-top 1rem
 </style>

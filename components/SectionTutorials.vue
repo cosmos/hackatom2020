@@ -72,7 +72,7 @@ export default {
   margin 0 auto
 
 .section-title
-  text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
+  text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
   padding-bottom var(--spacing-8)
   text-align start
   color var(--primary-600)
