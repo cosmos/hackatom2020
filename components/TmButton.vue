@@ -1,6 +1,6 @@
 <template>
   <!-- INTERNAL -->
-  <nuxt-link v-if="toLink === 'internal'" :to="to" class="tm-button">
+  <nuxt-link v-if="toLink === 'internal'" :to="to">
     <component
       :is="tag"
       v-bind="{ type, disabled }"
@@ -30,7 +30,6 @@
     :href="href"
     target="_blank"
     rel="noreferrer noopener"
-    class="tm-button"
   >
     <component
       :is="tag"

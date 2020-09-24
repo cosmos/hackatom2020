@@ -10,12 +10,11 @@
             .stack__item__h1.tm-rf0.tm-bold.tm-lh-title {{ item.cta }}
             .stack__item__p.tm-rf-1.tm-lh-title {{ item.duration }}
         a.stack__item__cta(href="https://www.youtube.com/channel/UC8HFOUdnMnpoWmQMgeKoB3A" target="_blank" rel="noreferrer noopener")
-          .top
+          .stack__item__cta__inner
             .stack__item__text__title.tm-rf-1.tm-medium.tm-lh-title.tm-overline more videos
-            .stack__item__text__subtitle.tm-rf0.tm-lh-title Cosmos YouTube Channel
+            .stack__item__text__subtitle.tm-rf0.tm-bold.tm-lh-title Cosmos YouTube Channel
             icon-video-playlist.stack__item__text__icon
-          .bot
-            icon-arrow-right
+            icon-arrow-right.bot
     kinesis-element(
       :strength="30"
       :min-y="0"
@@ -67,7 +66,7 @@ export default {
 
 <style lang="stylus" scoped>
 .section-title
-  text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)1
+  text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
   color var(--primary-600)
   padding-bottom var(--spacing-8)
   text-align start
@@ -92,7 +91,7 @@ export default {
     &__image
       width 100%
       object-fit cover
-      border-radius .375rem
+      border-radius $border-radius-2
 
     &__h1
       margin-top var(--spacing-3)
@@ -102,45 +101,45 @@ export default {
     &__p
       color var(--white-700)
 
-.top
-  .stack__item__text__title
-    color var(--white-700)
-  .stack__item__text__subtitle
-    margin-top 0.25rem
+.stack__item__text__title
+  color var(--white-700)
+.stack__item__text__subtitle
+  margin-top var(--spacing-1)
+.stack__item__text__icon
+  margin-top var(--spacing-3)
+  margin-bottom auto
 
 .bot
-  display flex
-  flex-direction row
-  justify-content flex-end
+  align-self flex-end
+  margin-top -2rem
+  transition transform .2s $ease-out
 
 .stack__item__cta
-  padding 2rem
+  $offset = 0.125rem
+  $radius = $border-radius-4
+
   width 100%
-  max-height 11.125rem
-  position relative
-  box-sizing border-box
-  background var(--near-black)
-  background-clip padding-box
-  border solid 5px transparent
-  border-radius 0.75rem
-  display flex
-  flex-direction column
-  justify-content space-between
+  background linear-gradient(316.23deg, #38769B 0%, #A43E28 100%)
+  border-radius $radius
+  padding $offset
+  hover-raise()
 
-  &::before
-    content ''
-    position absolute
-    top 0
-    right 0
-    bottom 0
-    left 0
-    z-index -1
-    margin -4px
-    border-radius inherit
-    background linear-gradient(316.23deg, #38769B 0%, #A43E28 100%)
+  &__inner
+    display flex
+    flex-direction column
+    justify-content flex-start
+    padding var(--spacing-7)
+    height 100%
+    border-radius $radius - $offset
+    background var(--near-black)
+    transition opacity .25s $ease-out
 
-.stack__item__text__icon
-  margin-top 0.5rem
+  &:hover,
+  &:focus
+    .stack__item__cta__inner
+      opacity 0.85
+    .bot
+      transform translateX(0.25rem)
 
 .section-graphics
   position relative
