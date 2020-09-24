@@ -36,9 +36,8 @@
               to-link="external"
               href="https://hackatomv.devpost.com"
               size="l"
-              color="#fff"
+              color="var(--white)"
               background-color="linear-gradient(316.23deg, #38769B 0%, #A43E28 100%)"
-              variant="contained"
               glow
               class="hero-btn"
               >Register<span class="icon__right" aria-hidden="true"
