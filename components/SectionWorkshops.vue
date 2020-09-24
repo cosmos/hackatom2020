@@ -11,10 +11,11 @@
             .stack__item__p.tm-rf-1.tm-lh-title {{ item.duration }}
         a.stack__item__cta(href="https://www.youtube.com/channel/UC8HFOUdnMnpoWmQMgeKoB3A" target="_blank" rel="noreferrer noopener")
           .top
-            .stack__item__text__title.tm-rf0.tm-lh-title Cosmos YouTube Channel
+            .stack__item__text__title.tm-rf-1.tm-medium.tm-lh-title.tm-overline more videos
+            .stack__item__text__subtitle.tm-rf0.tm-lh-title Cosmos YouTube Channel
             icon-video-playlist.stack__item__text__icon
           .bot
-            .stack__item__text__cta.tm-rf1.tm-bold.tm-lh-title More Cosmos videos ->
+            icon-arrow-right
     kinesis-element(
       :strength="30"
       :min-y="0"
@@ -101,19 +102,45 @@ export default {
     &__p
       color var(--white-700)
 
+.top
+  .stack__item__text__title
+    color var(--white-700)
+  .stack__item__text__subtitle
+    margin-top 0.25rem
+
+.bot
+  display flex
+  flex-direction row
+  justify-content flex-end
+
 .stack__item__cta
-  background linear-gradient(316.23deg, #38769B 0%, #A43E28 100%)
-  box-shadow 0px 0px 1px rgba(0, 0, 0, 0.07), 0px 8px 16px rgba(0, 0, 0, 0.05), 0px 20px 44px rgba(0, 3, 66, 0.12)
-  border-radius 0.75rem
   padding 2rem
-  height 15.75rem
+  width 100%
+  max-height 11.125rem
+  position relative
+  box-sizing border-box
+  background var(--near-black)
+  background-clip padding-box
+  border solid 5px transparent
+  border-radius 0.75rem
   display flex
   flex-direction column
   justify-content space-between
-  hover-raise()
+
+  &::before
+    content ''
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    z-index -1
+    margin -4px
+    border-radius inherit
+    background linear-gradient(316.23deg, #38769B 0%, #A43E28 100%)
 
 .stack__item__text__icon
-  margin-top 1rem
+  margin-top 0.5rem
 
 .section-graphics
   position relative
