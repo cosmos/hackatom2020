@@ -57,7 +57,7 @@
           .item
             img(:src="`/logos/trophy.svg`" alt="Trophy").item__image
             .item__title.tm-rf2.tm-bold.tm-lh-title Galileo Award
-            .item__text.tm-rf0.tm-lh-title Most creative dAppchain using Cosmos SDK & Tendermint (judging requirement), with option to use IBC (optional)
+            .item__text.tm-rf0.tm-lh-title Most creative dAppchain using Cosmos SDK or Tendermint (judging requirement), with option to use IBC (optional)
             .prize__items.prize__items__threecol
               .prize__item
                 .prize__item__heading.tm-rf-1.tm-medium.tm-lh-title.tm-overline 1st
