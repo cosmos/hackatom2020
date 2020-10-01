@@ -3,54 +3,191 @@
     .tm-section-container
       .container
         .section-heading
-          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges
+          span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges & Mentors
         .grid
-          .item(v-for="item in this.judgesList")
+          .item(v-for="item in sortedList")
+            .item__role.tm-rf0.tm-medium.tm-lh-title.tm-overline {{ item.role }}
             img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`" alt="item.name").item__avatar
-            .item__name.tm-rf1.tm-bold.tm-lh-title {{ item.name }}
-            .item__company.tm-rf-1.tm-lh-title {{ item.company }}
-          .item.item__placeholder.tm-rf0.tm-lh-title More judges to be announced.
+            .item__name.tm-rf0.tm-bold.tm-lh-title {{ item.name }}
+            .item__company.tm-rf-0.tm-lh-title {{ item.company }}
+          //- .item.item__placeholder.tm-rf0.tm-lh-title More judges to be announced.
 </template>
 
 <script>
+import { orderBy } from 'lodash'
+
 export default {
   data() {
     return {
-      judgesList: [
+      list: [
         {
+          role: 'judge & mentor',
           name: 'Billy Rennekamp',
           company: 'Interchain Foundation',
         },
         {
+          role: 'judge',
           name: 'Aurel Iancu',
           company: 'Dokia Capital',
         },
         {
+          role: 'judge',
           name: 'Charlie Noyes',
           company: 'Paradigm',
         },
         {
+          role: 'judge',
           name: 'Erik Voorhees',
           company: 'Shapeshift',
         },
         {
+          role: 'judge',
           name: 'Nick Tomaino',
           company: '1confirmation',
         },
         {
+          role: 'judge',
           name: 'Ethan Buchman',
-          company: 'Informal Systems / co-founder of Cosmos',
+          company: 'Informal Systems',
         },
         {
+          role: 'judge & mentor',
           name: 'Brent Xu',
           company: 'Tendermint',
         },
         {
+          role: 'judge',
           name: 'Aidan Hyman',
           company: 'Chainsafe',
         },
+        {
+          role: 'mentor',
+          name: 'Chris Goes',
+          company: 'Interchain GmbH',
+        },
+        {
+          role: 'mentor',
+          name: 'Tess Rinearson',
+          company: 'Interchain GmbH',
+        },
+        {
+          role: 'mentor',
+          name: 'Marko Baricevic',
+          company: 'Interchain GmbH',
+        },
+        {
+          role: 'mentor',
+          name: 'Alessio Treglia',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Denis Fadeev',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Jae Kwon',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Peng Zhong',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Josh Lee',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Chjango',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Brian Luk',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Tobias Schwarz',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Juwoon Yun',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Jonathan Gimeno',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Helder Moreira',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Griffin',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Elizabeth Binks',
+          company: 'ChainSafe',
+        },
+        {
+          role: 'mentor',
+          name: 'Daniel',
+          company: 'ChainSafe',
+        },
+        {
+          role: 'mentor',
+          name: 'Federico Kunze',
+          company: 'ChainSafe',
+        },
+        {
+          role: 'mentor',
+          name: 'Riccardo Montagnin',
+          company: 'Forbole',
+        },
+        {
+          role: 'mentor',
+          name: 'Sistla Abhishek',
+          company: 'FreeFlix & CoCo',
+        },
+        {
+          role: 'mentor',
+          name: 'Abhitej Singh',
+          company: 'Persistence One',
+        },
+        {
+          role: 'mentor',
+          name: 'Andrew Cronk',
+          company: 'Figment Networks',
+        },
+        {
+          role: 'mentor',
+          name: 'Jack Zampolin',
+          company: 'Akash Network',
+        },
+        {
+          role: 'mentor',
+          name: 'Zaki Manian',
+          company: 'Iqlusion',
+        },
       ],
     }
+  },
+  computed: {
+    sortedList() {
+      const sortedList = orderBy(this.list, 'name')
+      return sortedList
+    },
   },
 }
 </script>
@@ -90,13 +227,14 @@ export default {
   &__avatar
     width 4rem
     height 4rem
-    margin 0 auto var(--spacing-5)
+    margin var(--spacing-5) 0
     border-radius 50%
 
   &__name
     color var(--white)
 
   &__placeholder,
+  &__role,
   &__company
     color var(--white-700)
 
@@ -124,5 +262,5 @@ export default {
 
 @media $breakpoint-large
   .grid
-    grid-template-columns repeat(3, 1fr)
+    grid-template-columns repeat(4, 1fr)
 </style>
