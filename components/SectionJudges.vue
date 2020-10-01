@@ -132,7 +132,7 @@ export default {
         },
         {
           role: 'mentor',
-          name: 'Griffin',
+          name: 'Griffin Anderson',
           company: 'Tendermint',
         },
         {
