@@ -142,7 +142,7 @@ export default {
         },
         {
           role: 'mentor',
-          name: 'Daniel',
+          name: 'Daniel Choi',
           company: 'ChainSafe',
         },
         {
