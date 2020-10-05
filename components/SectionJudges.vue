@@ -6,7 +6,7 @@
           span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Judges & Mentors
         .grid
           .item(v-for="item in sortedList")
-            .item__role.tm-rf0.tm-medium.tm-lh-title.tm-overline {{ item.role }}
+            .item__role.tm-rf-1.tm-medium.tm-lh-title.tm-overline {{ item.role }}
             img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`" alt="item.name").item__avatar
             .item__name.tm-rf0.tm-bold.tm-lh-title {{ item.name }}
             .item__company.tm-rf-0.tm-lh-title {{ item.company }}
