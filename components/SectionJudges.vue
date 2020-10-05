@@ -9,7 +9,7 @@
             .item__role.tm-rf-1.tm-medium.tm-lh-title.tm-overline {{ item.role }}
             img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`" alt="item.name").item__avatar
             .item__name.tm-rf0.tm-bold.tm-lh-title {{ item.name }}
-            .item__company.tm-rf-0.tm-lh-title {{ item.company }}
+            .item__company.tm-rf-1.tm-lh-title {{ item.company }}
           //- .item.item__placeholder.tm-rf0.tm-lh-title More judges to be announced.
 </template>
 
