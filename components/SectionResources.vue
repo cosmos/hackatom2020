@@ -69,7 +69,7 @@ export default {
         {
           url: 'https://docs.cosmwasm.com/getting-started/intro.html',
           type: 'Docs',
-          title: 'Cosmwasm Docs',
+          title: 'CosmWasm Docs',
         },
         {
           url: 'https://docs.ethermint.zone',
