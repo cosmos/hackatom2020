@@ -45,7 +45,6 @@
   background-size contain
   box-shadow var(--elevation-16)
   border-radius $border-radius-4
-  margin-top var(--spacing-12)
   center()
 
 .text

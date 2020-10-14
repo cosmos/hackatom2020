@@ -5,9 +5,6 @@
         :strength="10"
         class="section-hero__bg"
       ></kinesis-element>
-      <kinesis-element :strength="20" class="letter">
-        <img src="/V.svg" alt="V letter" />
-      </kinesis-element>
       <div class="tm-section-container section-container">
         <div class="container">
           <nav class="nav-primary">
@@ -18,38 +15,33 @@
                 >
               </li>
               <li>
-                <span class="tm-rf0 tm-lh-solid"
-                  ><nuxt-link to="/resources">Resources</nuxt-link></span
+                <nuxt-link to="/">
+                  <hackatom-brandmark-alt-v class="brandmark" />
+                </nuxt-link>
+              </li>
+              <li>
+                <tm-button
+                  v-if="moment.tz('2020-10-16 19:00', 'UTC') > moment()"
+                  to-link="external"
+                  href="https://hackatomv.devpost.com"
+                  size="m"
+                  color="var(--near-black)"
+                  background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
+                  glow
+                  class="hero-btn"
+                  >Register now<span class="icon__right" aria-hidden="true"
+                    >--></span
+                  ></tm-button
                 >
               </li>
             </ul>
             <div class="headings">
-              <kinesis-element :strength="35">
-                <wordmark-hackatom class="wordmark" />
-              </kinesis-element>
               <span class="sr-only">HackAtom V</span>
-              <kinesis-element :strength="50" class="brandmark">
-                <logo-hackatom-brandmark-color />
-              </kinesis-element>
+              <!-- <div class="tm-rf2 tm-lh-title">
+                hacker resources
+              </div> -->
             </div>
           </nav>
-          <div class="hero-bottom">
-            <div class="hero-bottom__subtitle tm-rf2 tm-lh-title">
-              Strap on your spacepants and get ready to hack, Cosmonaut.
-            </div>
-            <tm-button
-              to-link="external"
-              href="https://hackatomv.devpost.com"
-              size="l"
-              color="var(--near-black)"
-              background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
-              glow
-              class="hero-btn"
-              >Register now<span class="icon__right" aria-hidden="true"
-                >--></span
-              ></tm-button
-            >
-          </div>
         </div>
       </div>
     </div>
@@ -57,13 +49,26 @@
 </template>
 
 <script>
-export default {}
+import moment from 'moment-timezone'
+
+export default {
+  data() {
+    return {
+      moment,
+    }
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
 // Accessible/SEO friendly CSS hiding
 .sr-only
   clip()
+
+.brandmark
+  // $w = (200 / (54 * 16)) * 100% // intrinsic / (max-width * 1rem) * 100%
+  height auto
+  width 100%
 
 .section-container
   position relative
@@ -75,11 +80,11 @@ export default {}
     center()
 
 .section-hero
-  height 100vh
+  // height 100vh
   overflow hidden
-  min-height 50rem
-  max-height 54rem
-  margin-bottom var(--spacing-10)
+  // min-height 50rem
+  // max-height 54rem
+  // margin-bottom var(--spacing-10)
   display flex
   justify-content stretch
   align-items stretch
@@ -97,19 +102,10 @@ export default {}
   &__bg
     position absolute
     trbl -1rem -1rem 1rem
-    background-image url('/hero-bg.jpg')
-    background-position top center
+    background-image url('/bg/wild-west-hero.jpg')
+    background-position center top
     background-repeat no-repeat
-    background-size cover
-
-  .letter
-    position absolute
-    top 48%
-    width 100%
-    svg
-      height auto
-      max-height 26rem
-      width 100%
+    background-size contain
 
   .section-container
     display flex
@@ -131,15 +127,6 @@ export default {}
       position relative
       max-width 54rem
       margin calc(1.5rem + 4vh) auto 0
-      .brandmark
-        $w = (200 / (54 * 16)) * 100% // intrinsic / (max-width * 1rem) * 100%
-        position absolute
-        top -68%
-        width $w
-        left ((100% - $w)/2)
-        svg
-          height auto
-          width 100%
       .wordmark
         position relative
         width 100%
@@ -159,14 +146,6 @@ export default {}
   .logo
     display block
     margin 0 auto
-
-.hero-bottom
-  max-width $max-width-7
-  margin 0 auto
-  &__subtitle
-    margin-bottom var(--spacing-8)
-    color var(--white)
-    text-shadow $text-shadow
 
 @media $breakpoint-xsmall-only
   .section-hero

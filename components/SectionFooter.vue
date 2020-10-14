@@ -10,7 +10,21 @@
               target="blank_"
               rel="noreferrer noopener"
               class="cta"
-              >Apply</a
+              >Register</a
+            >
+            <a
+              href="https://hackatomv.devpost.com/resources"
+              target="blank_"
+              rel="noreferrer noopener"
+              class="cta"
+              >Resources</a
+            >
+            <a
+              href="https://hackatomv.devpost.com/rules"
+              target="blank_"
+              rel="noreferrer noopener"
+              class="cta"
+              >Rules</a
             >
             <a
               href="https://discord.com/channels/669268347736686612/746658605213810779"
@@ -18,6 +32,13 @@
               rel="noreferrer noopener"
               class="cta"
               >Chat</a
+            >
+            <a
+              href="https://www.youtube.com/watch?v=OzrZwavS4_Q"
+              target="blank_"
+              rel="noreferrer noopener"
+              class="cta"
+              >Video</a
             >
           </div>
           <div class="blockquote tm-rf-1 tm-lh-copy tm-measure-wide">

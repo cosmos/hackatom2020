@@ -9,6 +9,11 @@
             component(:is="`icon-${item.icon}`").item__icon
             .item__title.tm-rf1.tm-bold.tm-lh-copy {{ item.title }}
             .item__text.tm-rf0.tm-lh-copy.tm-measure-narrow {{ item.text }}
+        .box
+          .box__text.tm-rf1.tm-lh-title Prepare to put your skills to the test.
+          tm-button.hero-btn(to-link='internal', to="/resources", size='l', color='var(--near-black)', background-color='linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)', glow='')
+            | Hacker resources
+            span.icon__right(aria-hidden='true') --&gt;
 </template>
 
 <script>
@@ -87,6 +92,14 @@ export default {
   &__text
     margin-top var(--spacing-5)
     color var(--white-700)
+
+.box
+  margin-top var(--spacing-10)
+  display grid
+  place-content center
+
+  &__text
+    margin-bottom var(--spacing-6)
 
 @media $breakpoint-medium
   .section-heading

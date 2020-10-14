@@ -15,12 +15,6 @@
             .stack__item__text__subtitle.tm-rf0.tm-bold.tm-lh-title Cosmos YouTube Channel
             icon-video-playlist.stack__item__text__icon
             icon-arrow-right.bot
-    kinesis-element(
-      :strength="30"
-      :min-y="0"
-      :max-y="0"
-      class="section-graphics")
-      img(src="/bg/vitalik-tron.jpg" alt="Vitalik tron")
 </template>
 
 <script>
@@ -140,15 +134,6 @@ export default {
       opacity 0.85
     .bot
       transform translateX(0.25rem)
-
-.section-graphics
-  position relative
-  margin-top -2rem
-  margin-right -1.5rem
-  text-align right
-  z-index -1
-  img
-    max-height 33.75rem
 
 @media $breakpoint-small
   .stack

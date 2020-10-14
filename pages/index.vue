@@ -19,12 +19,6 @@
       <section-judges />
       <section-schedule />
 
-      <kinesis-element :strength="20" :min-y="0" :max-y="0">
-        <div class="hacker-resources-bg bg" />
-      </kinesis-element>
-
-      <section-resources />
-      <section-workshops />
       <section-banner />
     </kinesis-container>
   </main>
@@ -35,7 +29,6 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
-
 .page-container
   overflow hidden
 
@@ -62,9 +55,9 @@ export default {}
   background-image url('/bg/faketoshi-ripple.jpg')
   background-position bottom center
 
-.hacker-resources-bg
-  background-image url('/bg/bitcoin-fork.jpg')
-  background-position top center
+// .hacker-resources-bg
+//   background-image url('/bg/bitcoin-fork.jpg')
+//   background-position top center
 
 @media $breakpoint-medium
   .bg
