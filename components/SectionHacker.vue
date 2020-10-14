@@ -16,7 +16,7 @@
               </li>
               <li>
                 <nuxt-link to="/">
-                  <hackatom-brandmark-alt-v class="brandmark" />
+                  <logo-hackatom-brandmark-color class="brandmark" />
                 </nuxt-link>
               </li>
               <li>
@@ -37,9 +37,9 @@
             </ul>
             <div class="headings">
               <span class="sr-only">HackAtom V</span>
-              <!-- <div class="tm-rf2 tm-lh-title">
-                hacker resources
-              </div> -->
+              <div class="title tm-rf4 tm-bold tm-lh-title">
+                Hacker Resources
+              </div>
             </div>
           </nav>
         </div>
@@ -66,9 +66,14 @@ export default {
   clip()
 
 .brandmark
-  // $w = (200 / (54 * 16)) * 100% // intrinsic / (max-width * 1rem) * 100%
-  height auto
-  width 100%
+  $w = (200 / (54 * 16)) * 100% // intrinsic / (max-width * 1rem) * 100%
+  position absolute
+  top -5%
+  width $w
+  left ((100% - $w)/2)
+  svg
+    height auto
+    width 100%
 
 .section-container
   position relative
@@ -80,11 +85,11 @@ export default {
     center()
 
 .section-hero
-  // height 100vh
+  height 70vh
   overflow hidden
   // min-height 50rem
   // max-height 54rem
-  // margin-bottom var(--spacing-10)
+  margin-bottom var(--spacing-10)
   display flex
   justify-content stretch
   align-items stretch
@@ -126,18 +131,13 @@ export default {
     .headings
       position relative
       max-width 54rem
-      margin calc(1.5rem + 4vh) auto 0
-      .wordmark
-        position relative
-        width 100%
-        height auto
-        max-height 7.1875rem
+      margin calc(1.5rem + 14vh) auto 0
 
 .nav-primary
   ul
     display flex
     justify-content space-between
-    align-items center
+    align-items flex-start
     padding 0
   li
     list-style-type none
@@ -148,9 +148,13 @@ export default {
     margin 0 auto
 
 @media $breakpoint-xsmall-only
+  .brandmark
+    display none
+
   .section-hero
-    min-height 32rem
-    max-height 38rem
+    // min-height 32rem
+    // max-height 38rem
+    height 30vh
     .section-container
       background-image linear-gradient(to bottom, rgba(28, 7, 1, 0.90) 0%, rgba(80, 25, 13, 0) 30%)
       padding-top var(--spacing-4)
@@ -158,9 +162,8 @@ export default {
     .container
       .nav-primary
         margin-bottom 3rem
+      .nav-primary ul
+        align-items center
       .headings
         margin-top calc(3rem + 4vh)
-        .title
-          padding-left 1rem
-          padding-right 1rem
 </style>

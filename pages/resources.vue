@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-container">
     <tm-top-banner />
     <section-hacker />
     <kinesis-container class="mw11" :perspective="0">
@@ -24,6 +24,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.page-container
+  overflow hidden
+
 .mw11
   max-width $max-width-11
   center()

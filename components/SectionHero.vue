@@ -18,7 +18,7 @@
                 >
               </li>
               <li>
-                <span class="tm-rf0 tm-lh-solid"
+                <span class="tm-rf0 tm-lh-solid tm-medium"
                   ><nuxt-link to="/resources">Resources</nuxt-link></span
                 >
               </li>
