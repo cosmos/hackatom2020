@@ -87,11 +87,6 @@ export default {
         },
         {
           role: 'mentor',
-          name: 'Jae Kwon',
-          company: 'Tendermint',
-        },
-        {
-          role: 'mentor',
           name: 'Peng Zhong',
           company: 'Tendermint',
         },
@@ -179,6 +174,11 @@ export default {
           role: 'mentor',
           name: 'Zaki Manian',
           company: 'Iqlusion',
+        },
+        {
+          role: 'mentor',
+          name: 'Paddy McHale',
+          company: 'Tendermint',
         },
       ],
     }
