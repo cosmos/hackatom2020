@@ -234,6 +234,11 @@ export default {
           name: 'Abel Fernández Nandín',
           company: 'Confio',
         },
+        {
+          role: 'mentor',
+          name: 'Sahith Narahari',
+          company: 'Tendermint',
+        },
       ],
     }
   },
