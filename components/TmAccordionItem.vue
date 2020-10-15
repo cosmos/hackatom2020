@@ -35,32 +35,49 @@
             v-html="item.title"
           ></div>
           <div
-            v-if="item.host && item.team"
-            class="section-list__item__host tm-rf0 tm-bold tm-lh-copy"
+            v-if="item.host_2"
+            class="section-list__item__host tm-rf0 tm-lh-copy"
           >
-            {{ item.host }} — {{ item.team }}
+            <span class="tm-bold">{{ item.host_1 }}</span> — {{ item.team }}
+            <br />
+            <span class="tm-bold">{{ item.host_2 }}</span> — {{ item.team }}
+          </div>
+          <div
+            v-else-if="item.host_1"
+            class="section-list__item__host tm-rf0 tm-lh-copy"
+          >
+            <span class="tm-bold">{{ item.host_1 }}</span> — {{ item.team }}
           </div>
         </div>
         <div class="headshots">
           <img
-            v-if="item.host"
-            :src="`/profiles/${item.host
+            v-if="item.host_1"
+            :src="`/profiles/${item.host_1
               .toLowerCase()
               .split(' ')
               .join('-')}.jpg`"
-            :alt="item.host"
+            :alt="item.host_1"
             class="headshots__img"
+          />
+          <img
+            v-if="item.host_2"
+            :src="`/profiles/${item.host_2
+              .toLowerCase()
+              .split(' ')
+              .join('-')}.jpg`"
+            :alt="item.host_2"
+            class="headshots__img__overlay"
           />
         </div>
         <span
-          v-if="!item.active && item.details"
+          v-if="String(item.active) === 'false' && item.details"
           class="toggle"
           @click="toggle(false)"
         >
           <img src="/logos/plus.svg" />
         </span>
         <span
-          v-else-if="item.active && item.details"
+          v-else-if="String(item.active) === 'true' && item.details"
           class="toggle"
           @click="toggle(true)"
         >
@@ -75,7 +92,11 @@
       @before-leave="startTransition"
       @after-leave="endTransition"
     >
-      <div v-if="item.active && item.details" class="details">
+      <!-- workaround for airtable's data type String() to output boolean -->
+      <div
+        v-if="String(item.active) === 'true' && item.details"
+        class="details"
+      >
         <div class="top">
           <div class="a"></div>
           <div v-if="item.startTime && item.endTime" class="b tm-code">
@@ -102,6 +123,13 @@
           <div class="a"></div>
           <div class="b"></div>
           <div class="c">
+            <div class="language tm-rf-1 tm-lh-title">
+              {{ item.language }} ·
+              {{
+                moment(parseInt(item.endTime)).diff(parseInt(item.startTime))
+              }}
+              hours
+            </div>
             <div v-html="md(item.details)"></div>
             <tm-button
               v-if="item.livestream"
@@ -179,7 +207,7 @@ export default {
 .expand-enter, .expand-leave-to
   height 0
 
-.subtitle, .b
+.subtitle, .b, .language
   color var(--white-700)
 
 .details
@@ -220,11 +248,12 @@ export default {
       justify-content center
       align-items center
       position relative
-      left -5px
+      left 6px
 
 .toggle
   cursor pointer
   center()
+  margin-top 0.25rem
 
 .section-list
   &__item
@@ -254,7 +283,7 @@ export default {
       display block
       grid-template-columns auto
 
-      &__time, &__title
+      &__time, &__title, .headshots
         margin-top var(--spacing-2)
 
   .headshots
@@ -268,6 +297,13 @@ export default {
 
   .details
     padding 1.5rem
+
+  .toggle
+    display flex
+    justify-content center
+
+  .headshots__img__overlay
+    left -4px
 
 @media $breakpoint-small
   .section-list

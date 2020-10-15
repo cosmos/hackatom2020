@@ -14,7 +14,11 @@
               currentTimezone
             }}).
           </div>
-          <tm-accordion :content="sortedList" multiple />
+          <tm-accordion
+            id="accordion-example-2"
+            :content="sortedList"
+            multiple
+          />
         </div>
       </div>
     </div>
@@ -33,7 +37,7 @@ export default {
     return {
       moment,
       records: [],
-      updates: [
+      agendas: [
         {
           id: 100,
           date: '2020-10-16',
@@ -88,7 +92,7 @@ export default {
     },
     sortedList() {
       return orderBy(
-        [...this.updates, ...this.records],
+        [...this.agendas, ...this.records],
         (i) => moment(i.date),
         ['asc']
       )
@@ -134,7 +138,7 @@ p
     color var(--link)
     text-decoration initial
   a:hover
-    text-decoration underline
+    text-decoration initial
   a:active
     opacity 0.65
     transition-duration 0s
