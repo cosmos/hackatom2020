@@ -2,12 +2,12 @@
   <div class="section">
     <div class="tm-section-container">
       <div class="container">
-        <div class="section-heading">
+        <!-- <div class="section-heading">
           <span
             class="section-heading__title tm-rf1 tm-medium tm-lh-title tm-overline"
             >Hacker Resources</span
           >
-        </div>
+        </div> -->
         <starport-banner />
         <div class="section-resources">
           <div class="section-title tm-rf2 tm-bold tm-lh-title">
@@ -111,12 +111,12 @@ export default {
 
 .section-resources
   max-width $max-width-8
-  margin var(--spacing-10) auto 0
+  margin var(--spacing-10) auto
 
 .section-title
   text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
   color var(--primary-600)
-  padding-bottom var(--spacing-10)
+  padding-bottom var(--spacing-8)
   text-align start
 
 .section-list

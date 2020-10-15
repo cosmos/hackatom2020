@@ -10,46 +10,15 @@
         </div>
         <div class="section-schedule">
           <div class="section-list__top__note tm-rf-1 tm-rf0-l-up tm-lh-title">
-            All events are listed in your local time.
+            All events are listed in your local timezone ({{
+              currentTimezone
+            }}).
           </div>
-          <div class="section-list">
-            <div
-              v-for="item in updates"
-              :key="item.title"
-              class="section-list__item"
-            >
-              <div
-                class="section-list__item__date tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
-              >
-                {{ toTimezone(item.date, item.time).format('ddd, MMM D') }}
-              </div>
-              <div
-                v-if="item.time === 'TBC'"
-                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
-              >
-                {{ item.time }}
-              </div>
-              <div
-                v-else
-                class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
-              >
-                {{ toTimezone(item.date, item.time).format('h A') }}
-              </div>
-              <div
-                class="section-list__item__title tm-rf1 tm-bold tm-lh-title"
-                v-html="item.title"
-              ></div>
-              <!-- TODO -->
-              <!-- <div
-                v-else
-                class="section-list__item__title tm-rf1 tm-bold tm-lh-title"
-                v-html="md(item.title)"
-              ></div> -->
-            </div>
-          </div>
-          <div class="section-list__bottom__note tm-rf0 tm-lh-title">
-            More schedule updates coming soon.
-          </div>
+          <tm-accordion
+            id="accordion-example-2"
+            :content="sortedList"
+            multiple
+          />
         </div>
       </div>
     </div>
@@ -58,43 +27,80 @@
 
 <script>
 import moment from 'moment-timezone'
-import MarkdownIt from 'markdown-it'
+import { orderBy } from 'lodash'
+import axios from 'axios'
+
+const apiKey = process.env.VUE_APP_AIRTABLE_API_KEY
 
 export default {
   data() {
     return {
       moment,
-      updates: [
+      records: [],
+      agendas: [
         {
+          id: 100,
           date: '2020-10-16',
           time: '19:00',
           title: 'HackAtom <span class="V">V</span> begins',
+          active: false,
         },
         {
+          id: 101,
           date: '2020-10-30',
           time: '19:00',
           title: 'Deadline for submission',
+          active: false,
         },
         {
+          id: 102,
           date: '2020-11-02',
           time: '20:00',
           title:
             'Voting begins for Community Choice Award <p class="note tm-rf0 tm-lh-copy">Voters must be registered participants of HackAtom V</p>',
+          active: false,
         },
         {
+          id: 103,
+          date: '2020-11-04',
+          time: '18:00',
+          title: 'Demo day for the finalists',
+          active: false,
+        },
+        {
+          id: 104,
           date: '2020-11-06',
           time: '20:00',
           title: 'Voting ends for Community Choice Award',
+          active: false,
         },
         {
+          id: 105,
           date: '2020-11-09',
           time: '20:00',
           title: 'Winners announced',
+          active: false,
         },
       ],
     }
   },
+  computed: {
+    currentTimezone() {
+      const guess = moment.tz.guess(true)
+      const zone = moment.tz.zone(guess)
+      return zone.abbr(new Date().getTime())
+    },
+    sortedList() {
+      return orderBy(
+        [...this.agendas, ...this.records],
+        (i) => moment(i.date),
+        ['asc']
+      )
+    },
+  },
   mounted() {
+    this.getData()
+
     // eslint-disable-next-line no-console
     console.info(
       `⏱ current UTC time: ${new Date().toUTCString()} or ${Math.trunc(
@@ -103,29 +109,49 @@ export default {
     )
   },
   methods: {
-    toTimezone(date, time) {
-      return (
-        moment
-          // set base time with UTC
-          // get timezone with i18n API - Intl.DateTimeFormat().resolvedOptions().timeZone
-          // usage: 2020-08-04 08:00
-          .tz(`${date} ${time}`, 'UTC')
-          // use client's locale time zone
-          .tz(moment.tz.guess())
-      )
-    },
-    md(string) {
-      const md = new MarkdownIt()
-      return md.render(string)
+    getData() {
+      axios({
+        url: 'https://api.airtable.com/v0/appyPXo0kRzyqRPJk/workshops',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+        },
+      }).then((res) => {
+        // this.records = res.data.records
+        res.data.records.forEach((rec) => {
+          this.records.push(rec.fields)
+        })
+      })
     },
   },
 }
 </script>
 
+<style lang="stylus">
+.note
+  color var(--white-700)
+</style>
+
 <style lang="stylus" scoped>
+/deep/
+p
+  a
+    color var(--link)
+    text-decoration initial
+  a:hover
+    text-decoration initial
+  a:active
+    opacity 0.65
+    transition-duration 0s
+  a code, code
+    color var(--link)
+    transition background-color 0.15s ease-out
+  a:hover code,
+  a:focus code
+    background-color rgba(59, 66, 125, 0.12)
+
 .container
   max-width $max-width-9
-  margin 0 auto
+  center()
 
 .section-heading
   padding var(--spacing-3) 1.5rem
@@ -141,62 +167,15 @@ export default {
     display block
     transform skew(30deg)
 
-.section-schedule
-  margin 0 auto
-  max-width $max-width-8
-
-.section-list
-  padding var(--spacing-8) 0
-
-  &__top__note,
-  &__bottom__note
-    color var(--white-700)
-    text-align center
-
-  &__top__note
-    margin-top var(--spacing-10)
-
-  &__item
-    padding-top var(--spacing-7)
-    padding-bottom var(--spacing-7)
-    display grid
-    grid-auto-flow column
-    grid-template-columns 25% auto
-    gap var(--spacing-3) var(--spacing-7)
-    border-bottom 2px solid var(--white-100)
-    &__date
-      color var(--primary-600)
-    &__time
-      color var(--white-700)
-    &__title
-      color var(--white)
-    &:last-child
-      border-bottom none
-
-.note
-  color var(--white-700)
-
-@media $breakpoint-xsmall-only
-  .section-list
-    &__item
-      &__date
-        grid-column span 2
-      &__time,
-      &__title
-        grid-row 2
-
-@media $breakpoint-small
-  .section-list
-    &__item
-      grid-template-columns 20% 15% auto
-      gap var(--spacing-7)
+// .section-schedule
+  // max-width $max-width-8
+  // center()
 
 @media $breakpoint-medium
   .section-heading
     margin-left -1.5rem
 
   .section-list
-    &__top__note,
-    &__bottom__note
+    &__top__note
       text-align inherit
 </style>
