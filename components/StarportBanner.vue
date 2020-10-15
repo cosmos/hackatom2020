@@ -35,6 +35,12 @@
 </template>
 
 <style lang="stylus" scoped>
+/deep/
+.text__btn-container__btn
+  margin-right var(--spacing-6)
+  &:last-child
+    margin-right 0
+
 .starport-banner
   display grid
   grid-template-columns repeat(6, 1fr)
@@ -65,7 +71,6 @@
   max-width $max-width-6
   display flex
   flex-wrap wrap
-  gap var(--spacing-5) var(--spacing-6)
 
 .icon__left
   color var(--primary-600)

@@ -104,7 +104,6 @@ export default {
 .grid
   margin-top var(--spacing-10)
   display grid
-  place-content center
   grid-template-columns 1
   gap var(--spacing-10)
   margin-top var(--spacing-12)
@@ -129,6 +128,7 @@ export default {
 
   &__rpc, &__rest
     color var(--white-700)
+    overflow-wrap anywhere
 
 .row
   display flex
@@ -136,12 +136,22 @@ export default {
   align-items center
   gap 1rem
   margin-top var(--spacing-5)
+  width fit-content
+
+// fix for flexbox gap
+.row > *
+  flex-grow 1
+  margin-left 0.25rem
+  margin-right 0.25rem
 
 .status-row
   display flex
   flex-direction row
   align-items center
   gap 0.375rem
+
+.status-row > img + div
+  margin-left 0.5rem
 
 .list
   display flex
