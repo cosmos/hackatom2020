@@ -25,7 +25,8 @@
     "nuxt": "^2.13.0",
     "rfs": "^9.0.3",
     "tiny-cookie": "^2.3.2",
-    "vue-kinesis": "^1.1.5"
+    "vue-kinesis": "^1.1.5",
+    "vue-scrollto": "^2.19.1"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.0.1",

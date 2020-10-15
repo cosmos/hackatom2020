@@ -135,7 +135,10 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: '~/plugins/vue-kinesis.client.js' }],
+  plugins: [
+    '~/plugins/vue-kinesis.client.js',
+    '~/plugins/vue-scrollto.client.js',
+  ],
   env: {
     VUE_APP_AIRTABLE_API_KEY: process.env.VUE_APP_AIRTABLE_API_KEY,
   },

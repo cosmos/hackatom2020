@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div id="schedules" class="section">
     <div class="tm-section-container">
       <div class="container">
         <div class="section-heading">

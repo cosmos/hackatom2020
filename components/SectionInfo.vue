@@ -4,7 +4,7 @@
       <div class="grid-container">
         <div class="time">
           <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
-            Launch time (UTC)
+            Next Workshop
           </div>
           <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
             7 PM Oct 16 – 7 PM Oct 30
@@ -19,12 +19,21 @@
           </div>
         </div>
         <div class="site">
-          <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+          <!-- <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
             Launch site
           </div>
           <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
             <span class="V">V</span>irtual
-          </div>
+          </div> -->
+          <tm-button
+            v-scroll-to="'#schedules'"
+            size="m"
+            color="var(--near-black)"
+            background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
+            glow
+            class="hero-btn"
+            >View schedule</tm-button
+          >
         </div>
       </div>
     </div>
@@ -63,9 +72,10 @@ export default {
   place-content center
   text-align center
   grid-template-columns auto
-  gap var(--spacing-9) var(--spacing-7)
+  gap var(--spacing-7)
+  margin var(--spacing-9) var(--spacing-7)
   max-width $max-width-9
-  margin 0 auto var(--spacing-9)
+  center()
 
 .overline
   color var(--white-700)
