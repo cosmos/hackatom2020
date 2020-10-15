@@ -5,6 +5,7 @@
         v-for="item in content"
         :key="item.id"
         :multiple="multiple"
+        :groupId="groupId"
         :item="item"
       >
       </tm-accordion-item>
@@ -24,14 +25,14 @@ export default {
       default: false,
     },
   },
-  // data() {
-  //   return {
-  //     groupId: null,
-  //   }
-  // },
-  // mounted() {
-  //   this.groupId = this.$el.id
-  // },
+  data() {
+    return {
+      groupId: null,
+    }
+  },
+  mounted() {
+    this.groupId = this.$el.id
+  },
 }
 </script>
 

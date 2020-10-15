@@ -136,6 +136,9 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [{ src: '~/plugins/vue-kinesis.client.js' }],
+  env: {
+    VUE_APP_AIRTABLE_API_KEY: process.env.VUE_APP_AIRTABLE_API_KEY,
+  },
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

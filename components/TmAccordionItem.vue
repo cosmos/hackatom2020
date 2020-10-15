@@ -1,6 +1,6 @@
 <template>
   <div
-    :id="item.id"
+    :id="groupId + '-' + item.id"
     class="accordion-item"
     :class="{ 'is-active': item.active }"
   >
@@ -87,7 +87,7 @@
           </div>
           <div class="c">
             <div class="title tm-rf1 tm-bold tm-lh-title">
-              Expanded workshop
+              Workshop Details
             </div>
             <!-- <div
               v-if="item.host && item.team"
@@ -102,7 +102,7 @@
           <div class="a"></div>
           <div class="b"></div>
           <div class="c">
-            <div v-html="item.details"></div>
+            <div v-html="md(item.details)"></div>
             <tm-button
               v-if="item.livestream"
               to-link="external"
@@ -122,29 +122,22 @@
 </template>
 
 <script>
+import MarkdownIt from 'markdown-it'
 import moment from 'moment-timezone'
 
 export default {
-  props: {
-    item: {
-      type: Object,
-      required: true,
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
-    },
-    // groupId: {
-    //   type: Number,
-    //   default: 0,
-    // },
-  },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['item', 'multiple', 'groupId'],
   data() {
     return {
       moment,
     }
   },
   methods: {
+    md(string) {
+      const md = new MarkdownIt()
+      return md.render(string)
+    },
     toTimezone(date, time) {
       return (
         moment
@@ -195,6 +188,7 @@ export default {
   padding 2rem 0
   border-radius 0.75rem
   overflow hidden
+  overflow-wrap anywhere
 
 .top, .bottom
   display grid
@@ -268,6 +262,9 @@ export default {
 
   .top, .bottom
     grid-template-columns auto
+
+  .top .a, .top .d, .bottom .a, .bottom .b
+    display none
 
   .details
     padding 1.5rem

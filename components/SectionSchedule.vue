@@ -23,48 +23,33 @@
 
 <script>
 import moment from 'moment-timezone'
-import MarkdownIt from 'markdown-it'
 import { orderBy } from 'lodash'
+import axios from 'axios'
+
+const apiKey = process.env.VUE_APP_AIRTABLE_API_KEY
 
 export default {
   data() {
     return {
       moment,
-      // UTC / 24 hours
+      records: [],
       updates: [
         {
-          id: 0,
-          active: false,
-          date: '2020-10-19',
-          startTime: '11:00',
-          endTime: '13:00',
-          title: 'Building a cross-chain Application on top of IBC',
-          host: 'Aditya Sripal',
-          team: 'Interchain GmbH',
-          details: `
-      <p>
-This workshop will provide an overview of the IBC stack, with a focus on the application layer. Participants will work through building a very simple IBC application.
-</p>
-    `,
-          livestream: 'https://youtu.be/YUsjneQptDQ',
-          replay: '',
-        },
-        {
-          id: 1,
+          id: 100,
           date: '2020-10-16',
           time: '19:00',
           title: 'HackAtom <span class="V">V</span> begins',
           active: false,
         },
         {
-          id: 2,
+          id: 101,
           date: '2020-10-30',
           time: '19:00',
           title: 'Deadline for submission',
           active: false,
         },
         {
-          id: 3,
+          id: 102,
           date: '2020-11-02',
           time: '20:00',
           title:
@@ -72,21 +57,21 @@ This workshop will provide an overview of the IBC stack, with a focus on the app
           active: false,
         },
         {
-          id: 4,
+          id: 103,
           date: '2020-11-04',
           time: '18:00',
           title: 'Demo day for the finalists',
           active: false,
         },
         {
-          id: 5,
+          id: 104,
           date: '2020-11-06',
           time: '20:00',
           title: 'Voting ends for Community Choice Award',
           active: false,
         },
         {
-          id: 6,
+          id: 105,
           date: '2020-11-09',
           time: '20:00',
           title: 'Winners announced',
@@ -102,10 +87,16 @@ This workshop will provide an overview of the IBC stack, with a focus on the app
       return zone.abbr(new Date().getTime())
     },
     sortedList() {
-      return orderBy(this.updates, (i) => moment(i.date), ['asc'])
+      return orderBy(
+        [...this.updates, ...this.records],
+        (i) => moment(i.date),
+        ['asc']
+      )
     },
   },
   mounted() {
+    this.getData()
+
     // eslint-disable-next-line no-console
     console.info(
       `⏱ current UTC time: ${new Date().toUTCString()} or ${Math.trunc(
@@ -114,9 +105,18 @@ This workshop will provide an overview of the IBC stack, with a focus on the app
     )
   },
   methods: {
-    md(string) {
-      const md = new MarkdownIt()
-      return md.render(string)
+    getData() {
+      axios({
+        url: 'https://api.airtable.com/v0/appyPXo0kRzyqRPJk/workshops',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+        },
+      }).then((res) => {
+        // this.records = res.data.records
+        res.data.records.forEach((rec) => {
+          this.records.push(rec.fields)
+        })
+      })
     },
   },
 }
@@ -128,6 +128,23 @@ This workshop will provide an overview of the IBC stack, with a focus on the app
 </style>
 
 <style lang="stylus" scoped>
+/deep/
+p
+  a
+    color var(--link)
+    text-decoration initial
+  a:hover
+    text-decoration underline
+  a:active
+    opacity 0.65
+    transition-duration 0s
+  a code, code
+    color var(--link)
+    transition background-color 0.15s ease-out
+  a:hover code,
+  a:focus code
+    background-color rgba(59, 66, 125, 0.12)
+
 .container
   max-width $max-width-9
   center()
