@@ -50,8 +50,8 @@ export default {
         {
           logo: 'cosmwasm',
           title: 'CosmWasm',
-          github: 'https://github.com/CosmWasm/cosmwasm/tree/v0.11.0',
-          tag: 'v0.11.0',
+          github: 'https://github.com/CosmWasm/cosmwasm/tree/v0.11.1',
+          tag: 'v0.11.1',
           rpc: 'rpc.cosmwasm.hub.hackatom.dev',
           rest: 'rest.cosmwasm.hub.hackatom.dev/node_info',
           sentries: ['3.210.214.84', '54.157.170.255', '52.6.160.38'],
@@ -59,8 +59,8 @@ export default {
         {
           logo: 'ethermint',
           title: 'Ethermint',
-          github: 'https://github.com/cosmos/ethermint/tree/v0.2.0',
-          tag: 'v0.2.0',
+          github: 'https://github.com/cosmos/ethermint/tree/v0.2.1',
+          tag: 'v0.2.1',
           rpc: 'rpc.ethermint.hub.hackatom.dev',
           rest: 'rest.ethermint.hub.hackatom.dev/node_info',
           sentries: ['54.242.179.45', '54.157.240.3', '3.93.210.93'],
