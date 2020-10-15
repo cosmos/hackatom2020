@@ -10,7 +10,6 @@
             img(:src="`/profiles/${item.name.toLowerCase().split(' ').join('-')}.jpg`" alt="item.name").item__avatar
             .item__name.tm-rf0.tm-bold.tm-lh-title {{ item.name }}
             .item__company.tm-rf-1.tm-lh-title {{ item.company }}
-          //- .item.item__placeholder.tm-rf0.tm-lh-title More judges to be announced.
 </template>
 
 <script>
@@ -158,7 +157,7 @@ export default {
         {
           role: 'mentor',
           name: 'Abhitej Singh',
-          company: 'Persistence One',
+          company: 'Persistence',
         },
         {
           role: 'mentor',
@@ -179,6 +178,61 @@ export default {
           role: 'mentor',
           name: 'Paddy McHale',
           company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Puneet Mahajan',
+          company: 'Persistence',
+        },
+        {
+          role: 'mentor',
+          name: 'Abhinav Kumar',
+          company: 'Persistence',
+        },
+        {
+          role: 'mentor',
+          name: 'Deepanshu Tripathi',
+          company: 'Persistence',
+        },
+        {
+          role: 'mentor',
+          name: 'Aditya Sripal',
+          company: 'Interchain GmbH',
+        },
+        {
+          role: 'mentor',
+          name: 'Dean Tribble',
+          company: 'Agoric',
+        },
+        {
+          role: 'mentor',
+          name: 'Kate Sills',
+          company: 'Agoric',
+        },
+        {
+          role: 'mentor',
+          name: 'Michael Fig',
+          company: 'Agoric',
+        },
+        {
+          role: 'mentor',
+          name: 'Enrico Talin',
+          company: 'Commercio',
+        },
+        {
+          role: 'mentor',
+          name: 'Egidio Casati',
+          company: 'Commercio',
+        },
+        {
+          role: 'mentor',
+          name: 'Orkun Külçe',
+          company: 'Confio',
+        },
+        {
+          role: 'mentor',
+          name: 'Abel Fernández Nandín',
+          company: 'Confio',
         },
       ],
     }
@@ -233,7 +287,6 @@ export default {
   &__name
     color var(--white)
 
-  &__placeholder,
   &__role,
   &__company
     color var(--white-700)
