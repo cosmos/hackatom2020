@@ -152,6 +152,7 @@
 <script>
 import MarkdownIt from 'markdown-it'
 import moment from 'moment-timezone'
+import $ from 'jquery'
 
 export default {
   // eslint-disable-next-line vue/require-prop-types
@@ -160,6 +161,12 @@ export default {
     return {
       moment,
     }
+  },
+  mounted() {
+    // https://css-tricks.com/snippets/jquery/better-broken-image-handling/
+    $('img').on('error', function () {
+      $(this).hide()
+    })
   },
   methods: {
     md(string) {
