@@ -1,5 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
+
+# local env files
+.env.local
+.env.*.local
+.env*
+
 # Logs
 /logs
 *.log
