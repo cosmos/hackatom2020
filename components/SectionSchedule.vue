@@ -90,10 +90,17 @@ export default {
       const zone = moment.tz.zone(guess)
       return zone.abbr(new Date().getTime())
     },
+    sortedRecords() {
+      return orderBy(
+        [...this.records],
+        [(i) => new Date(`${i.date} ${i.startTime}`)],
+        ['asc']
+      )
+    },
     sortedList() {
       return orderBy(
-        [...this.agendas, ...this.records],
-        (i) => moment(i.date),
+        [...this.agendas, ...this.sortedRecords],
+        [(i) => moment(i.date)],
         ['asc']
       )
     },
