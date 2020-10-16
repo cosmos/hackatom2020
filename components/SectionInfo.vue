@@ -74,7 +74,7 @@ export default {
     },
     nextWorkshop() {
       const workshop = this.sortedRecords
-        .filter((e) => moment(e.date) >= moment())
+        .filter((e) => moment.tz(`${e.date} ${e.startTime}`, 'UTC') >= moment())
         .slice(0, 1)
       return workshop
     },
