@@ -152,7 +152,10 @@
             </div>
             <div v-html="md(item.details)"></div>
             <tm-button
-              v-if="item.livestream"
+              v-if="
+                item.livestream &&
+                toTimezone(item.date, item.endTime) > moment()
+              "
               to-link="external"
               :href="item.livestream"
               background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%), #E96C58"
