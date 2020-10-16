@@ -1,36 +1,35 @@
 <template>
   <div>
     <div class="tm-section-container">
-      <div class="grid-container">
+      <div v-for="i in nextWorkshop" :key="i.id" class="grid-container">
         <div class="time">
           <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
             Next Workshop
           </div>
-          <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
-            7 PM Oct 16 – 7 PM Oct 30
-          </div>
+          <a :href="i.livestream" target="_blank" rel="noreferrer noopener">
+            <div class="content tm-rf0 tm-rf0-l-up tm-bold tm-lh-copy tm-code">
+              {{ i.title }}
+            </div>
+          </a>
         </div>
         <div class="countdown">
           <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
-            T-MINUS
+            <tm-countdown
+              :now="countdown.now"
+              :end="countdownTimer(i.date, i.startTime)"
+            />
           </div>
-          <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
-            <tm-countdown :now="countdown.now" :end="countdown.end" />
+          <div class="content tm-rf0 tm-rf0-l-up tm-bold tm-lh-copy tm-code">
+            {{ toTimezone(i.date, i.startTime).format('ddd, MMM D') }} ·
+            {{ toTimezone(i.date, i.startTime).format('HH:mm') }}
           </div>
         </div>
         <div class="site">
-          <!-- <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
-            Launch site
-          </div>
-          <div class="content tm-rf0 tm-rf1-l-up tm-bold tm-lh-copy tm-code">
-            <span class="V">V</span>irtual
-          </div> -->
           <tm-button
             v-scroll-to="'#schedules'"
             size="m"
             color="var(--near-black)"
-            background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
-            glow
+            background-color="rgba(255, 255, 255, 0.5)"
             class="hero-btn"
             >View schedule</tm-button
           >
@@ -41,7 +40,12 @@
 </template>
 
 <script>
+import moment from 'moment-timezone'
+import { orderBy } from 'lodash'
+import axios from 'axios'
 import TmCountdown from './TmCountdown'
+
+const apiKey = process.env.VUE_APP_AIRTABLE_API_KEY
 
 export default {
   components: {
@@ -49,19 +53,66 @@ export default {
   },
   data() {
     return {
+      moment,
+      records: [],
       countdown: {
         now: Math.trunc(new Date(new Date().toUTCString()).getTime() / 1000),
         // end date: 2020-10-16
         // end time: 19:00
         // usage: moment.tz("2020-10-16 19:00", "UTC").format()
-        end: '2020-10-16T19:00:00Z',
+        // end: '2020-10-16T19:00:00Z',
       },
     }
   },
+  computed: {
+    sortedRecords() {
+      return orderBy(
+        [...this.records],
+        [(i) => new Date(`${i.date} ${i.startTime}`)],
+        ['asc']
+      )
+    },
+    nextWorkshop() {
+      const workshop = this.sortedRecords
+        .filter((e) => moment(e.date) >= moment())
+        .slice(0, 1)
+      return workshop
+    },
+  },
   mounted() {
+    this.getData()
+
     window.setInterval(() => {
       this.countdown.now = Math.trunc(new Date().getTime() / 1000)
     }, 1000)
+  },
+  methods: {
+    getData() {
+      axios({
+        url: 'https://api.airtable.com/v0/appyPXo0kRzyqRPJk/workshops',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+        },
+      }).then((res) => {
+        res.data.records.forEach((rec) => {
+          this.records.push(rec.fields)
+        })
+      })
+    },
+    countdownTimer(date, time) {
+      return moment.tz(`${date} ${time}`, 'UTC').format()
+    },
+    toTimezone(date, time) {
+      return (
+        moment
+          // set base time with UTC
+          // get timezone with i18n API - Intl.DateTimeFormat().resolvedOptions().timeZone
+          // usage: 2020-08-04 08:00
+          .tz(`${date} ${time}`, 'UTC')
+          // use client's locale time zone
+          .tz(moment.tz.guess())
+      )
+    },
   },
 }
 </script>
@@ -73,12 +124,15 @@ export default {
   text-align center
   grid-template-columns auto
   gap var(--spacing-7)
-  margin var(--spacing-9) var(--spacing-7)
-  max-width $max-width-9
-  center()
+  padding var(--spacing-7) var(--spacing-9)
+  background #2E2D2D
+  border-radius 0.75rem
 
 .overline
   color var(--white-700)
+
+.hero-btn
+  backdrop-filter blur(40px)
 
 .tm-code
   margin-top var(--spacing-1)

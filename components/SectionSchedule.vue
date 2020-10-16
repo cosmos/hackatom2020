@@ -14,11 +14,7 @@
               currentTimezone
             }}).
           </div>
-          <tm-accordion
-            id="accordion-example-2"
-            :content="sortedList"
-            multiple
-          />
+          <tm-accordion :content="sortedList" multiple />
         </div>
       </div>
     </div>
