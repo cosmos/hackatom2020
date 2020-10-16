@@ -7,6 +7,11 @@
     <div class="section-list">
       <div class="section-list__item">
         <div
+          v-if="toTimezone(item.date, item.endTime) < moment()"
+          class="section-list__item__date tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
+        ></div>
+        <div
+          v-else
           class="section-list__item__date tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
         >
           {{
@@ -16,7 +21,22 @@
           }}
         </div>
         <div
-          v-if="item.startTime && item.endTime"
+          v-if="toTimezone(item.date, item.endTime) < moment()"
+          class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
+        >
+          <tm-button
+            to-link="external"
+            :href="item.livestream"
+            color="var(--white)"
+            variant="text"
+            glow
+            class=".replay-btn"
+            ><span class="icon__left" aria-hidden="true">▶</span>Watch
+            replay</tm-button
+          >
+        </div>
+        <div
+          v-else-if="item.startTime && item.endTime"
           class="section-list__item__time tm-rf-1 tm-rf0-m-up tm-lh-title tm-code"
         >
           {{ toTimezone(item.date, item.startTime).format('HH:mm') }} -
@@ -213,6 +233,9 @@ export default {
 
 .expand-enter, .expand-leave-to
   height 0
+
+.icon__left
+  color var(--primary-600)
 
 .subtitle, .b, .language
   color var(--white-700)
