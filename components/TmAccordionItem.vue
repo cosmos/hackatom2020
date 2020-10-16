@@ -234,8 +234,8 @@ export default {
   margin-top var(--spacing-6)
 
 .headshots
-  direction rtl
   display flex
+  justify-content flex-end
 
   &__img
     float left
@@ -255,7 +255,7 @@ export default {
       justify-content center
       align-items center
       position relative
-      left 6px
+      left -5px
 
 .toggle
   cursor pointer
@@ -294,7 +294,7 @@ export default {
         margin-top var(--spacing-2)
 
   .headshots
-    direction ltr
+    justify-content flex-start
 
   .top, .bottom
     grid-template-columns auto
