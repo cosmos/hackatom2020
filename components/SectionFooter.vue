@@ -6,13 +6,6 @@
         <div class="container">
           <div class="nav tm-rf0 tm-medium">
             <a
-              href="https://hackatomv.devpost.com"
-              target="blank_"
-              rel="noreferrer noopener"
-              class="cta"
-              >Register</a
-            >
-            <a
               href="https://hackatomv.devpost.com/resources"
               target="blank_"
               rel="noreferrer noopener"

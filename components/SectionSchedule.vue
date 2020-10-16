@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div id="schedules" class="section">
     <div class="tm-section-container">
       <div class="container">
         <div class="section-heading">
@@ -14,11 +14,7 @@
               currentTimezone
             }}).
           </div>
-          <tm-accordion
-            id="accordion-example-2"
-            :content="sortedList"
-            multiple
-          />
+          <tm-accordion :content="sortedList" multiple />
         </div>
       </div>
     </div>
