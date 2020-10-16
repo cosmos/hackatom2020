@@ -71,6 +71,7 @@ export default {
           github: 'https://github.com/cosmos/gaia/tree/stargate-3',
           tag: 'stargate-3',
           rpc: 'rpc.gaia.hub.hackatom.dev',
+          rest: 'rest.gaia.hub.hackatom.dev/node_info',
           sentries: ['54.158.6.143', '3.225.24.66', '54.161.226.122'],
         },
       ],
@@ -178,6 +179,6 @@ export default {
     margin-left -1.5rem
 
   .grid
-    grid-template-columns repeat(2, 1fr)
+    grid-template-columns repeat(auto-fit, minmax(0, 1fr))
     gap var(--spacing-8)
 </style>
