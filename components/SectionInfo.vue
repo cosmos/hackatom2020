@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="nextWorkshop">
     <div class="tm-section-container">
       <div v-for="i in nextWorkshop" :key="i.id" class="grid-container">
         <div class="time">
