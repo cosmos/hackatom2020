@@ -55,10 +55,6 @@ export default {}
   background-image url('/bg/faketoshi-ripple.jpg')
   background-position bottom center
 
-// .hacker-resources-bg
-//   background-image url('/bg/bitcoin-fork.jpg')
-//   background-position top center
-
 @media $breakpoint-medium
   .bg
     padding-bottom (450/1440) * 100%

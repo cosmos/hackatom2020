@@ -2,7 +2,7 @@
   <div class="tm-section-container section">
     <div class="cards">
       <a
-        href="https://hackatomv.devpost.com"
+        href="https://hackatomv.devpost.com/rules"
         target="_blank"
         rel="noreferrer noopener"
         class="bg"
@@ -14,12 +14,12 @@
             class="top-right"
           />
           <div class="left__title-left tm-rf2 tm-bold tm-lh-title">
-            Register now
+            View the rules
           </div>
           <div
             class="left__desc-left tm-rf-1 tm-rf0-l-up tm-lh-copy tm-measure-narrow"
           >
-            Strap on your spacepants and get ready to hack, Cosmonaut.
+            hackatomv.devpost.com/rules
           </div>
         </div>
       </a>
@@ -67,7 +67,7 @@
   display flex
   flex-direction row
   justify-content space-between
-  background linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%), #E96C58
+  background linear-gradient(180deg, #1D1D1D 0%, #2E2D2D 100%)
   border 2px solid var(--dark-gray)
   box-shadow var(--elevation-16)
   border-radius 0.75rem
@@ -111,7 +111,7 @@
 
   &__title-left
     margin-bottom var(--spacing-5)
-    color var(--near-black)
+    color var(--white)
     position relative
 
     &::after
@@ -124,7 +124,7 @@
       transition transform 0.2s ease-out 0s
 
   &__desc-left
-    color var(--near-black)
+    color var(--white-700)
 
   &__title-right
     margin-bottom var(--spacing-5)

@@ -1,6 +1,6 @@
 <template lang="pug">
   div(v-if='countingDown')
-    code {{ days }}d : {{ hours }}h : {{ minutes }}m : {{ seconds }}s
+    code {{ hours }}h:{{ minutes }}m:{{ seconds }}s
   div(v-else)
     code Hack on!
 </template>
