@@ -270,7 +270,8 @@ export default {
   &[disabled]
     cursor not-allowed !important
     opacity 0.65 !important
-    pointer-events none
+    // re-enable to remove cursor
+    // pointer-events none
 
   /* glow styling (optional) */
   &__glow
