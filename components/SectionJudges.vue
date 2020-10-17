@@ -14,6 +14,7 @@
 
 <script>
 import { orderBy } from 'lodash'
+import $ from 'jquery'
 
 export default {
   data() {
@@ -257,6 +258,12 @@ export default {
       const sortedList = orderBy(this.list, 'name')
       return sortedList
     },
+  },
+  mounted() {
+    // https://css-tricks.com/snippets/jquery/better-broken-image-handling/
+    $('img').on('error', function () {
+      $(this).hide()
+    })
   },
 }
 </script>
