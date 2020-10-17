@@ -177,6 +177,9 @@ export default {
 .list
   display flex
   flex-direction column
+  overflow-wrap break-word
+  word-wrap break-word
+  word-break break-all
 
   &__subtitle
     position relative

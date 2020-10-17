@@ -7,7 +7,9 @@
         .success__subtitle.tm-code.tm-bold.tm-lh-copy {{ this.address }}
         .success__reset.tm-rf0.tm-lh-title(@click="reset") Send to another address
       div(v-else-if="state === 'error'" key="error")
-        div error
+        .success__title.tm-rf1.tm-bold.tm-lh-copy 
+        .success__subtitle.tm-code.tm-bold.tm-lh-copy Failed to send tokens
+        .success__reset.tm-rf0.tm-lh-title(@click="reset") Send to another address
       div(v-else key="default")
         .cards__item
           .cards__item__title.tm-rf0.tm-medium.tm-lh-title.tm-overline {{ itemTitle }} faucet
@@ -123,7 +125,9 @@ export default {
   align-items center
   flex-direction column
   text-align center
-  overflow-wrap anywhere
+  overflow-wrap break-word
+  word-wrap break-word
+  word-break break-all
 
 .success
   &__title
