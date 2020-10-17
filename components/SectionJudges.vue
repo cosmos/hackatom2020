@@ -14,6 +14,7 @@
 
 <script>
 import { orderBy } from 'lodash'
+import $ from 'jquery'
 
 export default {
   data() {
@@ -141,11 +142,6 @@ export default {
         },
         {
           role: 'mentor',
-          name: 'Federico Kunze',
-          company: 'ChainSafe',
-        },
-        {
-          role: 'mentor',
           name: 'Riccardo Montagnin',
           company: 'Forbole',
         },
@@ -191,11 +187,6 @@ export default {
         },
         {
           role: 'mentor',
-          name: 'Deepanshu Tripathi',
-          company: 'Persistence',
-        },
-        {
-          role: 'mentor',
           name: 'Aditya Sripal',
           company: 'Interchain GmbH',
         },
@@ -231,12 +222,32 @@ export default {
         },
         {
           role: 'mentor',
-          name: 'Abel Fernández Nandín',
-          company: 'Confio',
+          name: 'Sahith Narahari',
+          company: 'Tendermint',
         },
         {
           role: 'mentor',
-          name: 'Sahith Narahari',
+          name: 'Ilker Öztürk',
+          company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Amaury Martiny',
+          company: 'Regen Network',
+        },
+        {
+          role: 'mentor',
+          name: 'Anil Kumar Kammari',
+          company: 'Regen Network',
+        },
+        {
+          role: 'mentor',
+          name: 'Rowland Graus',
+          company: 'Agoric',
+        },
+        {
+          role: 'mentor',
+          name: 'Gautier Marin',
           company: 'Tendermint',
         },
       ],
@@ -247,6 +258,12 @@ export default {
       const sortedList = orderBy(this.list, 'name')
       return sortedList
     },
+  },
+  mounted() {
+    // https://css-tricks.com/snippets/jquery/better-broken-image-handling/
+    $('img').on('error', function () {
+      $(this).hide()
+    })
   },
 }
 </script>
