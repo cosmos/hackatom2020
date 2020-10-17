@@ -31,6 +31,9 @@
             .list.tm-code.tm-rf0.tm-lh-copy
               a(:href="`http://${i}`" target="_blank" rel="noreferrer noopener" v-for="i in item.sentries") {{ i }}
 
+        .cards
+          .cards__item(v-for="item in this.faucets")
+            tm-faucet(:content="faucets" :requestURL="item.url" :itemTitle="item.title" :itemDenom="item.denom")
 </template>
 
 <script>
@@ -73,6 +76,23 @@ export default {
           rpc: 'rpc.gaia.hub.hackatom.dev',
           rest: 'rest.gaia.hub.hackatom.dev/node_info',
           sentries: ['54.158.6.143', '3.225.24.66', '54.161.226.122'],
+        },
+      ],
+      faucets: [
+        {
+          title: 'cosmwasm',
+          denom: 'ucosm',
+          url: 'https://faucet.cosmwasm.hub.hackatom.dev',
+        },
+        {
+          title: 'ethermint',
+          denom: 'ueth',
+          url: 'https://faucet.ethermint.hub.hackatom.dev',
+        },
+        {
+          title: 'gaia',
+          denom: 'uatom',
+          url: 'https://faucet.gaia.hub.hackatom.dev',
         },
       ],
     }
@@ -157,6 +177,9 @@ export default {
 .list
   display flex
   flex-direction column
+  overflow-wrap break-word
+  word-wrap break-word
+  word-break break-all
 
   &__subtitle
     position relative
@@ -173,6 +196,66 @@ export default {
 
   &__item
     color var(--white)
+
+.cards
+  margin-top var(--spacing-10)
+  display grid
+  grid-template-columns repeat(auto-fit, minmax(0, 1fr))
+  gap var(--spacing-7)
+
+  &__item
+    background linear-gradient(180deg, #1D1D1D 0%, #2E2D2D 100%)
+    box-shadow var(--elevation-16)
+    border-radius 0.75rem
+    padding var(--spacing-7)
+
+.form
+  margin-top 0.5rem
+  display grid
+  gap 1rem
+  grid-auto-flow column
+  // grid-template-columns 1fr min-content
+  max-width 30rem
+  center()
+
+.form__input__input
+  background none
+  border 2px solid rgba(255, 255, 255, 0.2)
+  padding .75rem 1rem
+  border-radius .25rem
+  width 100%
+  box-sizing border-box
+  color var(--white)
+
+  &:hover
+    background-color rgba(255,255,255,0.13)
+
+  &:focus
+    outline none
+    // border 2px solid #5064FB
+
+.btn
+  margin-top var(--spacing-5)
+  width 100%
+
+.form__button__spinner
+  width 1.5rem
+  height 1.5rem
+  // position absolute
+  animation spin 1s infinite linear
+
+@keyframes spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
+
+@media $breakpoint-xsmall-only
+  .cards
+    display block
+
+    &__item + &__item
+      margin-top var(--spacing-8)
 
 @media $breakpoint-medium
   .section-heading
