@@ -37,7 +37,7 @@
 
         .cards
           .cards__item(v-for="item in this.faucets")
-            tm-faucet(:content="faucets" :requestURL="item.url" :itemTitle="item.title" :itemDenom="item.denom")
+            tm-faucet(:content="faucets" :requestURL="item.url" :itemTitle="item.title" :itemDenom="item.denom" :itemTag="item.tag")
 </template>
 
 <script>
@@ -96,22 +96,45 @@ export default {
             '5b9e5d1128a1a74c6e993de8e82ab228e32e1dc2@54.161.226.122:26656',
           ],
         },
+        {
+          logo: 'cosmos-hub',
+          title: 'Cosmos Hub',
+          github: 'https://github.com/cosmos/gaia/tree/stargate-4',
+          tag: 'stargate-4',
+          rpc: 'rpc.gaiasg4.hub.hackatom.dev',
+          rest: 'rest.gaiasg4.hub.hackatom.dev/node_info',
+          peers: ['54.83.206.46', '54.146.123.31', '75.101.244.84'],
+          nodes: [
+            '8f9c68b14810b742a10134ad1fb2dbf4dccd8647@54.83.206.46:26656',
+            '3607fb62ca6c07a24692ecc7a9c5ba5186e674a1@54.146.123.31:26656',
+            'cfbf0f3e94f8205d9d825c69503cbc2ae4e39896@75.101.244.84:26656',
+          ],
+        },
       ],
       faucets: [
         {
           title: 'cosmwasm',
+          tag: '',
           denom: 'ucosm',
           url: 'https://faucet.cosmwasm.hub.hackatom.dev',
         },
         {
           title: 'ethermint',
+          tag: '',
           denom: 'ueth',
           url: 'https://faucet.ethermint.hub.hackatom.dev',
         },
         {
           title: 'gaia',
+          tag: 'stargate-3',
           denom: 'uatom',
           url: 'https://faucet.gaia.hub.hackatom.dev',
+        },
+        {
+          title: 'gaia',
+          tag: 'stargate-4',
+          denom: 'uatom',
+          url: 'https://faucet.gaiasg4.hub.hackatom.dev',
         },
       ],
     }
@@ -236,7 +259,6 @@ export default {
   display grid
   gap 1rem
   grid-auto-flow column
-  // grid-template-columns 1fr min-content
   max-width 30rem
   center()
 
@@ -254,7 +276,6 @@ export default {
 
   &:focus
     outline none
-    // border 2px solid #5064FB
 
 .btn
   margin-top var(--spacing-5)
@@ -263,7 +284,6 @@ export default {
 .form__button__spinner
   width 1.5rem
   height 1.5rem
-  // position absolute
   animation spin 1s infinite linear
 
 @keyframes spin
@@ -279,11 +299,21 @@ export default {
     &__item + &__item
       margin-top var(--spacing-8)
 
+@media $breakpoint-small
+  .grid, .cards
+    grid-template-columns repeat(1, 1fr)
+    gap var(--spacing-8)
+
 @media $breakpoint-medium
   .section-heading
     margin-left -1.5rem
 
-  .grid
-    grid-template-columns repeat(auto-fit, minmax(0, 1fr))
-    gap var(--spacing-8)
+  .cards
+    grid-template-columns repeat(2, 1fr)
+    gap var(--spacing-10)
+
+@media $breakpoint-large
+  .grid, .cards
+    grid-template-columns repeat(2, 1fr)
+    gap var(--spacing-10)
 </style>
