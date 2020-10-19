@@ -157,11 +157,6 @@ export default {
         },
         {
           role: 'mentor',
-          name: 'Andrew Cronk',
-          company: 'Figment Networks',
-        },
-        {
-          role: 'mentor',
           name: 'Jack Zampolin',
           company: 'Akash Network',
         },
@@ -249,6 +244,11 @@ export default {
           role: 'mentor',
           name: 'Gautier Marin',
           company: 'Tendermint',
+        },
+        {
+          role: 'mentor',
+          name: 'Yelong Zhang',
+          company: 'IrisNet',
         },
       ],
     }
