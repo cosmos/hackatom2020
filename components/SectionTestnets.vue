@@ -194,7 +194,7 @@ export default {
   margin-left 0.5rem
 
 .list > div + div
-  margin-top 1rem
+  margin-top var(--spacing-5)
 
 .list
   display flex
