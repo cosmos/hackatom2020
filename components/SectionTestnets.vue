@@ -27,9 +27,13 @@
               .item__rest.tm-code.tm-rf0.tm-lh-copy
                 a(:href="`https://${item.rest}`" target="_blank" rel="noreferrer noopener" v-if="item.rest") {{ item.rest }}
 
-            .item__sentries.tm-overline sentries
+            .item__peers.tm-overline peers
             .list.tm-code.tm-rf0.tm-lh-copy
-              a(:href="`http://${i}`" target="_blank" rel="noreferrer noopener" v-for="i in item.sentries") {{ i }}
+              a(:href="`http://${i}`" target="_blank" rel="noreferrer noopener" v-for="i in item.peers") {{ i }}
+
+            .item__nodes.tm-overline nodes
+            .list.tm-code.tm-rf0.tm-lh-copy
+              div(v-for="i in item.nodes") {{ i }}
 
         .cards
           .cards__item(v-for="item in this.faucets")
@@ -57,7 +61,12 @@ export default {
           tag: 'v0.11.1',
           rpc: 'rpc.cosmwasm.hub.hackatom.dev',
           rest: 'rest.cosmwasm.hub.hackatom.dev/node_info',
-          sentries: ['3.210.214.84', '54.157.170.255', '52.6.160.38'],
+          peers: ['3.210.214.84', '54.157.170.255', '52.6.160.38'],
+          nodes: [
+            '25cfdfec822cc3e5c6715a26cc62ca3b4ac969ae@3.210.214.84:26656',
+            'be60704078fcfd39381704920afadeae80bf28b5@54.157.170.255:26656',
+            'f370d17af0c89bcc705f2ba9db941927a80eb60e@52.6.160.38:26656',
+          ],
         },
         {
           logo: 'ethermint',
@@ -66,7 +75,12 @@ export default {
           tag: 'v0.2.1',
           rpc: 'rpc.ethermint.hub.hackatom.dev',
           rest: 'rest.ethermint.hub.hackatom.dev/node_info',
-          sentries: ['54.242.179.45', '54.157.240.3', '3.93.210.93'],
+          peers: ['54.242.179.45', '54.157.240.3', '3.93.210.93'],
+          nodes: [
+            'f4dc01566cab4d09628eacdafc14d9b30bccf8b7@54.242.179.45:26656',
+            '6baefdf98c09d1e157fa2f5c7982ec3e19a2520a@54.157.240.3:26656',
+            '2ed2a2f76b81d9b5b63762b552cc69d296915faf@3.93.210.93:26656',
+          ],
         },
         {
           logo: 'cosmos-hub',
@@ -75,7 +89,12 @@ export default {
           tag: 'stargate-3',
           rpc: 'rpc.gaia.hub.hackatom.dev',
           rest: 'rest.gaia.hub.hackatom.dev/node_info',
-          sentries: ['54.158.6.143', '3.225.24.66', '54.161.226.122'],
+          peers: ['54.158.6.143', '3.225.24.66', '54.161.226.122'],
+          nodes: [
+            'f46218654a5cfd62f83aaf4c7f43e294cc6c41ff@54.158.6.143:26656',
+            '821123ae6acbf1876850453ec1b6d4c061a9e8af@3.225.24.66:26656',
+            '5b9e5d1128a1a74c6e993de8e82ab228e32e1dc2@54.161.226.122:26656',
+          ],
         },
       ],
       faucets: [
@@ -142,7 +161,7 @@ export default {
     margin-top var(--spacing-8)
     color var(--white-700)
 
-  &__sentries
+  &__peers, &__nodes
     margin-top var(--spacing-8)
     margin-bottom var(--spacing-4)
     color var(--white-700)
@@ -173,6 +192,9 @@ export default {
 
 .status-row > img + div
   margin-left 0.5rem
+
+.list > div + div
+  margin-top 1rem
 
 .list
   display flex
