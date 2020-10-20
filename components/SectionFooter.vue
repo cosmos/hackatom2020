@@ -6,12 +6,13 @@
         <div class="container">
           <div class="nav tm-rf0 tm-medium">
             <a
-              href="https://hackatomv.devpost.com/resources"
+              href="https://hackatomv.devpost.com"
               target="blank_"
               rel="noreferrer noopener"
               class="cta"
-              >Resources</a
+              >Register</a
             >
+            <nuxt-link to="/resources" class="cta">Resources</nuxt-link>
             <a
               href="https://hackatomv.devpost.com/rules"
               target="blank_"
