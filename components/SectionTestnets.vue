@@ -24,10 +24,12 @@
                 div
                   .item__endpoints.tm-overline api endpoints
                   .list
-                    .list__subtitle.tm-rf0.tm-bold.tm-lh-copy(v-if="item.rpc") RPC
+                    .list__subtitle.tm-rf0.tm-bold.tm-lh-copy(v-if="item.rpc")
+                      a(:href="`https://${item.rpc}`" target="_blank" rel="noreferrer noopener") RPC
                     .item__rpc.tm-code.tm-rf-1.tm-lh-copy
                       a(:href="`https://${item.rpc}`" target="_blank" rel="noreferrer noopener" v-if="item.rpc") {{ item.rpc }}
-                    .list__subtitle.tm-rf0.tm-bold.tm-lh-copy(v-if="item.rest") Rest
+                    .list__subtitle.tm-rf0.tm-bold.tm-lh-copy(v-if="item.rest")
+                      a(:href="`https://${item.rest}`" target="_blank" rel="noreferrer noopener") Rest
                     .item__rest.tm-code.tm-rf-1.tm-lh-copy
                       a(:href="`https://${item.rest}`" target="_blank" rel="noreferrer noopener" v-if="item.rest") {{ item.rest }}
 
