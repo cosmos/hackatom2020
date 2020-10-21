@@ -1,5 +1,5 @@
 <template>
-  <div class="tm-section-container section">
+  <div class="tm-section-container">
     <div class="cards">
       <a
         href="https://hackatomv.devpost.com/rules"
@@ -52,7 +52,6 @@
     color var(--primary-600)
 
 .cards
-  padding-top var(--spacing-10)
   padding-bottom var(--spacing-10)
   display grid
   grid-template-columns 1fr 1fr
