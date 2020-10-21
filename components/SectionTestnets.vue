@@ -372,6 +372,9 @@ span.copy-item
     &__endpoints, &__peers, &__nodes
       margin-top var(--spacing-8)
 
+  .status-row > img + div
+    margin-left var(--spacing-1)
+
 @media $breakpoint-small
   .content, .cards
     grid-template-columns repeat(1, 1fr)
@@ -386,6 +389,9 @@ span.copy-item
   .item
     &__endpoints, &__peers
       margin-top var(--spacing-6)
+
+  .status-row > img + div
+    margin-left var(--spacing-1)
 
 @media $breakpoint-medium
   .section-heading
