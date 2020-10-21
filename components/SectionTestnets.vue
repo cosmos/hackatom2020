@@ -377,6 +377,12 @@ span.copy-item
     grid-template-columns repeat(1, 1fr)
     gap var(--spacing-8)
 
+  .content
+    margin-top var(--spacing-12)
+
+  .cards
+    margin-top var(--spacing-8)
+
   .item
     &__endpoints, &__peers
       margin-top var(--spacing-6)
@@ -396,6 +402,9 @@ span.copy-item
 @media $breakpoint-large
   .content
     margin-top var(--spacing-10)
+
+  .cards
+    margin-top 0
 
   .item
     display grid
