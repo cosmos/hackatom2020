@@ -2,14 +2,8 @@
   <div class="section">
     <div class="tm-section-container">
       <div class="container">
-        <!-- <div class="section-heading">
-          <span
-            class="section-heading__title tm-rf1 tm-medium tm-lh-title tm-overline"
-            >Hacker Resources</span
-          >
-        </div> -->
         <starport-banner />
-        <div class="section-resources">
+        <div id="tools" class="section-resources">
           <div class="section-title tm-rf2 tm-bold tm-lh-title">
             Docs &amp; Tools
           </div>

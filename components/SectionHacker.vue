@@ -8,40 +8,41 @@
       <div class="tm-section-container section-container">
         <div class="container">
           <nav class="nav-primary">
-            <ul>
-              <li>
+            <div class="nav-box">
+              <div>
                 <logo-wordmark class="logo" /><span class="sr-only"
                   >Cosmos</span
                 >
-              </li>
-              <li>
-                <nuxt-link to="/">
-                  <logo-hackatom-brandmark-color class="brandmark" />
-                </nuxt-link>
-              </li>
-              <li>
+              </div>
+              <div>
+                <logo-hackatom-brandmark-alt-v-color class="brandmark" />
+              </div>
+              <div class="row">
+                <span class="tm-rf0 tm-lh-solid tm-medium"
+                  ><nuxt-link to="/">Home</nuxt-link></span
+                >
                 <tm-button
-                  v-if="moment.tz('2020-10-16 19:00', 'UTC') > moment()"
                   to-link="external"
                   href="https://hackatomv.devpost.com"
-                  size="m"
+                  size="s"
                   color="var(--near-black)"
-                  background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
+                  background-color="var(--primary-600)"
                   glow
                   class="hero-btn"
                   >Register<span class="icon__right" aria-hidden="true"
                     >--></span
                   ></tm-button
                 >
-              </li>
-            </ul>
+              </div>
+            </div>
             <div class="headings">
               <span class="sr-only">HackAtom V</span>
-              <div class="title tm-rf4 tm-bold tm-lh-title">
+              <div class="title tm-rf5 tm-bold tm-lh-title">
                 Hacker Resources
               </div>
             </div>
           </nav>
+          <section-nav />
         </div>
       </div>
     </div>
@@ -65,10 +66,13 @@ export default {
 .sr-only
   clip()
 
+.hero-btn
+  margin-left var(--spacing-7)
+
 .brandmark
   $w = (200 / (54 * 16)) * 100% // intrinsic / (max-width * 1rem) * 100%
   position absolute
-  top -5%
+  top -15%
   width $w
   left ((100% - $w)/2)
   svg
@@ -85,11 +89,8 @@ export default {
     center()
 
 .section-hero
-  height 70vh
+  height 60vh
   overflow hidden
-  // min-height 50rem
-  // max-height 54rem
-  margin-bottom var(--spacing-10)
   display flex
   justify-content stretch
   align-items stretch
@@ -126,35 +127,31 @@ export default {
     flex-direction column
     align-items normal
     justify-content space-between
-    .nav-primary
-      margin-bottom 5%
+    // .nav-primary
+    //   margin-bottom 5%
     .headings
       position relative
       max-width 54rem
       margin calc(1.5rem + 14vh) auto 0
 
 .nav-primary
-  ul
+  .nav-box
     display flex
     justify-content space-between
-    align-items flex-start
+    align-items center
     padding 0
-  li
-    list-style-type none
-    &:first-child
-      text-align left
   .logo
     display block
     margin 0 auto
 
 @media $breakpoint-xsmall-only
-  .brandmark
+  .brandmark, .hero-btn
     display none
 
   .section-hero
-    // min-height 32rem
-    // max-height 38rem
-    height 30vh
+    min-height 20rem
+    max-height 38rem
+    height 42vh
     .section-container
       background-image linear-gradient(to bottom, rgba(28, 7, 1, 0.90) 0%, rgba(80, 25, 13, 0) 30%)
       padding-top var(--spacing-4)
@@ -166,4 +163,7 @@ export default {
         align-items center
       .headings
         margin-top calc(3rem + 4vh)
+
+  .nav
+    margin-top var(--spacing-6)
 </style>

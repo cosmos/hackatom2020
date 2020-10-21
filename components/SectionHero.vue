@@ -38,14 +38,14 @@
               Strap on your spacepants and get ready to hack, Cosmonaut.
             </div>
             <tm-button
-              to-link="external"
-              href="https://hackatomv.devpost.com/"
+              to-link="internal"
+              to="/resources"
               size="l"
               color="var(--near-black)"
               background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
               glow
               class="hero-btn"
-              >Register<span class="icon__right" aria-hidden="true"
+              >Start hacking<span class="icon__right" aria-hidden="true"
                 >--></span
               ></tm-button
             >

@@ -27,10 +27,6 @@
 <script>
 export default {
   props: {
-    content: {
-      type: Array,
-      required: true,
-    },
     requestURL: {
       type: String,
       default: 'https://faucet.cosmwasm.hub.hackatom.dev',

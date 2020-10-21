@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.section
+  div.section#workshops
     .tm-section-container
       .section-title.tm-rf2.tm-bold.tm-lh-title Previous Online Workshops
       .stack
