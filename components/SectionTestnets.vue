@@ -407,7 +407,7 @@ span.copy-item
       margin-top 0
 
     .first
-      grid-column 1/span 2
+      grid-column 1/span 3
 
     .second
       grid-column 5/span 12
