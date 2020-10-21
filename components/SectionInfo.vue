@@ -42,10 +42,10 @@
 <script>
 import moment from 'moment-timezone'
 import { orderBy } from 'lodash'
-// import axios from 'axios'
+import axios from 'axios'
 // import TmCountdown from './TmCountdown'
 
-// const apiKey = process.env.VUE_APP_AIRTABLE_API_KEY
+const apiKey = process.env.VUE_APP_AIRTABLE_API_KEY
 
 export default {
   components: {
@@ -80,25 +80,25 @@ export default {
     },
   },
   mounted() {
-    // this.getData()
+    this.getData()
 
     window.setInterval(() => {
       this.countdown.now = Math.trunc(new Date().getTime() / 1000)
     }, 1000)
   },
   methods: {
-    // getData() {
-    //   axios({
-    //     url: 'https://api.airtable.com/v0/appyPXo0kRzyqRPJk/workshops',
-    //     headers: {
-    //       Authorization: `Bearer ${apiKey}`,
-    //     },
-    //   }).then((res) => {
-    //     res.data.records.forEach((rec) => {
-    //       this.records.push(rec.fields)
-    //     })
-    //   })
-    // },
+    getData() {
+      axios({
+        url: 'https://api.airtable.com/v0/appyPXo0kRzyqRPJk/workshops',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+        },
+      }).then((res) => {
+        res.data.records.forEach((rec) => {
+          this.records.push(rec.fields)
+        })
+      })
+    },
     countdownTimer(date, time) {
       return moment.tz(`${date} ${time}`, 'UTC').format()
     },
