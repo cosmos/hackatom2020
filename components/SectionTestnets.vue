@@ -282,8 +282,7 @@ export default {
     border-radius 0.75rem
     padding var(--spacing-7)
     height -webkit-fill-available
-    // min-height 245px
-    // height fit-content
+    height fit-content // fix for safari
 
 .nodes-item
   background var(--dark-gray)
