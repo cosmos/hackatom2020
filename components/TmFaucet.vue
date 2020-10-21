@@ -12,7 +12,7 @@
         .success__reset.tm-rf0.tm-lh-title(@click="reset") Send to another address
       div(v-else key="default")
         .cards__item
-          .cards__item__title.tm-rf0.tm-medium.tm-lh-title.tm-overline {{ itemTitle }} faucet <code v-if="itemTag">({{ itemTag }})</code>
+          .cards__item__title.tm-rf0.tm-medium.tm-lh-title.tm-overline {{ itemTitle }} faucet <span v-if="itemTag">({{ itemTag }})</span>
           .cards__item__subtitle.tm-rf-1.tm-lh-title Address <code>({{ itemDenom }})</code>
           form(:action="requestURL" method="POST" target="_blank" rel="noreferrer noopener" @submit.prevent="submit")
             .form

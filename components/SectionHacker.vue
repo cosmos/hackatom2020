@@ -149,9 +149,7 @@ export default {
     display none
 
   .section-hero
-    min-height 20rem
-    max-height 38rem
-    height 42vh
+    height 45vh
     .section-container
       background-image linear-gradient(to bottom, rgba(28, 7, 1, 0.90) 0%, rgba(80, 25, 13, 0) 30%)
       padding-top var(--spacing-4)
@@ -166,4 +164,16 @@ export default {
 
   .nav
     margin-top var(--spacing-6)
+
+@media screen and (max-width: 414px)
+  .section-hero
+    height 55vh
+
+@media screen and (max-width: 375px)
+  .section-hero
+    height 45vh
+
+@media screen and (max-width: 320px)
+  .section-hero
+    height 65vh
 </style>
