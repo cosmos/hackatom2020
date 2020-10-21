@@ -11,18 +11,30 @@
       <div class="tm-section-container section-container">
         <div class="container">
           <nav class="nav-primary">
-            <ul>
-              <li>
+            <div class="nav-box">
+              <div>
                 <logo-wordmark class="logo" /><span class="sr-only"
                   >Cosmos</span
                 >
-              </li>
-              <li>
+              </div>
+              <div>
                 <span class="tm-rf0 tm-lh-solid tm-medium"
                   ><nuxt-link to="/resources">Resources</nuxt-link></span
                 >
-              </li>
-            </ul>
+                <tm-button
+                  to-link="external"
+                  href="https://hackatomv.devpost.com"
+                  size="s"
+                  color="var(--near-black)"
+                  background-color="var(--primary-600)"
+                  glow
+                  class="nav-btn"
+                  >Register<span class="icon__right" aria-hidden="true"
+                    >--></span
+                  ></tm-button
+                >
+              </div>
+            </div>
             <div class="headings">
               <kinesis-element :strength="35">
                 <wordmark-hackatom class="wordmark" />
@@ -64,6 +76,9 @@ export default {}
 // Accessible/SEO friendly CSS hiding
 .sr-only
   clip()
+
+.nav-btn
+  margin-left var(--spacing-7)
 
 .section-container
   position relative
@@ -147,15 +162,11 @@ export default {}
         max-height 7.1875rem
 
 .nav-primary
-  ul
+  .nav-box
     display flex
     justify-content space-between
     align-items center
     padding 0
-  li
-    list-style-type none
-    &:first-child
-      text-align left
   .logo
     display block
     margin 0 auto
@@ -169,6 +180,9 @@ export default {}
     text-shadow $text-shadow
 
 @media $breakpoint-xsmall-only
+  .nav-btn
+    display none
+
   .section-hero
     min-height 32rem
     max-height 38rem
