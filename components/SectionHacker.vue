@@ -23,13 +23,13 @@
                 >
                 <tm-button
                   to-link="external"
-                  href="https://hackatomv.devpost.com"
+                  href="http://devpost.com/submit-to/10447-cosmos-hackatom-v/start/submissions/new"
                   size="s"
                   color="var(--near-black)"
                   background-color="var(--primary-600)"
                   glow
                   class="hero-btn"
-                  >Register<span class="icon__right" aria-hidden="true"
+                  >Submit<span class="icon__right" aria-hidden="true"
                     >--></span
                   ></tm-button
                 >

@@ -1,8 +1,8 @@
 <template lang="pug">
   div(v-if='countingDown')
-    code {{ hours }}h:{{ minutes }}m:{{ seconds }}s
-  div(v-else)
-    code Hack on!
+    code {{ days}}:{{ hours }}:{{ minutes }}:{{ seconds }}
+  //- div(v-else)
+  //-   code Hack on!
 </template>
 
 <script>

@@ -22,7 +22,7 @@ export default {
       show: null,
       url: 'https://stargate.cosmos.network/?utm_source=hackatom',
       content:
-        'Brush up your skills with <strong>Stargate testnet &#8594;</strong>',
+        'Enjoyed HackAtom V? Deploy your project on a <strong>Stargate testnet &#8594;</strong>',
     }
   },
   mounted() {

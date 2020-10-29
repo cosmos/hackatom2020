@@ -21,18 +21,6 @@
                 <span class="tm-rf0 tm-lh-solid tm-medium"
                   ><nuxt-link to="/resources">Resources</nuxt-link></span
                 >
-                <tm-button
-                  to-link="external"
-                  href="https://hackatomv.devpost.com"
-                  size="s"
-                  color="var(--near-black)"
-                  background-color="var(--primary-600)"
-                  glow
-                  class="nav-btn"
-                  >Register<span class="icon__right" aria-hidden="true"
-                    >--></span
-                  ></tm-button
-                >
               </div>
             </div>
             <div class="headings">
@@ -45,19 +33,37 @@
               </kinesis-element>
             </div>
           </nav>
-          <div class="hero-bottom">
-            <div class="hero-bottom__subtitle tm-rf2 tm-lh-title">
-              Strap on your spacepants and get ready to hack, Cosmonaut.
+          <div v-for="i in nextAgenda" :key="i.id" class="hero-bottom">
+            <div
+              class="hero-bottom__title tm-rf0 tm-medium tm-lh-title tm-overline"
+            >
+              {{ i.title }}
+            </div>
+            <div
+              v-if="i.subtitle"
+              class="hero-bottom__subtitle tm-rf1 tm-lh-copy"
+            >
+              {{ i.subtitle }}
+            </div>
+            <div class="hero-bottom__countdown tm-rf2 tm-lh-copy">
+              <tm-countdown
+                :now="countdown.now"
+                :end="countdownTimer(i.date, i.time)"
+              />
+            </div>
+            <div class="hero-bottom__date tm-rf0 tm-lh-copy tm-code">
+              {{ toTimezone(i.date, i.time).format('HH:mm, ddd, MMM D') }}
             </div>
             <tm-button
-              to-link="internal"
-              to="/resources"
+              to-link="external"
+              :href="i.url"
               size="l"
               color="var(--near-black)"
               background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
               glow
               class="hero-btn"
-              >Start hacking<span class="icon__right" aria-hidden="true"
+              >{{ i.btn_text
+              }}<span class="icon__right" aria-hidden="true"
                 >--></span
               ></tm-button
             >
@@ -69,7 +75,98 @@
 </template>
 
 <script>
-export default {}
+import moment from 'moment-timezone'
+import { orderBy } from 'lodash'
+
+export default {
+  data() {
+    return {
+      moment,
+      countdown: {
+        now: Math.trunc(new Date(new Date().toUTCString()).getTime() / 1000),
+        // end date: 2020-10-16
+        // end time: 19:00
+        // usage: moment.tz("2020-10-16 19:00", "UTC").format()
+        // end: '2020-10-16T19:00:00Z',
+      },
+      agendas: [
+        {
+          id: 101,
+          date: '2020-10-30',
+          time: '19:00',
+          title: 'Project submission deadline',
+          subtitle: '',
+          btn_text: 'Submit your project',
+          url:
+            'http://devpost.com/submit-to/10447-cosmos-hackatom-v/start/submissions/new',
+        },
+        {
+          id: 102,
+          date: '2020-11-02',
+          time: '20:00',
+          title: 'Community Choice Award',
+          subtitle: 'Voting begins',
+          btn_text: 'View projects',
+          url: 'https://hackatomv.devpost.com/project-gallery',
+        },
+        {
+          id: 104,
+          date: '2020-11-06',
+          time: '20:00',
+          title: 'Community Choice Award',
+          subtitle: 'Voting ends',
+          btn_text: 'Cast your vote',
+          url: 'https://hackatomv.devpost.com/project-gallery',
+        },
+        {
+          id: 105,
+          date: '2020-11-09',
+          time: '20:00',
+          title: 'Judging in progress',
+          subtitle: 'Winners announced',
+          btn_text: 'View projects',
+          url: 'https://hackatomv.devpost.com/project-gallery',
+        },
+      ],
+    }
+  },
+  computed: {
+    sortedAgenda() {
+      return orderBy(
+        [...this.agendas],
+        [(i) => new Date(`${i.date} ${i.time}`)],
+        ['asc']
+      )
+    },
+    nextAgenda() {
+      const workshop = this.sortedAgenda
+        .filter((e) => moment.tz(`${e.date} ${e.time}`, 'UTC') >= moment())
+        .slice(0, 1)
+      return workshop
+    },
+  },
+  mounted() {
+    window.setInterval(() => {
+      this.countdown.now = Math.trunc(new Date().getTime() / 1000)
+    }, 1000)
+  },
+  methods: {
+    countdownTimer(date, time) {
+      return moment.tz(`${date} ${time}`, 'UTC').format()
+    },
+    toTimezone(date, time) {
+      return (
+        moment
+          // set base time with UTC
+          // get timezone with i18n API - Intl.DateTimeFormat().resolvedOptions().timeZone
+          // usage: 2020-08-04 08:00
+          .tz(`${date} ${time}`, 'UTC')
+          // use client's locale time zone
+          .tz(moment.tz.guess())
+      )
+    },
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -169,15 +266,24 @@ export default {}
     padding 0
   .logo
     display block
-    margin 0 auto
+    center()
 
 .hero-bottom
   max-width $max-width-7
-  margin 0 auto
-  &__subtitle
-    margin-bottom var(--spacing-8)
+  center()
+  &__title
     color var(--white)
     text-shadow $text-shadow
+    margin-top var(--spacing-4)
+  &__subtitle
+    color var(--white)
+    margin-top var(--spacing-4)
+  &__countdown
+    color var(--white)
+    margin-top var(--spacing-4)
+  &__date
+    color var(--white-700)
+    margin-bottom var(--spacing-8)
 
 @media $breakpoint-xsmall-only
   .nav-btn

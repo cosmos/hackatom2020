@@ -1,38 +1,61 @@
 <template>
-  <div v-if="nextWorkshop">
+  <div v-if="demo">
     <div class="tm-section-container">
-      <div v-for="i in nextWorkshop" :key="i.id" class="grid-container">
+      <div v-for="i in demo" :key="i.id" class="grid-container">
         <div class="time">
-          <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
-            Next Workshop
+          <div
+            v-if="toTimezone(i.date, i.time) >= moment()"
+            class="overline tm-rf0 tm-medium tm-lh-title tm-overline"
+          >
+            Upcoming
           </div>
-          <a :href="i.livestream" target="_blank" rel="noreferrer noopener">
-            <div class="content tm-rf0 tm-rf0-l-up tm-bold tm-lh-copy tm-code">
-              {{ i.title }}
-            </div>
-          </a>
+          <div v-else class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
+            Replay
+          </div>
+          <div class="content tm-rf0 tm-rf0-l-up tm-bold tm-lh-copy tm-code">
+            {{ i.title }}
+          </div>
         </div>
-        <div class="countdown">
+        <div v-if="toTimezone(i.date, i.time) >= moment()" class="countdown">
           <div class="overline tm-rf0 tm-medium tm-lh-title tm-overline">
             <tm-countdown
               :now="countdown.now"
-              :end="countdownTimer(i.date, i.startTime)"
+              :end="countdownTimer(i.date, i.time)"
             />
           </div>
           <div class="content tm-rf0 tm-rf0-l-up tm-bold tm-lh-copy tm-code">
-            {{ toTimezone(i.date, i.startTime).format('ddd, MMM D') }} ·
-            {{ toTimezone(i.date, i.startTime).format('HH:mm') }}
+            {{ toTimezone(i.date, i.time).format('ddd, MMM D') }} ·
+            {{ toTimezone(i.date, i.time).format('HH:mm') }}
           </div>
         </div>
+        <div v-else class="countdown" />
         <div class="site">
           <tm-button
-            v-scroll-to="'#schedules'"
+            v-if="toTimezone(i.date, i.time) >= moment()"
+            to-link="external"
+            href="https://www.youtube.com/watch?v=ClCVyOvnO7s"
             size="m"
             color="var(--near-black)"
             background-color="rgba(255, 255, 255, 0.5)"
             class="hero-btn"
-            >View schedule</tm-button
           >
+            Join livestream<span class="icon__right" aria-hidden="true"
+              >--></span
+            >
+          </tm-button>
+          <tm-button
+            v-else
+            to-link="external"
+            href="https://www.youtube.com/watch?v=ClCVyOvnO7s"
+            size="m"
+            color="var(--near-black)"
+            background-color="rgba(255, 255, 255, 0.5)"
+            class="hero-btn"
+          >
+            Watch livestream<span class="icon__right" aria-hidden="true"
+              >--></span
+            >
+          </tm-button>
         </div>
       </div>
     </div>
@@ -42,15 +65,8 @@
 <script>
 import moment from 'moment-timezone'
 import { orderBy } from 'lodash'
-import axios from 'axios'
-// import TmCountdown from './TmCountdown'
-
-const apiKey = process.env.VUE_APP_AIRTABLE_API_KEY
 
 export default {
-  components: {
-    // TmCountdown,
-  },
   data() {
     return {
       moment,
@@ -62,43 +78,38 @@ export default {
         // usage: moment.tz("2020-10-16 19:00", "UTC").format()
         // end: '2020-10-16T19:00:00Z',
       },
+      demo: [
+        {
+          id: 103,
+          date: '2020-11-04',
+          time: '16:00',
+          title: 'Demo day for the finalists',
+          active: false,
+        },
+      ],
     }
   },
   computed: {
-    sortedRecords() {
+    sortedAgenda() {
       return orderBy(
-        [...this.records],
-        [(i) => new Date(`${i.date} ${i.startTime}`)],
+        [...this.demo],
+        [(i) => new Date(`${i.date} ${i.time}`)],
         ['asc']
       )
     },
-    nextWorkshop() {
-      const workshop = this.sortedRecords
-        .filter((e) => moment.tz(`${e.date} ${e.startTime}`, 'UTC') >= moment())
+    nextAgenda() {
+      const workshop = this.sortedAgenda
+        .filter((e) => moment.tz(`${e.date} ${e.time}`, 'UTC') >= moment())
         .slice(0, 1)
       return workshop
     },
   },
   mounted() {
-    this.getData()
-
     window.setInterval(() => {
       this.countdown.now = Math.trunc(new Date().getTime() / 1000)
     }, 1000)
   },
   methods: {
-    getData() {
-      axios({
-        url: 'https://api.airtable.com/v0/appyPXo0kRzyqRPJk/workshops',
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-        },
-      }).then((res) => {
-        res.data.records.forEach((rec) => {
-          this.records.push(rec.fields)
-        })
-      })
-    },
     countdownTimer(date, time) {
       return moment.tz(`${date} ${time}`, 'UTC').format()
     },

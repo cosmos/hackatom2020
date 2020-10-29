@@ -45,7 +45,7 @@ export default {
           id: 101,
           date: '2020-10-30',
           time: '19:00',
-          title: 'Deadline for submission',
+          title: 'Project submission deadline',
           active: false,
         },
         {
@@ -105,11 +105,7 @@ export default {
     this.getData()
 
     // eslint-disable-next-line no-console
-    console.info(
-      `⏱ current UTC time: ${new Date().toUTCString()} or ${Math.trunc(
-        new Date(new Date().toUTCString()).getTime() / 1000
-      )}`
-    )
+    console.info(`⏱ current UTC time: ${new Date().toUTCString()}`)
   },
   methods: {
     getData() {
