@@ -59,7 +59,7 @@ export default {
         {
           id: 103,
           date: '2020-11-04',
-          time: '16:00',
+          time: '18:00',
           title: 'Demo day for the finalists',
           active: false,
         },
