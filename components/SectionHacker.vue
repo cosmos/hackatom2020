@@ -21,18 +21,6 @@
                 <span class="tm-rf0 tm-lh-solid tm-medium"
                   ><nuxt-link to="/">Home</nuxt-link></span
                 >
-                <tm-button
-                  to-link="external"
-                  href="http://devpost.com/submit-to/10447-cosmos-hackatom-v/start/submissions/new"
-                  size="s"
-                  color="var(--near-black)"
-                  background-color="var(--primary-600)"
-                  glow
-                  class="hero-btn"
-                  >Submit<span class="icon__right" aria-hidden="true"
-                    >--></span
-                  ></tm-button
-                >
               </div>
             </div>
             <div class="headings">
