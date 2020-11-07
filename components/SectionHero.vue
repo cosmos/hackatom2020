@@ -33,39 +33,36 @@
               </kinesis-element>
             </div>
           </nav>
-          <div v-for="i in nextAgenda" :key="i.id" class="hero-bottom">
+          <div v-for="i in sortedAgenda" :key="i.id" class="hero-bottom">
             <div
               class="hero-bottom__title tm-rf0 tm-medium tm-lh-title tm-overline"
             >
               {{ i.title }}
             </div>
-            <div
+            <!-- <div
               v-if="i.subtitle"
               class="hero-bottom__subtitle tm-rf1 tm-lh-copy"
             >
               {{ i.subtitle }}
-            </div>
-            <div class="hero-bottom__countdown tm-rf2 tm-lh-copy">
+            </div> -->
+            <!-- <div class="hero-bottom__countdown tm-rf2 tm-lh-copy">
               <tm-countdown
                 :now="countdown.now"
                 :end="countdownTimer(i.date, i.time)"
               />
-            </div>
+            </div> -->
             <div class="hero-bottom__date tm-rf0 tm-lh-copy tm-code">
-              {{ toTimezone(i.date, i.time).format('HH:mm, ddd, MMM D') }}
+              <!-- {{ toTimezone(i.date, i.time).format('HH:mm UTC · MMM D, YYYY') }} -->
+              {{ i.time }} UTC · {{ moment(i.date).format('MMM D, YYYY') }}
             </div>
             <tm-button
-              to-link="external"
-              :href="i.url"
+              v-scroll-to="i.url"
               size="l"
               color="var(--near-black)"
               background-color="linear-gradient(89.4deg, #E96C58 0%, #B7DBF9 98.96%)"
               glow
               class="hero-btn"
-              >{{ i.btn_text
-              }}<span class="icon__right" aria-hidden="true"
-                >--></span
-              ></tm-button
+              >{{ i.btn_text }}</tm-button
             >
           </div>
         </div>
@@ -90,42 +87,51 @@ export default {
         // end: '2020-10-16T19:00:00Z',
       },
       agendas: [
+        // {
+        //   id: 101,
+        //   date: '2020-10-30',
+        //   time: '19:00',
+        //   title: 'Project submission deadline',
+        //   subtitle: '',
+        //   btn_text: 'Submit your project',
+        //   url:
+        //     'http://devpost.com/submit-to/10447-cosmos-hackatom-v/start/submissions/new',
+        // },
+        // {
+        //   id: 102,
+        //   date: '2020-11-02',
+        //   time: '20:00',
+        //   title: 'Community Choice Award',
+        //   subtitle: 'Voting begins',
+        //   btn_text: 'View projects',
+        //   url: 'https://hackatomv.devpost.com/project-gallery',
+        // },
+        // {
+        //   id: 104,
+        //   date: '2020-11-06',
+        //   time: '20:00',
+        //   title: 'Community Choice Award',
+        //   subtitle: 'Voting ends',
+        //   btn_text: 'Cast your vote',
+        //   url: 'https://hackatomv.devpost.com/project-gallery',
+        // },
+        // {
+        //   id: 105,
+        //   date: '2020-11-09',
+        //   time: '20:00',
+        //   title: 'Judging in progress',
+        //   subtitle: 'Winners announced',
+        //   btn_text: 'View projects',
+        //   url: 'https://hackatomv.devpost.com/project-gallery',
+        // },
         {
-          id: 101,
+          id: 106,
           date: '2020-10-30',
-          time: '19:00',
-          title: 'Project submission deadline',
+          time: '20:00',
+          title: 'Mission complete',
           subtitle: '',
-          btn_text: 'Submit your project',
-          url:
-            'http://devpost.com/submit-to/10447-cosmos-hackatom-v/start/submissions/new',
-        },
-        {
-          id: 102,
-          date: '2020-11-02',
-          time: '20:00',
-          title: 'Community Choice Award',
-          subtitle: 'Voting begins',
-          btn_text: 'View projects',
-          url: 'https://hackatomv.devpost.com/project-gallery',
-        },
-        {
-          id: 104,
-          date: '2020-11-06',
-          time: '20:00',
-          title: 'Community Choice Award',
-          subtitle: 'Voting ends',
-          btn_text: 'Cast your vote',
-          url: 'https://hackatomv.devpost.com/project-gallery',
-        },
-        {
-          id: 105,
-          date: '2020-11-09',
-          time: '20:00',
-          title: 'Judging in progress',
-          subtitle: 'Winners announced',
-          btn_text: 'View projects',
-          url: 'https://hackatomv.devpost.com/project-gallery',
+          btn_text: 'View winners',
+          url: '#winners',
         },
       ],
     }
@@ -138,12 +144,12 @@ export default {
         ['asc']
       )
     },
-    nextAgenda() {
-      const workshop = this.sortedAgenda
-        .filter((e) => moment.tz(`${e.date} ${e.time}`, 'UTC') >= moment())
-        .slice(0, 1)
-      return workshop
-    },
+    // nextAgenda() {
+    //   const workshop = this.sortedAgenda
+    //     .filter((e) => moment.tz(`${e.date} ${e.time}`, 'UTC') >= moment())
+    //     .slice(0, 1)
+    //   return workshop
+    // },
   },
   mounted() {
     window.setInterval(() => {
@@ -283,6 +289,7 @@ export default {
     margin-top var(--spacing-4)
   &__date
     color var(--white-700)
+    margin-top var(--spacing-4)
     margin-bottom var(--spacing-8)
 
 @media $breakpoint-xsmall-only
