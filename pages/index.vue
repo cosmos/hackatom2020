@@ -2,15 +2,15 @@
   <main class="page-container">
     <section-hero />
     <kinesis-container class="mw11" :perspective="0">
-      <section-info />
-      <section-intro />
+      <!-- <section-info /> -->
 
       <kinesis-element :strength="20" :min-y="0" :max-y="0">
         <div class="intro-bg bg" />
       </kinesis-element>
 
-      <section-challenges />
+      <section-winners />
       <section-criteria />
+      <section-intro />
 
       <kinesis-element :strength="20" :min-y="0" :max-y="0">
         <div class="judges-bg bg" />
