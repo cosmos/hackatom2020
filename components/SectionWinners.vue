@@ -99,7 +99,7 @@ export default {
             },
             {
               order: '3rd',
-              value: '1000',
+              value: '1500',
               title: 'Sophon',
               url: 'https://devpost.com/software/sophon',
             },
@@ -112,13 +112,13 @@ export default {
           prizes: [
             {
               order: '1st',
-              value: '4000',
+              value: '5000',
               title: 'NFT Marketplace',
               url: 'https://devpost.com/software/nft-marketplace',
             },
             {
               order: '2nd',
-              value: '2500',
+              value: '3000',
               title: 'Flares',
               url: 'https://devpost.com/software/flares',
             },
