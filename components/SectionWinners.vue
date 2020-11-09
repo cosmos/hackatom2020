@@ -6,7 +6,7 @@
           span.section-heading__title.tm-rf1.tm-medium.tm-lh-title.tm-overline Winners
         .intro-grid
           .intro-text
-            .intro-text__text.tm-rf1.tm-lh-copy.tm-measure-wide #[strong Congratulations, hackers!] HackAtom <span class="V">V</span> has come to an end with an impressive array of projects submitted. Well done to everyone who participated and especially to those who won awards. Check out the winning projects ↓
+            .intro-text__text.tm-rf1.tm-lh-copy.tm-measure-wide #[strong Congratulations, hackers!] HackAtom <span class="V">V</span> has come to an end with an impressive array of projects submitted. Well done to everyone who participated and especially to those who won awards. <br /> Check out the winning projects ↓
           .prize-pool
             .prize-pool__item
               .top
@@ -23,7 +23,7 @@
               img(:src="`/logos/trophy.svg`" alt="Trophy").prizes-grid__item__image
               .prizes-grid__item__heading.tm-rf0.tm-medium.tm-lh-title.tm-overline {{ item.order }}
               .prizes-grid__item__value.tm-rf0.tm-lh-title ${{ numWithCommas(item.value) }}
-              .prizes-grid__item__title.tm-rf1.tm-lh-copy {{ item.title }} -->
+              .prizes-grid__item__title.tm-rf1.tm-medium {{ item.title }} -->
 
         .submission-container
           .submission-container__grid
@@ -45,20 +45,20 @@ export default {
             {
               order: '1st',
               value: '10000',
-              title: 'Project/team name 1',
-              url: 'https://hackatomv.devpost.com/',
+              title: 'Osmosis',
+              url: 'https://devpost.com/software/osmosis-itn5vr',
             },
             {
               order: '2nd',
               value: '6000',
-              title: 'Project/team name 2',
-              url: 'https://hackatomv.devpost.com/',
+              title: 'Quasar',
+              url: 'https://devpost.com/software/quasar-q2wj7c',
             },
             {
               order: '3rd',
               value: '4000',
-              title: 'Project/team name 3',
-              url: 'https://hackatomv.devpost.com/',
+              title: 'NFT Marketplace',
+              url: 'https://devpost.com/software/nft-marketplace',
             },
           ],
         },
@@ -69,21 +69,76 @@ export default {
           prizes: [
             {
               order: '1st',
-              value: '10000',
-              title: 'Project/team name 1',
-              url: 'https://hackatomv.devpost.com/',
+              value: '5000',
+              title: 'Sampark',
+              url: 'https://devpost.com/software/sampark-32za4h',
             },
             {
               order: '2nd',
-              value: '6000',
-              title: 'Project/team name 2',
-              url: 'https://hackatomv.devpost.com/',
+              value: '3000',
+              title: 'Affondra',
+              url: 'https://devpost.com/software/affondra',
+            },
+          ],
+        },
+        {
+          name: 'Gaia Award',
+          desc: 'Best go-to-market project for Cosmos Hub',
+          prizes: [
+            {
+              order: '1st',
+              value: '5000',
+              title: 'Clawback Account',
+              url: 'https://devpost.com/software/clawback-account-in-cosmwasm',
+            },
+            {
+              order: '2nd',
+              value: '3000',
+              title: 'Cosmos-DID',
+              url: 'https://devpost.com/software/cosmos-did',
             },
             {
               order: '3rd',
+              value: '1000',
+              title: 'Sophon',
+              url: 'https://devpost.com/software/sophon',
+            },
+          ],
+        },
+        {
+          name: 'Galileo Award',
+          desc:
+            'Most creative dAppchain using Cosmos SDK & Tendermint (judging requirement), with option to use IBC (optional)',
+          prizes: [
+            {
+              order: '1st',
               value: '4000',
-              title: 'Project/team name 3',
-              url: 'https://hackatomv.devpost.com/',
+              title: 'NFT Marketplace',
+              url: 'https://devpost.com/software/nft-marketplace',
+            },
+            {
+              order: '2nd',
+              value: '2500',
+              title: 'Flares',
+              url: 'https://devpost.com/software/flares',
+            },
+            {
+              order: '3rd',
+              value: '1500',
+              title: 'API Kit',
+              url: 'https://devpost.com/software/cosmos20',
+            },
+          ],
+        },
+        {
+          name: 'Community Choice Award',
+          desc: 'Most likes on Devpost submission.',
+          prizes: [
+            {
+              order: 'winner',
+              value: '3000',
+              title: 'King of Cards',
+              url: 'https://devpost.com/software/king-of-cards',
             },
           ],
         },
@@ -130,9 +185,14 @@ export default {
     border-radius var(--spacing-4)
     padding var(--spacing-7)
     position relative
+    hover-raise -1px
+    hover-elevation(16, $active-opacity:0.4)
 
     &:first-child
       background linear-gradient(316.23deg, #38769B 0%, #A43E28 100%)
+
+    &:first-child .prizes-grid__item__value
+      color var(--white-700)
 
     &__image
       position absolute
@@ -140,11 +200,9 @@ export default {
       right 1.5rem
 
     &__value
-      // color var(--primary-600)
+      color var(--primary-600)
+      text-shadow 0px 3px 10px rgba(166, 36, 15, 0.73)
       margin-top 0.25rem
-
-      &:first-child
-        color var(--primary-600)
 
     &__title
       margin-top var(--spacing-7)
