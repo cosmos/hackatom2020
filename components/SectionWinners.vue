@@ -137,8 +137,8 @@ export default {
             {
               order: 'winner',
               value: '3000',
-              title: 'King of Cards',
-              url: 'https://devpost.com/software/king-of-cards',
+              title: 'Sampark',
+              url: 'https://devpost.com/software/sampark-32za4h',
             },
           ],
         },
